@@ -1,0 +1,60 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map(page => ({
+    params: { slug: page.id },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+
+// Category label mapping
+const categoryLabels: Record<string, string> = {
+  'budget': 'Budget',
+  'house-plans': 'House Plans',
+  'choosing-a-builder': 'Choosing a Builder',
+  'building-materials': 'Building Materials',
+  'inclusions-and-options': 'Inclusions & Options',
+  'pre-construction': 'Pre-Construction',
+  'construction': 'Construction',
+  'other': 'Other',
+};
+
+const categoryLabel = page.data.category ? categoryLabels[page.data.category] : null;
+---
+
+<Layout title={page.data.title} description={page.data.description}>
+  <div class="breadcrumb">
+    <a href="/">Home</a>
+    {categoryLabel && (
+      <> &rsaquo; <span>{categoryLabel}</span></>
+    )}
+    <> &rsaquo; <span>{page.data.title}</span></>
+  </div>
+
+  {page.data.draft && (
+    <div class="draft-notice">
+      ⚠️ This page is a draft and may be incomplete.
+    </div>
+  )}
+
+  <Content />
+</Layout>
+
+<style>
+  .draft-notice {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    border-radius: 3px;
+  }
+</style>

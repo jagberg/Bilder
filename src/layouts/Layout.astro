@@ -1,0 +1,350 @@
+---
+import Nav from '../components/Nav.astro';
+import Search from '../components/Search.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Your guide to building a new home in Australia.' } = Astro.props;
+
+// Build recent pages list for sidebar - we'll make this static for now
+const recentPages = [
+  { title: 'Brick, Cladding, Hebel or Otherwise', slug: 'brick-cladding-hebel-or-otherwise' },
+  { title: 'Checking Your House Plans', slug: 'checking-your-plans' },
+  { title: 'Soundproofing', slug: 'soundproofing' },
+  { title: 'Thermal Insulation', slug: 'thermal-insulation' },
+  { title: 'Common Mistakes in a Build Journey', slug: 'common-mistakes' },
+];
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title} | New Build Journey</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Top bar -->
+    <div id="topbar">
+      <div class="container">
+        <div id="site-header">
+          <a href="/" id="site-logo">
+            <img src="/images/bilder-logo.png" alt="New Build Journey" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+            <span class="site-title-text">New Build Journey</span>
+          </a>
+          <p class="site-tagline">Your guide to building a new home</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <Nav />
+
+    <!-- Main content wrapper -->
+    <div id="wrapper" class="container">
+      <div id="content-area">
+        <main id="main-content">
+          <slot />
+        </main>
+
+        <!-- Sidebar -->
+        <aside id="sidebar">
+          <div class="widget widget-search">
+            <h3 class="widget-title">Search</h3>
+            <Search />
+          </div>
+
+          <div class="widget widget-recent-posts">
+            <h3 class="widget-title">Recent Posts</h3>
+            <ul>
+              {recentPages.map(page => (
+                <li><a href={`/${page.slug}/`}>{page.title}</a></li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="container">
+        <p>Copyright &copy; {new Date().getFullYear()} New Build Journey</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444;
+    background: #f5f5f5;
+  }
+
+  a {
+    color: #0073aa;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #005177;
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Top bar / header */
+  #topbar {
+    background: #222;
+    padding: 15px 0;
+    border-bottom: 3px solid #0073aa;
+  }
+
+  #site-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #site-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  #site-logo img {
+    height: 55px;
+    width: auto;
+  }
+
+  .site-title-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    display: none;
+  }
+
+  .site-tagline {
+    color: #ccc;
+    font-size: 0.85rem;
+    margin-left: auto;
+    font-style: italic;
+  }
+
+  /* Main layout */
+  #wrapper {
+    padding: 30px 20px;
+  }
+
+  #content-area {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 30px;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    #content-area {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Main content */
+  #main-content {
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+  }
+
+  #main-content h1 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #0073aa;
+  }
+
+  #main-content h2 {
+    font-size: 1.35rem;
+    color: #222;
+    margin: 25px 0 12px;
+  }
+
+  #main-content h3 {
+    font-size: 1.15rem;
+    color: #333;
+    margin: 20px 0 10px;
+  }
+
+  #main-content h4 {
+    font-size: 1rem;
+    color: #444;
+    margin: 16px 0 8px;
+    font-weight: 600;
+  }
+
+  #main-content p {
+    margin-bottom: 15px;
+  }
+
+  #main-content ul,
+  #main-content ol {
+    margin: 0 0 15px 24px;
+  }
+
+  #main-content li {
+    margin-bottom: 6px;
+  }
+
+  #main-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9rem;
+  }
+
+  #main-content th {
+    background: #222;
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  #main-content td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+  }
+
+  #main-content tr:nth-child(even) td {
+    background: #f9f9f9;
+  }
+
+  #main-content strong {
+    color: #222;
+  }
+
+  #main-content blockquote {
+    border-left: 4px solid #0073aa;
+    padding: 10px 20px;
+    margin: 20px 0;
+    background: #f0f7fb;
+    color: #555;
+  }
+
+  .post-meta {
+    color: #888;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+
+  /* Sidebar */
+  #sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .widget {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+  }
+
+  .widget-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #0073aa;
+  }
+
+  .widget-recent-posts ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .widget-recent-posts li {
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  .widget-recent-posts li:last-child {
+    border-bottom: none;
+  }
+
+  .widget-recent-posts a {
+    color: #0073aa;
+  }
+
+  /* Footer */
+  #footer {
+    background: #222;
+    color: #aaa;
+    padding: 20px 0;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 0;
+    border-top: 3px solid #0073aa;
+  }
+
+  #footer a {
+    color: #ccc;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    font-size: 0.82rem;
+    color: #888;
+    margin-bottom: 20px;
+  }
+
+  .breadcrumb a {
+    color: #888;
+  }
+
+  .breadcrumb a:hover {
+    color: #0073aa;
+  }
+
+  /* Category badge */
+  .category-badge {
+    display: inline-block;
+    background: #0073aa;
+    color: #fff;
+    padding: 2px 10px;
+    font-size: 0.75rem;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+</style>

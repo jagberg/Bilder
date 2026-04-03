@@ -1,0 +1,51 @@
+---
+export const prerender = true;
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="API Tool"
+  description="Interactive building cost estimation tool powered by the New Build Journey API — coming soon."
+>
+  <div class="breadcrumb">
+    <a href="/">Home</a> &rsaquo; <span>API Tool</span>
+  </div>
+
+  <h1>API Tool</h1>
+
+  <div class="coming-soon">
+    <div class="coming-soon-icon">🔧</div>
+    <h2>Coming Soon</h2>
+    <p>An interactive building cost estimation tool is in development. This tool will connect to the New Build Journey API to provide personalised cost estimates based on your location, block type, and build requirements.</p>
+    <p>Check back soon for updates.</p>
+  </div>
+</Layout>
+
+<style>
+  .coming-soon {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+    margin: 20px 0;
+  }
+
+  .coming-soon-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  .coming-soon h2 {
+    color: #555;
+    margin-bottom: 15px;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .coming-soon p {
+    color: #777;
+    max-width: 500px;
+    margin: 0 auto 15px;
+  }
+</style>

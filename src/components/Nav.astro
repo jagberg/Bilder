@@ -1,0 +1,271 @@
+---
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string) {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<nav id="main-nav">
+  <div class="container">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu">
+      <li class={isActive('/') ? 'active' : ''}>
+        <a href="/">Home</a>
+      </li>
+
+      <li class={`has-dropdown ${isActive('/budget') || isActive('/how-to-save') ? 'active' : ''}`}>
+        <a href="/budget/">Budget</a>
+        <ul class="dropdown">
+          <li><a href="/budget/">Budget Overview</a></li>
+          <li><a href="/how-to-save-on-costs/">How to Save on Costs</a></li>
+        </ul>
+      </li>
+
+      <li class={`has-dropdown ${isActive('/house-plans') || isActive('/knowing-what') || isActive('/builder-floorplan') || isActive('/architect-plans') || isActive('/tips-for-an-efficient') || isActive('/checking-your-plans') || isActive('/helpful-visualisation') ? 'active' : ''}`}>
+        <a href="/house-plans/">House Plans</a>
+        <ul class="dropdown">
+          <li><a href="/house-plans/">House Plans Overview</a></li>
+          <li><a href="/knowing-what-you-can-build/">Knowing What You Can Build</a></li>
+          <li><a href="/builder-floorplan/">Builder Floorplan</a></li>
+          <li><a href="/architect-plans/">Architect Plans</a></li>
+          <li><a href="/tips-for-an-efficient-build-design/">Tips for an Efficient Build Design</a></li>
+          <li><a href="/checking-your-plans/">Checking Your Plans</a></li>
+          <li><a href="/helpful-visualisation-apps/">Helpful Visualisation Apps</a></li>
+        </ul>
+      </li>
+
+      <li class={`has-dropdown ${isActive('/choosing-a-builder') || isActive('/custom-or-project') || isActive('/what-to-do-before') || isActive('/comparing-pricing') ? 'active' : ''}`}>
+        <a href="/choosing-a-builder/">Choosing a Builder</a>
+        <ul class="dropdown">
+          <li><a href="/choosing-a-builder/">Choosing a Builder</a></li>
+          <li><a href="/custom-or-project-build/">Custom or Project Build</a></li>
+          <li><a href="/what-to-do-before-paying-a-builder/">What to Do Before Paying a Builder</a></li>
+          <li><a href="/comparing-pricing-for-tenders/">Comparing Pricing for Tenders</a></li>
+        </ul>
+      </li>
+
+      <li class={`has-dropdown ${isActive('/brick-cladding') || isActive('/windows') || isActive('/thermal-insulation') || isActive('/steel-or-timber') || isActive('/soundproofing') || isActive('/pools') || isActive('/structural-considerations') ? 'active' : ''}`}>
+        <a href="/brick-cladding-hebel-or-otherwise/">Building Materials</a>
+        <ul class="dropdown">
+          <li><a href="/brick-cladding-hebel-or-otherwise/">Brick, Cladding, Hebel</a></li>
+          <li><a href="/windows/">Windows</a></li>
+          <li><a href="/thermal-insulation/">Thermal Insulation</a></li>
+          <li><a href="/steel-or-timber-frame/">Steel or Timber Frame</a></li>
+          <li><a href="/soundproofing/">Soundproofing</a></li>
+          <li><a href="/pools/">Pools</a></li>
+          <li><a href="/structural-considerations/">Structural Considerations</a></li>
+        </ul>
+      </li>
+
+      <li class={`has-dropdown ${isActive('/inclusions') || isActive('/electrical-plan') || isActive('/lighting-tips') || isActive('/staircase') || isActive('/builder-margin') ? 'active' : ''}`}>
+        <a href="/inclusions/">Inclusions &amp; Options</a>
+        <ul class="dropdown">
+          <li><a href="/inclusions/">Builder Inclusions</a></li>
+          <li><a href="/electrical-plan-and-home-automation/">Electrical &amp; Home Automation</a></li>
+          <li><a href="/lighting-tips-and-ideas-for-a-new-home/">Lighting Tips</a></li>
+          <li><a href="/staircase/">Staircase Options</a></li>
+          <li><a href="/builder-margin-and-markup/">Builder Margin &amp; Markup</a></li>
+        </ul>
+      </li>
+
+      <li class={`has-dropdown ${isActive('/pre-construction-phase') || isActive('/demolition') ? 'active' : ''}`}>
+        <a href="/pre-construction-phase/">Pre-Construction</a>
+        <ul class="dropdown">
+          <li><a href="/pre-construction-phase/">Pre-Construction Phase</a></li>
+          <li><a href="/demolition/">Demolition</a></li>
+        </ul>
+      </li>
+
+      <li class={`has-dropdown ${isActive('/construction-phases') || isActive('/quality-control') || isActive('/conflict-resolution') ? 'active' : ''}`}>
+        <a href="/construction-phases/">Construction</a>
+        <ul class="dropdown">
+          <li><a href="/construction-phases/">Construction Phases</a></li>
+          <li><a href="/quality-control/">Quality Control</a></li>
+          <li><a href="/conflict-resolution/">Conflict Resolution</a></li>
+        </ul>
+      </li>
+
+      <li class={`has-dropdown ${isActive('/sources-of-information') || isActive('/getting-inspiration') ? 'active' : ''}`}>
+        <a href="/sources-of-information/">Sources of Information</a>
+        <ul class="dropdown">
+          <li><a href="/sources-of-information/">Sources of Information</a></li>
+          <li><a href="/getting-inspiration/">Getting Inspiration</a></li>
+        </ul>
+      </li>
+
+      <li class={isActive('/common-mistakes') ? 'active' : ''}>
+        <a href="/common-mistakes/">Common Mistakes</a>
+      </li>
+
+      <li class={isActive('/about') ? 'active' : ''}>
+        <a href="/about/">About</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  #main-nav {
+    background: #1a1a1a;
+    position: relative;
+    z-index: 100;
+  }
+
+  #main-nav .container {
+    position: relative;
+  }
+
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-menu > li > a {
+    display: block;
+    padding: 14px 14px;
+    color: #ddd;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-menu > li > a:hover,
+  .nav-menu > li.active > a {
+    background: #0073aa;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Dropdown */
+  .has-dropdown {
+    position: relative;
+  }
+
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #2a2a2a;
+    min-width: 230px;
+    list-style: none;
+    padding: 5px 0;
+    margin: 0;
+    border-top: 3px solid #0073aa;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 200;
+  }
+
+  .has-dropdown:hover .dropdown,
+  .has-dropdown:focus-within .dropdown {
+    display: block;
+  }
+
+  .dropdown li a {
+    display: block;
+    padding: 9px 16px;
+    color: #ccc;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #333;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .dropdown li:last-child a {
+    border-bottom: none;
+  }
+
+  .dropdown li a:hover {
+    background: #0073aa;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* Mobile toggle */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 14px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #ddd;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 900px) {
+    .nav-toggle {
+      display: block;
+    }
+
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+    }
+
+    .nav-menu.open {
+      display: flex;
+    }
+
+    .nav-menu > li > a {
+      padding: 12px 20px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .dropdown {
+      position: static;
+      display: none;
+      border-top: none;
+      box-shadow: none;
+      background: #111;
+    }
+
+    .has-dropdown.open .dropdown {
+      display: block;
+    }
+
+    .dropdown li a {
+      padding-left: 36px;
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  const toggle = document.querySelector('.nav-toggle') as HTMLButtonElement;
+  const menu = document.querySelector('.nav-menu') as HTMLElement;
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Mobile dropdown toggle
+  document.querySelectorAll('.has-dropdown > a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 900) {
+        const parent = (e.currentTarget as HTMLElement).parentElement;
+        parent?.classList.toggle('open');
+        e.preventDefault();
+      }
+    });
+  });
+</script>

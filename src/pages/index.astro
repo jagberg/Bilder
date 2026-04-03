@@ -1,0 +1,126 @@
+---
+export const prerender = true;
+
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPages = await getCollection('pages', ({ data }) => !data.draft);
+
+// Group pages by category
+const categories = {
+  'budget': { label: 'Budget', pages: [] as typeof allPages },
+  'house-plans': { label: 'House Plans', pages: [] as typeof allPages },
+  'choosing-a-builder': { label: 'Choosing a Builder', pages: [] as typeof allPages },
+  'building-materials': { label: 'Building Materials', pages: [] as typeof allPages },
+  'inclusions-and-options': { label: 'Inclusions & Options', pages: [] as typeof allPages },
+  'pre-construction': { label: 'Pre-Construction', pages: [] as typeof allPages },
+  'construction': { label: 'Construction', pages: [] as typeof allPages },
+  'other': { label: 'Other', pages: [] as typeof allPages },
+};
+
+for (const page of allPages) {
+  const cat = page.data.category as keyof typeof categories;
+  if (cat && categories[cat]) {
+    categories[cat].pages.push(page);
+  }
+}
+
+// Sort each category by order
+for (const cat of Object.values(categories)) {
+  cat.pages.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+}
+---
+
+<Layout title="Home" description="Your complete guide to building a new home in Australia — budgeting, plans, choosing a builder, materials, and more.">
+  <div class="home-intro">
+    <h1>Welcome to New Build Journey</h1>
+    <p>Your comprehensive guide to building a new home in Australia. Whether you're just starting to research builders or you're deep in the construction phase, you'll find practical, real-world information here.</p>
+    <p>This guide is based on extensive research and firsthand experience evaluating over 75 builders, reviewing 150+ floorplans, and navigating every phase of the new home build process.</p>
+  </div>
+
+  <div class="category-grid">
+    {Object.entries(categories).map(([key, cat]) => cat.pages.length > 0 && (
+      <div class="category-block">
+        <h2>{cat.label}</h2>
+        <ul>
+          {cat.pages.map(page => (
+            <li>
+              <a href={`/${page.id}/`}>{page.data.title}</a>
+            </li>
+          ))}
+          {key === 'inclusions-and-options' && (
+            <li>
+              <a href="/builder-margin-and-markup/">Builder Margin &amp; Markup</a>
+            </li>
+          )}
+        </ul>
+      </div>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .home-intro {
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .home-intro h1 {
+    margin-bottom: 15px;
+  }
+
+  .home-intro p {
+    color: #555;
+    line-height: 1.7;
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .category-block {
+    background: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    border-left: 4px solid #0073aa;
+    padding: 18px;
+  }
+
+  .category-block h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #0073aa;
+    margin: 0 0 12px;
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .category-block ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .category-block li {
+    padding: 4px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.88rem;
+  }
+
+  .category-block li:last-child {
+    border-bottom: none;
+  }
+
+  .category-block a {
+    color: #333;
+  }
+
+  .category-block a:hover {
+    color: #0073aa;
+    text-decoration: underline;
+  }
+</style>
