@@ -1,0 +1,25 @@
+{
+  // Cloudflare Workers — project reference config
+  //
+  // The Astro build generates the actual deploy config at dist/server/wrangler.json
+  // (includes main, assets, compat flags). CI deploys from that file.
+  //
+  // This file is for local `wrangler dev` and for documenting project-level settings.
+  // Keep this in sync with what the adapter generates.
+
+  "name": "bilder-site",
+  "compatibility_date": "2026-04-05",
+  "main": "./dist/server/entry.mjs",
+  "assets": {
+    "directory": "./dist/client",
+    "not_found_handling": "404-page"
+  }
+
+  // KV namespace for likes counter — add once you create it in the Cloudflare dashboard:
+  // Dashboard → Workers & Pages → KV → Create namespace → copy the ID
+  // Then add the binding here AND in the Worker settings in the dashboard.
+  //
+  // "kv_namespaces": [
+  //   { "binding": "LIKES", "id": "REPLACE_WITH_YOUR_KV_NAMESPACE_ID" }
+  // ]
+}

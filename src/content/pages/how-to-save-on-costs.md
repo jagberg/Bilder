@@ -8,48 +8,35 @@ draft: false
 
 # How to Save on Costs
 
-There are many opportunities to reduce costs during your new home build — both before you pay anything and after handover.
-
 ## Before Paying Anything
 
 ### Contour Survey
 
-A contour survey costs approximately $1,200. If you're obtaining tenders from multiple builders, you can minimise this expense by reusing previous surveys rather than repeating them.
+It costs about $1200 for a contour survey and if you intend to tender through multiple builders its a cost you may want to minimise.
 
-Key points:
+At the tender stage there's no need to repeat these costly surveys and the builders you have chosen may accept previous ones you've done to reduce the deposit required but not all will agree to this. If you are doing this through the builder for the first time, ask them if you can get a copy of the .dwg file and the report. The .dwg file is used by the draftsman to include that in their plans and without these they cant do this and would need new ones to be done. If they wont supply this then you may want to engage the surveyor directly and pay for this upfront, and as its the same company the builder uses, then they may be willing to use them. Alternatively you can pay the surveyor afterwards for a copy as they wont need to repeat it which would cost about $300-500.
 
-- Builders may accept previously completed surveys to reduce deposit requirements
-- Request the .dwg file and report from your surveyor so drafts can incorporate them into plans
-- If builders won't supply these documents, consider engaging the surveyor directly upfront
-- Obtaining a copy later costs roughly $300–$500 since the survey won't need repetition
+## Post handover
 
-## Post Handover
+Common items people will consider doing after handover to save on costs are the following:
 
-Several projects can be deferred until after handover to reduce initial costs:
+- Flooring post handover
+- Alfresco tiling post handover
+- Blinds
+- Pool before the build
+- Ducted Air conditioning – For single storeys only, as ducts need to be run between floors for double storey homes
 
-- Flooring installation
-- Alfresco tiling
-- Window blinds
-- Pool construction
-- Ducted air conditioning (single-storey homes only — double-storey installations require running ducts between floors)
+### Electrical
 
-### Electrical Work
-
-Installation timing affects costs. Certain electrical work — such as chandeliers, fans, and lighting fixtures — may be cheaper post-handover. However, if wall openings are required for wiring, repair and painting expenses could eliminate savings.
+Depending on the wiring required in some cases it can be cheaper for things like chandeliers, fans and other lights to be installed after handover. Even wiring behind the wall might be cheaper to do afterwards but it depends if you have to open up walls which in that case its unlikely to be cheaper when you have to repair holes and paint.
 
 #### Downlights
 
-Downlights present significant savings opportunities:
-
-- Installed downlights: approximately $125 per unit
-- Provisioned downlights (pre-installed outlet): approximately $75 per unit
-- After handover, owners simply plug in and insert the fixture through the ceiling hole
-- Builders typically use $10 downlights, offering substantial savings with upgraded options
-- Smart lighting alternatives provide comparable per-light costs
+Downlights can cost around $125 per light installed but only $75 to be provisioned ie. a hole in the ceiling with an outlet you plug into. After handover you plug in the downlight and push it through the hole, its simple. If the ceiling is very high then consider the building installing these. The builder will normally use downlights that cost $10 so you can save a lot here. You can also think about using smart lights which comes to a similar overall cost per light.
 
 ## Landscaping
 
-Managing landscaping yourself requires:
+Managing the project yourself
 
-- Hiring excavation equipment
-- Scheduling material delivery after demolition but before slab installation to avoid access limitations
+- Hire excavator
+- Get soil and other materials for landscaping dumped after demo, before the slab is installed, if your access will be limited

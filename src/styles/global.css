@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/*
+  Content layout classes — used in markdown page files.
+  Semantic names styled with Tailwind @apply so markdown stays readable.
+*/
+
+@layer components {
+
+  /* Multi-column layout (replaces wp-block-columns) */
+  .cols {
+    @apply flex gap-6 items-start mb-6 clear-both;
+  }
+
+  /* Individual column (replaces wp-block-column) */
+  .col {
+    @apply flex-1 min-w-0;
+  }
+
+  /* Centered image/figure (replaces aligncenter) */
+  .img-center {
+    @apply block w-fit mx-auto mb-6;
+  }
+
+  /* Left-floated image/figure (replaces alignleft) */
+  .img-left {
+    @apply float-left mr-5 mb-4;
+  }
+
+  /* Right-floated image/figure (replaces alignright) */
+  .img-right {
+    @apply float-right ml-5 mb-4;
+  }
+
+  /* Stack columns on mobile */
+  @media (max-width: 680px) {
+    .cols {
+      @apply flex-col;
+    }
+    .col img {
+      @apply w-full! h-auto!;
+    }
+    .img-left,
+    .img-right {
+      @apply float-none mx-auto block;
+    }
+  }
+}

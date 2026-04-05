@@ -9,6 +9,7 @@ const pages = defineCollection({
     category: z.string().optional(),
     order: z.number().optional().default(0),
     draft: z.boolean().optional().default(false),
+    lastUpdated: z.string().optional(),
   }),
 });
 

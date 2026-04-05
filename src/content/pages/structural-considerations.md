@@ -12,29 +12,40 @@ Structural decisions made during design can significantly impact your build cost
 
 ## External Walls
 
-When comparing external wall materials, consider how each option affects structural requirements and overall build cost. See [Brick, Cladding, Hebel or Otherwise](/brick-cladding-hebel-or-otherwise/) for detailed comparisons.
+Hebel vs Brick vs Cladding
 
-## Windows & Glazing
+## Windows
 
-Key structural considerations for windows:
+### Glazing
 
-| Type | Impact | Composition | Cost Notes | Alternative |
-|------|--------|-------------|-----------|-------------|
-| Double Glazing | Heating, cooling, sound insulation | Multiple glass panes | Windows over 80kg require onsite glazing (~$500/window) | Low-e, Hush glass |
-| Low-e | Energy efficiency | Specialised coating | Included in premium options | — |
-| Hush | Sound reduction | Acoustic glass | Premium cost | — |
+| Type | Impact | Composition | Cost Consideration | Alternative |
+|------|--------|-------------|-------------------|-------------|
+| Double Glazing | Heating + Cooling + Sound | Thickness of glass panes | Above +- 80kg you need to pay for onsite glazing which can cost $500 per window | Low-e, Hush glass |
+| Low-e | | | | |
+| Hush | | | | |
+| Comfort | | | | |
+| Tinting | | | | |
 
-## First Floor Layout & Structural Support
+Glazing Options
 
-Where the rooms sit will impact the need for either a steel beam or LVL support.
+## First Floor Layout
 
-### Key Points
+### Structural Support
 
-- **Rooms over empty spaces** require structural supports beyond standard timber framing
-- **Steel beams under 6 metres** can typically be installed by multiple tradespeople
-- **Longer spans (6m+)** become expensive due to crane requirements
-- **Cost reduction strategy**: Using brick-on-brick construction eliminates the need for additional support in those areas
+Where the rooms sit will impact the need for either a steel beam or LVL* support. Rooms that sit over an empty space below require these structural supports and just having a timber frame wall may not be sufficient.
 
-### LVL (Laminated Veneer Lumber)
+Steel supports under 6m can generally be handled by a few tradesman however spans over this can be expensive as they will likely require a crane to be used which add further costs.
 
-Laminated veneer lumber is an engineered wood product that uses multiple layers of thin wood assembled with adhesives. It's commonly used as a structural support beam where steel is not required.
+To reduce this consider the following
+
+- Brick on brick – If the floor above is supported by bricks then you dont require any extra support for that area and just for the usual spans across the house.
+
+*LVL: Laminated veneer lumber (LVL) is an engineered wood product that uses multiple layers of thin wood assembled with adhesives
+
+<div class="cols">
+<div class="col">
+<figure><img src="/images/structural-considerations/lvl-support.png" alt="" width="732" height="373" loading="lazy"><figcaption>LVL Support</figcaption></figure>
+</div>
+<div class="col">
+</div>
+</div>

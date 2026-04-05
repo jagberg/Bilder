@@ -8,37 +8,34 @@ draft: false
 
 # Custom or Project Build
 
-When constructing a new home, there are two primary approaches: custom-designed homes and project homes. While conventional wisdom suggests custom builds cost significantly more, both options can achieve comparable pricing depending on circumstances.
+There's 2 options to consider when building a new home, a custom designed home or a project home. Generally the guidance will be that with a custom build it will be more expensive than a project build and while this is true for many cases you can build a custom home for similar or less.
 
 ## Project Build
 
-Project homes are offered by larger builders with multiple pre-designed floorplans featuring various configurations and facade options.
+Larger builders will have a number of floorplans to choose from, each varying in many different ways. They will have different facades for each of their designs and inclusions normally come in standard and upgraded ones. If you choose a package they wont normally credit any items in them so its a take it or leave it.
 
-**Key characteristics:**
+They will have a base price which is for the build itself and excludes any other variations for site conditions and location. Dont just compare the base price as some include expensive upgrades in their base while others dont to make the price more attractive. These are normally inclusions that most people will upgrade but will depend on your budget.
 
-- Standard and upgraded inclusion packages available on a take-it-or-leave-it basis
-- Base pricing excludes site-specific variations and location adjustments
-- Pricing comparison requires examining actual inclusions, not just base prices
-- Substantial modifications permitted (walls, bedrooms, bathrooms, alfresco areas)
-- Staircases typically cannot be modified
-- Some volume builders offer non-modifiable plans at reduced costs
+Most project builders will allow significant changes to their plans including exterior/interior walls, moving bedroom/bathroom/alfresco locations and many other changes. Normally everything except for the staircase can be changed.
+
+Some volume/project builders have plans that are cheaper but you cant make any modifications to it.
 
 ## Custom Build
 
-Custom builds utilise architect or draftsman-created plans provided to the builder.
+A custom build is one where you have plans drawn up by an architect or draftsman and this is given to the builder.
 
-**Important considerations:**
+Its recommended to do the concept design first before doing any applications for CDC/DA as the cost of building your design could be a lot more expensive than you anticipated. Most builders I found will want to do the work afterwards because they can design it in a way they they are familiar with and I feel they will do a more efficient build than an architect would as they dont know what things cost.
 
-- Concept design should precede Development Approval applications to avoid cost surprises
-- Builders often prefer designing modifications themselves for efficiency
-- Pricing varies by multiple factors rather than per-square-metre rates
-- Asking about builders' typical price ranges per square metre helps determine feasibility
-- The "20–50% premium" claim is a bit of a misconception for many smaller builders
+Pricing is not based on a sqm rate as there are many factors that go into the cost. You can however ask the builder for an idea of what homes they typically build and what their price p/sqm is because if you need to build something for say $1800 p/sqm but they have never built for under $2200 p/sqm then theres no point wasting yours or their time. Not all will give you this however.
 
-## Builder Categories
+Its a bit of a misconception to say a custom build will be 20-50% more than a project home. Most smaller builders will likely be in this range however as they dont have the buying power or efficiencies that comes about spreading costs across multiple homes.
 
-**Project/Volume Builders Offering Custom Work:**
-Notable firms include Vogue Homes, Fairmont Homes, and Fowler Homes, with pricing varying substantially — up to $170,000 differences between quotes.
+You can check this out if you want to get more details about [Choosing a Builder](/choosing-a-builder/)
 
-**Local Builders:**
-Small operations with minimal staff building few properties annually often prove considerably more expensive, though occasionally competitive in some regions.
+## Project/Volume Builder who does Custom
+
+There are a number of project/volume builders who can build custom homes too incl. [Vogue Homes](https://vogue-homes.com.au/), [Fairmont Homes](https://fairmontnsw.com.au/), [Fowler Homes](https://www.fowlerhomes.com.au/) and a number of others. When I did a tender off each of them the price varied considerably, by up to 170k.
+
+## Local Builders
+
+Generally a builder with just a few employed staff who would build a handful of properties a year. In some areas they can be price competitive but I found they were considerably more expensive.

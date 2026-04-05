@@ -8,30 +8,23 @@ draft: false
 
 # House Plans
 
-When planning your new home, you have two primary approaches: selecting a builder's floorplan (typically pre-designed and previously constructed) or commissioning a bespoke plan through an architect or building designer.
+There are 2 options here, one where you go with a [builders floorplan](/builder-floorplan/) which is normally one they've built many times before or you can engage the relevant professional to create a [bespoke plan](/architect-plans/).
 
-Before engaging with builders or designers, you should have some idea of what you can build to establish realistic expectations.
+You should have [some idea of what you can build](/knowing-what-you-can-build/) so that you dont have any unreasonable expectations with the builder or designer you go with. There are a lot of regulations the limit what you can build however there things that can be done to maximise this.
 
 ## Things to Consider for Your Design
 
 ### Orientation
 
-**Sunlight**
+**Sunlight –** You will likely want a lot of natural sunlight in the areas you will spend the most time ie. Living, alfresco, kitchen areas.
 
-Natural light should be prioritised in frequently-used areas including living spaces, outdoor entertaining zones, and kitchens.
+**Passive heating/cooling –** You can save on costs by considering passing heating and cooling from the sun so that you dont have to run you air conditioning/heating unit on. There are a lot of useful tips in the [Your Home Government website – Passive Design](https://www.yourhome.gov.au/passive-design)
 
-**Passive Heating/Cooling**
-
-Strategic design can reduce reliance on mechanical systems. The government resource "Your Home" offers comprehensive guidance on passive design strategies for energy efficiency.
+<figure class="img-center"><img src="/images/house-plans/orientation-solar-diagram.png" alt="" width="510" height="274" loading="lazy"><figcaption>Source: © Beaumont Building Design</figcaption></figure>
 
 ### Services Location
 
-The placement of external systems — rainwater tanks, air conditioning units, and water heating systems — requires careful planning:
+An afterthought is normally the location of the rainwater tanks, A/C and hotwater system. You want to consider the following:
 
-**Clear Access**
-
-Grouping these installations on a single side maintains unobstructed access to rear gardens for equipment like lawnmowers, waste bins, and landscaping machinery. Post-construction access for bobcats or diggers often necessitates 0.9m+ clearances.
-
-**Window Positioning**
-
-Tank placement must avoid blocking windows or creating unsightly front/back exposure.
+- **Clear access** – Ideally have all these large external items on one side of the house so that you have clear access to the back garden for things like your lawnmower, rubbish bins and landscaping machinery. After your build you may need a bobcat or digger and you would need in many cases 0.9m and larger to get to the back otherwise theres a lot of manual work which is costly or you may need to go through the house.
+- **Window positions** – You may not have a wall thats long enough to place a rainwater tank without either blocking a window or putting it in clear sight at the front or back of the house.

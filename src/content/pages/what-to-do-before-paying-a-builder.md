@@ -8,47 +8,54 @@ draft: false
 
 # What to Consider Before Paying a Builder
 
-Tender costs and deposits add up quickly. Before making financial commitments to a builder, conduct thorough research and due diligence.
+To start the process with a builder doesn't require any upfront payment but after the initial estimates are given you will need to put down a deposit.
 
-## Budget and Cost Analysis
+Go through [Choosing a Builder](/choosing-a-builder/) to get more details on how to narrow down your list of builders and see which ones might be suitable for you.
 
-Research is essential before depositing funds. The builder's estimate typically omits several items homeowners will add later, as well as realistic site expenses:
+## Budget and Builder Costs
 
-- Compare multiple builder estimates carefully
-- Review the "How to Save on Costs" section beforehand
-- Create accurate budget projections with buffers for unexpected expenses
+Consider first that the builders estimate doesnt include many things you will add later or realistic site costs. Its best to do some research and narrow down a handful of builders before putting down a deposit. Take a look through [Comparing Pricing for Tenders](/comparing-pricing-for-tenders/). You can fill out the estimates for your house and this will help ensure you have a more accurate estimate for comparing.
 
-## Financial Preparation
+Its also worth going through [How to save on costs](/how-to-save-on-costs/) before paying the builder anything.
 
-Secure bank pre-approval before signing any tender agreement. Factor in:
+## Finance
 
-- Additional costs during selections and unforeseen expenses
-- Potential interest rate increases (2–3%) before construction approval
-- Sufficient financial buffer for contingencies
+Before signing any tender make sure you have pre-approval from your bank to borrow what you need for the build. You will likely spend a lot more during selections and for surprise costs so make sure you have a good buffer. With interest rate rises you also need to factor this in, what happens if they increase by 2-3% before you get approvals to build.
 
-## Price Lock-In Periods
+## Price Lock In Period
 
-A critical consideration: price lock-in periods start from the initial tender date, meaning delays in approvals consume this protection window.
+Most people don't realise that price lock in periods starts from the initial tender date. So when you ask for an updated tender and there's delays just know that your clock has started ticking. You can negotiate the date though.
 
-DA (Development Application) approvals can take 6–8 months, and the planning phase typically requires several additional months. Builders may impose 10–20% price increases once lock-in periods expire.
+DA approvals can take over 6-8 months with many council and it can take you a few months to get to a stage where you can submit your plans for approval. This will eat into your price lock period so be aware that builders can easily hit you with a 10-20% increase after this period. Given the trade and material shortages in 2022 prices are rocketing up every month and builders can't absorb all these increases.
 
-## Required Property Reports
+## Contour Survey, Borehole Test and Other Property Reports
 
-### Contour Survey and Borehole Testing
+To get a tender, which is mostly a fixed price contract, the builder will need to arrange for a contour survey of your land and a borehole test. More details about these are below. They may also want your 10.7 document for your property which lists restrictions like a bushfire zone, flood zone and if it's noise affected (ANEF).
 
-Builders require these surveys for fixed-price contracts:
+If you are tendering with multiple builders there's no need to repeat these costly surveys and the builders may accept previous ones you've done to reduce the deposit required but not all will agree to this.
 
-- **Contour surveys** map land topography
-- **Borehole tests** determine slab requirements (M-class, H-class) and soil salinity levels
+If you are doing this through the builder for the first time, ask them if you can get a copy of the .dwg file and the report. The .dwg file is used by the draftsman to include that in their plans and without these they cant do this. If they wont supply this, then you may want to engage the surveyor directly and pay for this upfront and as its the same company the builder uses, then they may be willing to use them. Alternatively you can pay the surveyor afterwards for a copy as they wont need to repeat it.
 
-When tendering with multiple builders, request copies of the .dwg files and reports to avoid duplicate expenses with other contractors.
+The borehole test will determine the type of slab required eg. M class, H class. It will also tell the salinity of the soil and if you require further treatment to your slab for this.
+
+### Contour Survey
+
+This is what a contour survey looks like
+
+<figure><img src="/images/what-to-do-before-paying-a-builder/contour-survey.png" alt="" width="640" height="905" loading="lazy"><figcaption>Contour Survey</figcaption></figure>
 
 ## Contract Review
 
-Before paying substantial deposits, request all standard contracts from the builder. This is the optimal time to negotiate terms — your leverage decreases significantly after making deposits exceeding 1–2%.
+Before putting any money down with a builder or at least if you are just up to the tender stage you will have the most power at this stage to negotiate your contract. In most cases with volume builders the builder wont amend their clauses however now is a great time to go through their standard contracts that they would issue after paying the 5% or 10% deposit.
 
-### Liquidated Damages Clause
+By the time you normally get to this stage you would have invested months of effort with the builder and if you dont like the contract terms you have to start all over and price increases could have occurred during this time.
 
-Negotiate penalty clauses early. Over $100 per day represents reasonable protection, as builders lacking substantial financial incentives may delay completion.
+So ask the builder before paying anything significant for all their contracts so that you can try negotiate items you arent comfortable with or at least you will understand the risks involved.
 
-**Key takeaway:** Conduct comprehensive research, secure financing, understand price protection timelines, obtain necessary property reports, and review contracts while maintaining maximum negotiating power.
+In my case I paid the tender and before paying the 5% I asked for the contracts. I was issued with a Works Agreement which covers all the reports and DA/CDC submission. After this stage I would then be issued with a HIA contract.
+
+### Liquidated Damages
+
+Negotiate this early when you have leverage. If this is done after giving a large deposit of more than 1-2% then your leverage is gone and you will likely have a tough time changing this. Ideally you would agree to this at the sales stage because this is where you will be told about unrealistic timeframes and this will help prevent this happening.
+
+A good amount would be over $100 per day. Many builders would put $1 by leaving it out and gives them no incentive to complete the job in time.

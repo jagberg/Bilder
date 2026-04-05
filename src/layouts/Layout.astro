@@ -1,5 +1,6 @@
 ---
 import Nav from '../components/Nav.astro';
+import '../styles/global.css';
 import Search from '../components/Search.astro';
 
 interface Props {
@@ -9,7 +10,6 @@ interface Props {
 
 const { title, description = 'Your guide to building a new home in Australia.' } = Astro.props;
 
-// Build recent pages list for sidebar - we'll make this static for now
 const recentPages = [
   { title: 'Brick, Cladding, Hebel or Otherwise', slug: 'brick-cladding-hebel-or-otherwise' },
   { title: 'Checking Your House Plans', slug: 'checking-your-plans' },
@@ -29,55 +29,90 @@ const recentPages = [
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-34GMKNVNB8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-34GMKNVNB8');
+    </script>
+
+    <!-- Hotjar -->
+    <script>
+      (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2913441,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+    <!-- Cloudflare Web Analytics -->
+    <!-- Token: Cloudflare Dashboard → Analytics & Logs → Web Analytics → Add a site -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "REPLACE_WITH_CF_BEACON_TOKEN"}'></script>
+
+    <!-- Microsoft Clarity -->
+    <!-- Project ID: clarity.microsoft.com → New Project → get the ID from the setup snippet -->
+    <script>
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window,document,"clarity","script","REPLACE_WITH_CLARITY_PROJECT_ID");
+    </script>
   </head>
   <body>
-    <!-- Top bar -->
-    <div id="topbar">
-      <div class="container">
-        <div id="site-header">
-          <a href="/" id="site-logo">
-            <img src="/images/bilder-logo.png" alt="New Build Journey" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
-            <span class="site-title-text">New Build Journey</span>
+    <header id="site-header">
+      <div class="container header-inner">
+        <div id="site-branding">
+          <a href="/" id="site-logo-link">
+            <img src="/images/bilder-logo.png" alt="New Build Journey" id="site-logo-img" />
           </a>
-          <p class="site-tagline">Your guide to building a new home</p>
+          <p class="site-description">Your guide to building a new home</p>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <Nav />
+
+    <div id="page-wrapper">
+      <div class="container">
+        <div id="content-sidebar-wrap">
+          <main id="main-content">
+            <slot />
+          </main>
+
+          <aside id="sidebar">
+            <div class="widget widget-search">
+              <h3 class="widget-title">Search</h3>
+              <Search />
+            </div>
+
+            <div class="widget widget-recent-posts">
+              <h3 class="widget-title">Recent Posts</h3>
+              <ul>
+                {recentPages.map(page => (
+                  <li><a href={`/${page.slug}/`}>{page.title}</a></li>
+                ))}
+              </ul>
+            </div>
+          </aside>
         </div>
       </div>
     </div>
 
-    <!-- Navigation -->
-    <Nav />
-
-    <!-- Main content wrapper -->
-    <div id="wrapper" class="container">
-      <div id="content-area">
-        <main id="main-content">
-          <slot />
-        </main>
-
-        <!-- Sidebar -->
-        <aside id="sidebar">
-          <div class="widget widget-search">
-            <h3 class="widget-title">Search</h3>
-            <Search />
-          </div>
-
-          <div class="widget widget-recent-posts">
-            <h3 class="widget-title">Recent Posts</h3>
-            <ul>
-              {recentPages.map(page => (
-                <li><a href={`/${page.slug}/`}>{page.title}</a></li>
-              ))}
-            </ul>
-          </div>
-        </aside>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer id="footer">
-      <div class="container">
-        <p>Copyright &copy; {new Date().getFullYear()} New Build Journey</p>
+    <footer id="site-footer">
+      <div class="footer-widgets">
+        <div class="container">
+          <p class="footer-copy">Copyright &copy; {new Date().getFullYear()} New Build Journey. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   </body>
@@ -91,20 +126,20 @@ const recentPages = [
   }
 
   body {
-    font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
-    color: #444;
-    background: #f5f5f5;
+    font-family: 'Poppins', serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #7f7f7f;
+    background: #fff;
   }
 
   a {
-    color: #0073aa;
+    color: #fd356f;
     text-decoration: none;
   }
 
   a:hover {
-    color: #005177;
+    color: #000;
     text-decoration: underline;
   }
 
@@ -114,119 +149,184 @@ const recentPages = [
     padding: 0 20px;
   }
 
-  /* Top bar / header */
-  #topbar {
-    background: #222;
-    padding: 15px 0;
-    border-bottom: 3px solid #0073aa;
-  }
-
+  /* Site Header */
   #site-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    background: #fff;
+    box-shadow: 2px 0 15px rgb(0 0 0 / 15%);
+    padding: 18px 0;
+    position: relative;
+    z-index: 10;
   }
 
-  #site-logo {
+  .header-inner {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: space-between;
+  }
+
+  /* Hamburger — hidden on desktop, shown on mobile */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: #fd356f;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 900px) {
+    .nav-toggle {
+      display: flex;
+    }
+  }
+
+  #site-branding {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #site-logo-link {
+    display: block;
     text-decoration: none;
   }
 
-  #site-logo img {
-    height: 55px;
+  #site-logo-img {
+    height: 60px;
     width: auto;
+    display: block;
   }
 
-  .site-title-text {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #fff;
-    display: none;
-  }
-
-  .site-tagline {
-    color: #ccc;
-    font-size: 0.85rem;
-    margin-left: auto;
+  .site-description {
+    font-size: 0.82rem;
+    color: #7f7f7f;
+    margin-top: 4px;
     font-style: italic;
   }
 
-  /* Main layout */
-  #wrapper {
-    padding: 30px 20px;
+  /* Page layout */
+  #page-wrapper {
+    padding: 30px 0;
+    background: #f9f9f9;
+    min-height: calc(100vh - 200px);
   }
 
-  #content-area {
-    display: grid;
-    grid-template-columns: 1fr 280px;
+  #content-sidebar-wrap {
+    display: flex;
+    flex-direction: column;
     gap: 30px;
-    align-items: start;
   }
 
-  @media (max-width: 768px) {
-    #content-area {
-      grid-template-columns: 1fr;
-    }
+  #sidebar {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  #sidebar .widget {
+    flex: 1 1 260px;
   }
 
   /* Main content */
   #main-content {
     background: #fff;
     padding: 30px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #f0f0f0;
+  }
+
+  #main-content h1,
+  #main-content h2,
+  #main-content h3,
+  #main-content h4,
+  #main-content h5,
+  #main-content h6 {
+    font-family: 'Poppins', sans-serif;
   }
 
   #main-content h1 {
-    font-size: 1.8rem;
-    color: #222;
-    margin-bottom: 20px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #0073aa;
+    font-size: 34px;
+    color: #cf2e2e;
+    font-weight: 700;
+    margin: 0 0 10px;
   }
 
   #main-content h2 {
-    font-size: 1.35rem;
-    color: #222;
-    margin: 25px 0 12px;
+    font-size: 28px;
+    color: #cf2e2e;
+    font-weight: 700;
+    margin: 20px 0 5px;
   }
 
   #main-content h3 {
-    font-size: 1.15rem;
-    color: #333;
-    margin: 20px 0 10px;
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+    margin: 5px 0 5px;
   }
 
   #main-content h4 {
-    font-size: 1rem;
-    color: #444;
-    margin: 16px 0 8px;
-    font-weight: 600;
+    font-size: 14px;
+    color: #000;
+    font-weight: 700;
+    margin: 8px 0 4px;
   }
 
   #main-content p {
-    margin-bottom: 15px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #7f7f7f;
+  }
+
+  #main-content pre {
+    font-family: Courier New, Courier, monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+    color: #7f7f7f;
+    margin-bottom: 14px;
+  }
+
+  #main-content ul {
+    list-style-type: disc;
+  }
+
+  #main-content ol {
+    list-style-type: decimal;
   }
 
   #main-content ul,
   #main-content ol {
-    margin: 0 0 15px 24px;
+    margin: 0 0 14px 22px;
   }
 
   #main-content li {
-    margin-bottom: 6px;
+    font-size: 14px;
+    margin-bottom: 2px;
+    color: #7f7f7f;
   }
 
   #main-content table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
   }
 
   #main-content th {
-    background: #222;
+    background: #fd356f;
     color: #fff;
     padding: 10px 12px;
     text-align: left;
@@ -235,65 +335,87 @@ const recentPages = [
 
   #main-content td {
     padding: 8px 12px;
-    border: 1px solid #ddd;
+    border: 1px solid #f0f0f0;
+    color: #7f7f7f;
   }
 
   #main-content tr:nth-child(even) td {
-    background: #f9f9f9;
+    background: #fafafa;
   }
 
   #main-content strong {
-    color: #222;
+    color: #000;
+    font-weight: 600;
   }
 
   #main-content blockquote {
-    border-left: 4px solid #0073aa;
+    border-left: 4px solid #fd356f;
     padding: 10px 20px;
     margin: 20px 0;
-    background: #f0f7fb;
-    color: #555;
+    background: #fff5f8;
+    color: #7f7f7f;
+    font-style: italic;
   }
 
-  .post-meta {
-    color: #888;
-    font-size: 0.85rem;
-    margin-bottom: 20px;
+  #main-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #main-content figure {
+    margin: 0 0 1.5em;
+  }
+
+  #main-content figure img {
+    margin: 0;
+  }
+
+  #main-content figcaption {
+    font-size: 13px;
+    color: #7f7f7f;
+    text-align: center;
+    font-style: italic;
+    margin-top: 5px;
   }
 
   /* Sidebar */
-  #sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
   .widget {
     background: #fff;
-    border: 1px solid #e0e0e0;
-    padding: 20px;
+    border: 1px solid #f0f0f0;
   }
 
   .widget-title {
-    font-size: 1rem;
+    font-size: 0.88rem;
     font-weight: 700;
-    color: #222;
+    color: #fff;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 14px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #0073aa;
+    letter-spacing: 0.06em;
+    margin: 0;
+    padding: 10px 15px;
+    background: #fd356f;
+  }
+
+  .widget-search,
+  .widget-recent-posts {
+    overflow: hidden;
+  }
+
+  .widget-search > :not(.widget-title),
+  .widget-recent-posts > :not(.widget-title) {
+    padding: 15px;
   }
 
   .widget-recent-posts ul {
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 15px;
   }
 
   .widget-recent-posts li {
     padding: 6px 0;
     border-bottom: 1px solid #f0f0f0;
-    font-size: 0.88rem;
+    font-size: 0.82rem;
     line-height: 1.4;
   }
 
@@ -302,49 +424,44 @@ const recentPages = [
   }
 
   .widget-recent-posts a {
-    color: #0073aa;
+    color: #7f7f7f;
+  }
+
+  .widget-recent-posts a:hover {
+    color: #fd356f;
+    text-decoration: none;
   }
 
   /* Footer */
-  #footer {
-    background: #222;
-    color: #aaa;
-    padding: 20px 0;
-    font-size: 0.85rem;
-    text-align: center;
-    margin-top: 0;
-    border-top: 3px solid #0073aa;
+  #site-footer {
+    background: #6102d3;
+    color: #fff;
   }
 
-  #footer a {
-    color: #ccc;
+  .footer-widgets {
+    padding: 20px 0;
+  }
+
+  .footer-copy {
+    color: #fff;
+    font-size: 0.82rem;
+    text-align: center;
+    margin: 0;
   }
 
   /* Breadcrumb */
   .breadcrumb {
-    font-size: 0.82rem;
-    color: #888;
-    margin-bottom: 20px;
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 18px;
   }
 
   .breadcrumb a {
-    color: #888;
+    color: #aaa;
   }
 
   .breadcrumb a:hover {
-    color: #0073aa;
-  }
-
-  /* Category badge */
-  .category-badge {
-    display: inline-block;
-    background: #0073aa;
-    color: #fff;
-    padding: 2px 10px;
-    font-size: 0.75rem;
-    border-radius: 3px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    color: #fd356f;
+    text-decoration: none;
   }
 </style>

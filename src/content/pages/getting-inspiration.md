@@ -8,39 +8,22 @@ draft: false
 
 # Getting Inspiration
 
-Gathering design ideas before meeting with builders helps you communicate your preferences clearly and make better decisions.
-
 ## Display Homes
 
-Visit display villages in various areas, which feature homes from multiple builders. Oran Park Town is a good example for Sydney-siders, featuring display homes from many builders.
+There are many display villages in the various areas which include builders from different companies.
 
-**Tips for display home visits:**
-
-- Note what you like and dislike in each home
-- Remember that display homes include many expensive upgrades — not everything you see is standard
-- Take photos of features you want to replicate
+- [Oran Park Town](https://www.oranparktown.com.au/masterplan/display-village/)
 
 ## Virtual Tours
 
-Many builders offer 3D virtual tours on their websites, allowing you to explore different properties remotely and examine various design choices and exterior finishes — useful for initial research before visiting in person.
+A lot of builders have virtual tours that they offer on their website which gives a 3D view of the different homes. Its a great way to check out what they've done and see what you like.
 
 ## Floor Plans
 
-Use Product Review to access builder listings, where you can filter homes by:
+You can get a list of builders though [Product Review](https://www.productreview.com.au/c/home-builders) which you can then use to go to their website and view their floor plans, photos, videos and virtual tours.
 
-- Frontage size
-- Total home size
-- Number of bedrooms
-- Other structural features
+You can filter the homes by things like frontage size, home size, no. of bedrooms, etc.
 
-This approach helps identify preferred design elements and architectural styles before making builder selections.
+It's great to get some ideas of what you like and don't like including the different facades.
 
 ## Social Media
-
-Instagram and Pinterest are excellent for curating design ideas:
-
-- Search for new home builds in Australia
-- Follow interior designers and architects
-- Save images of kitchens, bathrooms, staircases, and facades you like
-
-Building with specific builders? Join their Facebook groups to see real-world results from actual builds — far more accurate than display homes.

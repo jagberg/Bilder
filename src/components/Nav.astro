@@ -8,12 +8,9 @@ function isActive(href: string) {
 ---
 
 <nav id="main-nav">
-  <div class="container">
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+  <div class="container nav-inner">
     <ul class="nav-menu">
-      <li class={isActive('/') ? 'active' : ''}>
+      <li class={isActive('/') && currentPath === '/' ? 'active' : ''}>
         <a href="/">Home</a>
       </li>
 
@@ -110,12 +107,13 @@ function isActive(href: string) {
 
 <style>
   #main-nav {
-    background: #1a1a1a;
+    background: #fff;
+    border-bottom: 1px solid #f0f0f0;
     position: relative;
     z-index: 100;
   }
 
-  #main-nav .container {
+  .nav-inner {
     position: relative;
   }
 
@@ -129,20 +127,20 @@ function isActive(href: string) {
 
   .nav-menu > li > a {
     display: block;
-    padding: 14px 14px;
-    color: #ddd;
-    font-size: 0.88rem;
-    font-weight: 600;
+    padding: 13px 12px;
+    color: #7f7f7f;
+    font-size: 0.82rem;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    transition: background 0.2s, color 0.2s;
+    transition: color 0.2s;
     white-space: nowrap;
+    text-decoration: none;
   }
 
   .nav-menu > li > a:hover,
   .nav-menu > li.active > a {
-    background: #0073aa;
-    color: #fff;
+    color: #fd356f;
     text-decoration: none;
   }
 
@@ -156,13 +154,15 @@ function isActive(href: string) {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #2a2a2a;
-    min-width: 230px;
+    background: #fff;
+    min-width: 220px;
     list-style: none;
-    padding: 5px 0;
+    padding: 0;
     margin: 0;
-    border-top: 3px solid #0073aa;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-top: 2px solid #fd356f;
+    border: 1px solid #f0f0f0;
+    border-top: 2px solid #fd356f;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     z-index: 200;
   }
 
@@ -174,10 +174,11 @@ function isActive(href: string) {
   .dropdown li a {
     display: block;
     padding: 9px 16px;
-    color: #ccc;
-    font-size: 0.85rem;
-    border-bottom: 1px solid #333;
-    transition: background 0.15s, color 0.15s;
+    color: #7f7f7f;
+    font-size: 0.82rem;
+    border-bottom: 1px solid #f0f0f0;
+    transition: color 0.15s;
+    text-decoration: none;
   }
 
   .dropdown li:last-child a {
@@ -185,40 +186,15 @@ function isActive(href: string) {
   }
 
   .dropdown li a:hover {
-    background: #0073aa;
-    color: #fff;
+    color: #fd356f;
     text-decoration: none;
   }
 
-  /* Mobile toggle */
-  .nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 14px;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-
-  .nav-toggle span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: #ddd;
-    margin: 5px 0;
-    transition: 0.3s;
-  }
-
   @media (max-width: 900px) {
-    .nav-toggle {
-      display: block;
-    }
-
     .nav-menu {
       display: none;
       flex-direction: column;
+      border-top: 1px solid #f0f0f0;
     }
 
     .nav-menu.open {
@@ -227,7 +203,7 @@ function isActive(href: string) {
 
     .nav-menu > li > a {
       padding: 12px 20px;
-      border-bottom: 1px solid #2a2a2a;
+      border-bottom: 1px solid #f0f0f0;
     }
 
     .dropdown {
@@ -235,7 +211,8 @@ function isActive(href: string) {
       display: none;
       border-top: none;
       box-shadow: none;
-      background: #111;
+      border: none;
+      background: #fafafa;
     }
 
     .has-dropdown.open .dropdown {
@@ -249,8 +226,7 @@ function isActive(href: string) {
 </style>
 
 <script>
-  // Mobile menu toggle
-  const toggle = document.querySelector('.nav-toggle') as HTMLButtonElement;
+  const toggle = document.getElementById('nav-toggle') as HTMLButtonElement;
   const menu = document.querySelector('.nav-menu') as HTMLElement;
 
   toggle?.addEventListener('click', () => {
@@ -258,7 +234,6 @@ function isActive(href: string) {
     toggle.setAttribute('aria-expanded', String(isOpen));
   });
 
-  // Mobile dropdown toggle
   document.querySelectorAll('.has-dropdown > a').forEach(link => {
     link.addEventListener('click', (e) => {
       if (window.innerWidth <= 900) {

@@ -6,36 +6,14 @@ order: 4
 draft: false
 ---
 
-# About New Build Journey
+# About
 
-**bilder.com.au** is an informational resource dedicated to guiding individuals through the new home building process in Australia.
+This site was built to help others who are going through the same new home building journey that I am on. Ive been researching building a new home since 2019 and have had a lot of people help me along the way. I enjoy helping other and I built this site as a way of paying it forward.
 
-## Why This Site Exists
+I was initially going to build a project home and was always told custom would cost 200k+ more so I never explored it. I stumbled on someone who used a project builder who builds custom homes and looked further into it and found there wasnt anything significant more about building a custom home this way as long as you consider an efficient building design.
 
-This site was built to help others who are going through the same new home building journey that I am on.
+I had looked at over 75 builders that included project, custom and local builders. I also went through over 150 floorplans and designs in great detail before deciding on what to build.
 
-## About the Author
+I previously lived in a new build (we bought it after it was completed from a builder) and it had major water leaks from lots of different areas (mostly from the walls and retaining walls). This happened over a 7 year period and I learnt a lot along the way about construction and waterproofing and that sparked my interest in learning more about the details of building.
 
-Justin Goldberg has been researching home construction extensively since 2019. His experience includes:
-
-- Evaluating over 75 different builders (encompassing project, custom, and local options)
-- Reviewing more than 150 floorplans and designs in depth
-- Prior residence in a newly constructed home that experienced significant water damage issues over a seven-year span
-- Detailed study of construction methods and waterproofing techniques
-
-Initially sceptical about custom building due to cost concerns, Justin discovered that efficient design practices could minimise the financial premium compared to project home construction.
-
-## What You'll Find Here
-
-The website addresses multiple aspects of residential building:
-
-- Budget planning and cost-saving strategies
-- House design and planning
-- Builder selection and comparison
-- Construction materials and components
-- Quality control during construction
-- Common building mistakes
-
-## Feedback
-
-If you have corrections or additional information to share, please reach out. This guide is continually improved based on community input and new research.
+I hope this site helps you with whichever direction you choose and if theres anything missing or incorrect I would be grateful to know about these through the comments section.

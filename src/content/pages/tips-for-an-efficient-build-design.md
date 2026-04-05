@@ -8,38 +8,67 @@ draft: false
 
 # Tips for an Efficient Build Design
 
-Smart design decisions made early can save tens of thousands of dollars during your build.
+[DRAFT] – To be done by Feb 2023 otherwise please leave a comment if you want more details. TBC – roof hips and valleys, brick vs cladding/Hebel over empty space.
 
 ## Energy and Thermal Ratings
 
-Passive home design can reduce compliance costs. Designing with energy principles from the start prevents builders from passing on large extra costs to comply with BASIX and NatHERS standards. An architect or energy assessor can optimise these elements early in planning.
+If you design a passive home you may require less double glazing or other alterations to the design to comply with BASIX and NatHERS. An architect or energy assessor can help you with this aspect of the home. Builders can pass on large extra costs to comply which might not have been required if the design incorporated these principles from the start.
 
 ## Walls
 
-### Floor Support Considerations
+### How the First Floor sits above the Ground Floor
 
-When upper floors lack external wall support underneath, additional framing becomes necessary. Ensure there is framing or external wall for part of the room to run along.
+Take a look at where your first floor sits above ground floor. If theres no external wall underneath you will need something to support it.
 
-### Simple Shapes Save Money
+#### How to improve this
 
-Complex wall configurations with ins and outs require additional framing, gyprock, and painting. Simpler rectangular designs prove more efficient.
+Ensure there is framing or external wall for part of the room to run along.
+
+### Ins and Outs
+
+On a level block a square/rectangle would be the most efficient design. Where walls go in and out this leads to more walls being required which means more framing, gyprock, painting, etc.
 
 ## Windows
 
-Several design choices significantly impact window costs:
+Take a look at the [Windows](/windows/) page for more detail on the different types of windows and their costs.
 
-**Size Limitations**: Windows exceeding 2.4 metres require commercial-grade upgrades, adding hundreds to thousands of dollars.
+Things that can blow the budget:
 
-**Large Single Pane Windows**: Windows over 80kg trigger onsite glazing fees (approximately $500 per window) and may require crane installation.
+#### Windows/Doors exceeding 2.4m
 
-**Strategic Placement**: Aligning window headers with eaves on lower-ceiling first floors saves approximately $50–$100 per window by eliminating redundant lintels.
+When you need a larger size than this you need to upgrade to commercial windows. These can add anywhere from a few hundred to a few thousand extra.
 
-**Standard Sizing**: Using standard window dimensions can reduce costs by matching brick courses and avoiding storm moulding.
+#### Large Single Pane Windows
 
-## Roof Design
+Large single pane windows – Where the windows exceed 80kg the window company can charge an onsite glazing cost which is around $500 per window. You may also require a crane to move the window if its to the back of the house.
 
-Minimising ridges and valleys reduces complexity and associated expenses.
+You can break up the windows into sections however if you use silicone to join them together instead of a frame this can cost extra too
+
+<div class="cols">
+<div class="col">
+<figure><img src="/images/tips-for-an-efficient-build-design/windows-broken-into-sections.png" alt="" width="975" height="533" loading="lazy"><figcaption>Windows broken into sections</figcaption></figure>
+</div>
+<div class="col">
+<figure><img src="/images/tips-for-an-efficient-build-design/silicone-seal-between-windows.png" alt="" width="696" height="399" loading="lazy"><figcaption>Silicone seal between windows</figcaption></figure>
+</div>
+</div>
+
+#### Windows to the eaves
+
+If you have lower first floor ceilings, say around 2.4-2.5m, you can save a little bit by having each windows lintel/head be just below the eves. You would save on having the cost of a lintel to support the bricks above it. Around $50-100 per window can be saved.
+
+### Standard Window Sizes
+
+If the windows are standard sizes, they would match the brick courses and this means a storm mould isn't required. It's a small saving and worth checking the cost difference for installation.
+
+Some window manufacturers have standard sizes which are cheaper than custom but not all follow this rule eg. Wideline do have cheaper residential standard sizing than custom but Stegbar don't.
+
+## Roof
+
+Minimise ridges and valleys. The cost difference should be discussed with the build. (Todo: show example with master bedroom roof line)
 
 ## Landscaping
 
-**Retaining Walls**: Walls exceeding 600mm require engineering certification. Strategic house placement — raising, lowering, or creating splits — may reduce excavation requirements and certification needs.
+### Retaining Walls
+
+If retaining walls are required that are over 600mm in some areas you will need them to be designed by an engineer and be certified. By raising or lowering the house or having splits you may be able to reduce this as fewer cuts or fills might be required.
