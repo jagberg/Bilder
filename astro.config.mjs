@@ -9,7 +9,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
-  adapter: cloudflare(),
+  adapter: cloudflare({ platformProxy: { enabled: false } }),
   integrations: [react(), keystatic(), pagefind()],
   site: 'https://bilder.com.au',
   vite: {
