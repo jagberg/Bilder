@@ -23,12 +23,9 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to Cloudflare Workers
+      - name: Deploy to Cloudflare Workers (root)
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # The Astro adapter generates the full wrangler config at dist/server/wrangler.json
-          # Run from that directory so relative paths (entry.mjs, ../client) resolve correctly
-          workingDirectory: dist/server
-          command: deploy
+          command: deploy --config dist/server/wrangler.json
