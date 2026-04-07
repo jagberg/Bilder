@@ -149,8 +149,23 @@ Thermal and Acoustic Ratings for NRG and Hebel PowerPanels
 
 The choice of material for a wall will result in different types of maintenance required to keep it clean and looking new and watertight.
 
-| Material | Pros | Cons |
-|----------|------|------|
-| **Bricks** | No repainting and minimal maintenance to retain the look. | A common area of discolouration is on parapet walls where a capping doesn't drain water away from it and it can result it streaks forming on it. If the colour of the brick is painted on, which is on the entry level bricks then when there are chips to the bricks the brown colour will be visible. |
-| **Render** | A good paint can retain the colour for a long time. Using acrylic render will help reduce cracks | Will need to be repainted every few years as the paint discolours or is stained. Cracks would need to be patched. Patching can be costly. EPS is easier and cheaper to patch vs Hebel |
-| **Cladding** | With some cladding systems it can be easy to replace broken panels | Will need to be repainted every few years as the paint discolours or is stained. Gaps can open due to thermal expansion and require caulking every few years in some areas |
+<table>
+<tbody>
+<tr><td>Material</td><td>Pros</td><td>Cons</td></tr>
+<tr>
+  <td><strong>Bricks</strong></td>
+  <td>✅ No repainting and minimal maintenance to retain the look.</td>
+  <td>❌ A common area of discolouration is on parapet walls where a capping doesn't drain water away from it and it can result it streaks forming on it.<br>❌ If the colour of the brick is painted on, which is on the entry level bricks then when there are chips to the bricks the brown colour will be visible.</td>
+</tr>
+<tr>
+  <td><strong>Render</strong></td>
+  <td>✅ A good paint can retain the colour for a long time. Using acrylic render will help reduce cracks</td>
+  <td>❌ Will need to be repainted every few years as the paint discolours or is stained<br>❌ Cracks would need to be patched<br>❌ Patching can be costly. EPS is easier and cheaper to patch vs Hebel</td>
+</tr>
+<tr>
+  <td><strong>Cladding</strong></td>
+  <td>✅ With some cladding systems it can be easy to replace broken panels</td>
+  <td>❌ Will need to be repainted every few years as the paint discolours or is stained.<br>❌ Gaps can open due to thermal expansion and require caulking every few years in some areas</td>
+</tr>
+</tbody>
+</table>
