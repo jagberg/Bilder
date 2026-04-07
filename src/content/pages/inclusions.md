@@ -464,82 +464,85 @@ These can be great where you dont want to leave a door open during winter or sum
 Below will be described in more detail in the next few weeks and include some inclusions to think about for your home
 
 **Home**
-- 3 coat paint (Endure)
+- Flooring GF + FF – Laminate ($55 m2)
 - Cladded Areas – Hebel or similar rendered look
-- 2340 High Doors GF + FF
-- Hume Accent Doors or equivalent
-- Front Door Upgrade – 2k PA
-- Flyscreens (fibreglass) to all windows & Doors
-- Dog door sliding door
+
+**Internal Finishes**
+- 3 coat paint (Endure)
+- Soundproofing between floors (Soundscreen/similar) – At least R3.1
+- Soundproofing (walls) – R2.7
+- Staircase Upgrade (White riser, timer tread & balustrade)
+- Slimline air con wall grill (x4)
+
+**Bathrooms**
+- Provide hobless shower to Master Ensuite including long grated drain
+- Smart Tiles
+- Soft close toilets
+- Floating vanities
+- Drawer set to all bathrooms
+- Floor to Ceiling Tiles – Master + Guest only
+- 20mm stone tops
+- Freestanding bath in master
+- Semi frameless showers
+- Shower Niche to all bathrooms
+
+**Site Costs**
+- M Slab
+- Facebricks
+- Overhead Pole
+- Kerb & Gutter Layback
+- Hydraulics
+- Soil Removal incl Rock & Drop edge
+- Zone Allowance – Hurstville/Georges River Council
+- Traffic Control Plan
+- Dilapidation Report
+- Fibre optic writing
+- NBN prewiring
+- 10.7 Cert & 88b
+- Additional concrete pump
+- Saline soil upgrade
+- Shade cloth to scaffolding
+- Traffic control
+- Additional site handling
+- New layback to new driveway
+- Footpath cutout
+- Fibre optic wiring
+- Relocate existing water tap by driveway
 
 **Windows**
+- 2340 High Doors GF + FF
 - Obscure Glazing – As required for CDC
 - Feature window to Kitchen
 - Highlight/side windows to entrance
+- Hume Accent Doors or equivalent
 - Skylight to Master Ens – Fixed 550×700
-- Fibre optic writing
-- Fibre optic wiring
+- Flyscreens (fibreglass) to all windows & Doors
+- Front Door Upgrade – 2k PA
+- Dog door sliding door
 
-**Internal Finishes**
-- Flooring GF + FF – Laminate ($55 m2)
-- 20mm stone tops
+**Kitchen** (25k PA for below + other cabinets)
+- Hot/Cold to island (capped)
 - 40mm Benchtops (Caesarstone or similar)
 - Tile splashback
 - Undermount Sink
 - Microwave tower including, set of 3 drawers with soft closers under and cupboard above
 - Separate Oven + Cooktop
-- Polyurethane or vinyl wrap for shaker cupboards
 - 3x Set of pot drawers
-
-**Bathrooms**
-- Provide hobless shower to Master Ensuite including long grated drain
-- Soft close toilets
-- Floating vanities
-- Drawer set to all bathrooms
-- Floor to Ceiling Tiles – Master + Guest only
-- Semi frameless showers
-- Shower Niche to all bathrooms
-- Freestanding bath in master
-
-**Kitchen** (25k PA for below + other cabinets)
-- Hot/Cold to island (capped)
-- NBN prewiring
-
-**Electrical**
-- Electrical provisions
-- Standard BASIX package
-- Wall insulation – R3.5, incl garage
-- Ceiling insulation – R5.0, incl garage
-- Water & electrical at all 4 corners of house
-- 26 litre 6-star gas instantaneous hot water system
-
-**Site Costs**
-- M Slab
-- Kerb & Gutter Layback
-- Soil Removal incl Rock & Drop edge
-- Zone Allowance – Hurstville/Georges River Council
-- Traffic Control Plan
-- 10.7 Cert & 88b
-- Additional concrete pump
-- Saline soil upgrade
-- Shade cloth to scaffolding
-- Garage and Porch Strip Drain
-- Traffic control
-- Additional site handling
-- New layback to new driveway
-- Footpath cutout
-- Relocate existing water tap by driveway
+- Polyurethane or vinyl wrap for shaker cupboards
 
 **Landscaping**
 - Landscape Plan
+- Garage and Porch Strip Drain
+
+**Electrical**
+- Electrical provisions
+- Water to garden from rain tank
+- Water & electrical at all 4 corners of house
 
 **Other**
 - BASIX – 3000L Tank
-- Water to garden from rain tank
+- Standard BASIX package
+- Wall insulation – R3.5, incl garage
+- Ceiling insulation – R5.0, incl garage
+- 26 litre 6-star gas instantaneous hot water system
 - 450mm eaves
-- Overhead Pole
-- Soundproofing between floors (Soundscreen/similar) – At least R3.1
-- Soundproofing (walls) – R2.7
-- Staircase Upgrade (White riser, timer tread & balustrade)
-- Hydraulics
-- Dilapidation Report

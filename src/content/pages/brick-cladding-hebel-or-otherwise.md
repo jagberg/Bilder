@@ -14,9 +14,9 @@ For the purpose of this post double brick walls are excluded.
 
 Theres a pretty good site that explains the differences in more detail from [Forsyth](https://forsyth35.com/2018/05/06/hebel-vs-brick/)
 
-# What the House Looks Like
+## What the House Looks Like
 
-## Brick Veneer / Facebrick
+### Brick Veneer / Facebrick
 
 <div class="cols">
 <div class="col">
@@ -46,7 +46,7 @@ Consider the maintenance that comes with a rendered house. A face brick house fo
 <div class="cols">
 <div class="col">
 
-#### Rendered Bricks
+### Rendered Bricks
 
 Common extruded bricks would be used along with acrylic render used afterwards. Common bricks at the time of writing from Austral would cost [$1598](https://australbricks.com.au/nsw/product/commons/) and render on the entire house would quite easily add another $25k.
 
@@ -57,7 +57,7 @@ They are cheaper to lay than face brick as the render will hide imperfections ho
 </div>
 <div class="col">
 
-#### Hebel PowerPanel
+### Hebel PowerPanel
 
 Hebel is a lightweight aerated concrete that has been around for over 50 years and was invented in Germany. Its quick to put up and is a cheaper alternative to rendered brick. Hebel is often a like for like cost comparison to brick veneer and builders will often allow you to choose between either with no cost difference.
 
@@ -77,7 +77,7 @@ There are thermal and soundproof/acoustic benefits that are described later in t
 <div class="cols">
 <div class="col">
 
-#### EPS (Expanded Polystyrene)
+### EPS (Expanded Polystyrene)
 
 Similar to Hebel but made of a type of polystyrene its a lightweight material that has acrylic render added to it after installation.
 
@@ -88,7 +88,7 @@ Similar to Hebel but made of a type of polystyrene its a lightweight material th
 </div>
 <div class="col">
 
-#### Blueboard / James Hardie Fine Texture Cladding
+### Blueboard / James Hardie Fine Texture Cladding
 
 This is a fibre cement board which doesnt offer the same structure, thermal and sound benefits as other materials. This is pre-sealed and ready to paint so render isn't required to go over it saving time and money over Hebel Power Panels and EPS.
 
@@ -108,7 +108,7 @@ They are however lightweight materials and don't provide much in terms of therma
 <div class="cols">
 <div class="col">
 
-#### James Hardie Scyon
+### James Hardie Scyon
 
 <figure><img src="/images/brick-cladding-hebel-or-otherwise/james-hardie-scyon.png" alt="" width="1024" height="457" loading="lazy"><figcaption>James Hardie Scyon</figcaption></figure>
 
@@ -117,7 +117,7 @@ These are a fibre cement board that are installed by overlapping each other hori
 </div>
 <div class="col">
 
-#### James Hardie Matrix
+### James Hardie Matrix
 
 <figure><img src="/images/brick-cladding-hebel-or-otherwise/james-hardie-matrix.png" alt="" width="414" height="227" loading="lazy"><figcaption>James Hardie Matrix</figcaption></figure>
 
