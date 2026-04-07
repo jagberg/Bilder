@@ -150,8 +150,10 @@ Thermal and Acoustic Ratings for NRG and Hebel PowerPanels
 The choice of material for a wall will result in different types of maintenance required to keep it clean and looking new and watertight.
 
 <table>
+<thead>
+<tr><th>Material</th><th>Pros</th><th>Cons</th></tr>
+</thead>
 <tbody>
-<tr><td>Material</td><td>Pros</td><td>Cons</td></tr>
 <tr>
   <td><strong>Bricks</strong></td>
   <td>✅ No repainting and minimal maintenance to retain the look.</td>
