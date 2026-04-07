@@ -8,7 +8,7 @@ draft: false
 
 # Soundproofing Your House
 
-<pre class="wp-block-preformatted">Sound transmission is measured by Weighted Sound Reduction Index (Rw) – the number used to rate the effectiveness of a soundproofing system or material. In conjunction with the Rw value, the Ctr is an adjustment factor used to account for low frequency noise. The higher the Rw+Ctr value, the less chance you have of hearing the noise.</pre>
+Sound transmission is measured by Weighted Sound Reduction Index (Rw) – the number used to rate the effectiveness of a soundproofing system or material. In conjunction with the Rw value, the Ctr is an adjustment factor used to account for low frequency noise. The higher the Rw+Ctr value, the less chance you have of hearing the noise.
 
 Acoustic effectiveness is measured through AAAC star ratings. The higher the rating the more the sound is reduced.
 
@@ -18,7 +18,7 @@ Acoustic effectiveness is measured through AAAC star ratings. The higher the rat
 
 ### Hebel Powerfloor
 
-<pre class="wp-block-preformatted">Budget: 15k to 30k+</pre>
+<pre>Budget: 15k to 30k+</pre>
 
 Powerfloors are generally considered the best product (other than a concrete poured floor) for sound insulation. There is however mixed reviews online about their effectiveness and my advice would be to do some research on this through other forums as well as Facebook groups.  The Powerfloors also help with different types of noise transfers but not all.
 
@@ -66,8 +66,7 @@ Bradford SoundScreen is a common product used for sound insulation.
 
 ### Resilient/Furring Channel and Sound Isolation Clips
 
-<pre class="wp-block-preformatted">Budget: 
-Sound Isolation clips: $6 per clip and roughly 3 p/m2 or $18 p/m2</pre>
+<pre>Budget: Sound Isolation clips: $6 per clip and roughly 3 p/m2 or $18 p/m2</pre>
 
 These are used to help with impact noise as they help decouple the drywall from the structure. The resilient channel aka. furring channel, will absorb some of the impact and the sound isolation clips improve this further.
 
