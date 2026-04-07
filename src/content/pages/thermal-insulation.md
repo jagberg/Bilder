@@ -37,7 +37,7 @@ Another important factor is the thickness of the material used as this will limi
 
 Small gaps in ceiling insulation can cause a lot of heat or cold air to pass through. A good option is to use a cross hatch installation which crisis crosses each other.
 
-## Sarking / Wall Wraps
+### Sarking / Wall Wraps
 
 Its used for:
 
@@ -51,15 +51,17 @@ More details can be found on the [Bradford Wall Wrap](https://www.bradfordinsula
 
 Bradford has some good information on the various options that are worth exploring in more detail.
 
-### Anticon
+### Roof Insulation
+
+#### Anticon
 
 <figure><img src="/images/thermal-insulation/anticon-blanket.png" alt="" width="1024" height="536" loading="lazy"><figcaption>Anticon Blanket</figcaption></figure>
 
 This is essentially a foil that is attached to an insulation blanket. Its common for colorbond roofs.
 
-## Roof Sarking
+### Roof Sarking
 
-### Sarking
+#### Sarking
 
 This is used for:
 

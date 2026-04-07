@@ -8,8 +8,6 @@ draft: false
 
 # Structural Considerations
 
-Structural decisions made during design can significantly impact your build cost and flexibility.
-
 ## External Walls
 
 Hebel vs Brick vs Cladding
@@ -42,10 +40,4 @@ To reduce this consider the following
 
 *LVL: Laminated veneer lumber (LVL) is an engineered wood product that uses multiple layers of thin wood assembled with adhesives
 
-<div class="cols">
-<div class="col">
 <figure><img src="/images/structural-considerations/lvl-support.png" alt="" width="732" height="373" loading="lazy"><figcaption>LVL Support</figcaption></figure>
-</div>
-<div class="col">
-</div>
-</div>

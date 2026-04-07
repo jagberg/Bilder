@@ -52,7 +52,7 @@ If you intend to get quotes and tenders from builders it's sufficient to just do
 
 <figure><img src="/images/architect-plans/window-schedule.png" alt="" width="640" height="179" loading="lazy"><figcaption>Window Schedule</figcaption></figure>
 
-- Door Schedule
+  - Door Schedule
   - Landscape Plan
   - 3D Front Elevation
 
