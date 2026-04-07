@@ -51,17 +51,11 @@ Think about how you will use your home at different points of the day and for sp
 
 For tips on lighting and where to place them head over to [Lighting Tips and Ideas for a New Home](/lighting-tips-and-ideas-for-a-new-home/)
 
-<div class="cols">
-<div class="col">
-
 ### Downlights and provisions
 
 Builders will normally allow for a single oyster light per room and may include a handful of downlights for the home. Almost all people will prefer to have downlights throughout their home and the costs can add up quickly as you can easily use between 50-100 in your home depending on your size.
 
 To reduce the cost you can ask for the downlight to be provisioned which means the hole and 413 electrical socket will be provided and all you have to do is buy the downlight, push it through the hole and plug it in as its a standard plug (an electrician might be required to do this but theres mixed viewpoints on this). Its common for people to do this and doesnt take any skill to do this. Builders will use downlights that cost around $10 so you can save a lot by doing this yourself or you can spend the difference on wireless lighting or ones with different colours. Some electrical companies wont allow this and they might only provision a batten.
-
-</div>
-</div>
 
 ## Home Automation
 
