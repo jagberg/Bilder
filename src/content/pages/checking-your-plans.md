@@ -152,7 +152,7 @@ For bedroom ensuites and wardrobes check that doors arent missing entirely. Some
 
 #### Wheelchair Access
 
-You might not need a wheelchair now but what happens in a few years when an elderly parent comes to stay with you or yourself requires one. The doorway needs to be at least 850mm wide and theres a few other things to consider. If its important to you then look further into it. The new NCC 2022 Vol 2 requirements come into effect on May 2023 which require houses to be designed to be wheelchair accessible. NSW has not signed up to this.
+You might not need a wheelchair now but what happens in a few years when an elderly parent comes to stay with you or yourself requires one. The doorway needs to be at least 850mm wide and theres a few other things to consider. If its important to you then look further into it. The new [NCC 2022 Vol 2](https://ncc.abcb.gov.au/editions/ncc-2022/preview/volume-two/h-class-1-and-10-buildings/part-h8-livable-housing-design) requirements come into effect on May 2023 which require houses to be designed to be wheelchair accessible. NSW has not signed up to this.
 
 </div>
 </div>

@@ -44,19 +44,19 @@ Its important to familiarise yourself with the NSW Fair Trading acts which prote
 
 #### 13 weeks
 
-<pre class="wp-block-preformatted">Cover: Warranty (Defects and Liability period)</pre>
+<pre>Cover: Warranty (Defects and Liability period)</pre>
 
 Considered the defects and liability period, these include things like cracks in the wall, gaps in the floorboards, etc.
 
 #### 2 years
 
-<pre class="wp-block-preformatted">Cover: Minor or Non structural defects</pre>
+<pre>Cover: Minor or Non structural defects</pre>
 
 Covers most reasonable defects found in the home.
 
 #### 6 years
 
-<pre class="wp-block-preformatted">Cover: Major or Structural defects</pre>
+<pre>Cover: Major or Structural defects</pre>
 
 From the Home Warranty Insurance Fund definition, the definition is below. It's important to seek legal advice on this because whats structural can be ambiguous and I wouldn't go by what one person says, be that the builder who may say it isn't or another person in the industry.
 
