@@ -12,6 +12,8 @@ draft: false
 
 ### Contour Survey
 
+<figure><img src="/images/how-to-save-on-costs/contour-survey.png" alt="" width="724" height="1024" loading="lazy"><figcaption>Contour Survey</figcaption></figure>
+
 It costs about $1200 for a contour survey and if you intend to tender through multiple builders its a cost you may want to minimise.
 
 At the tender stage there's no need to repeat these costly surveys and the builders you have chosen may accept previous ones you've done to reduce the deposit required but not all will agree to this. If you are doing this through the builder for the first time, ask them if you can get a copy of the .dwg file and the report. The .dwg file is used by the draftsman to include that in their plans and without these they cant do this and would need new ones to be done. If they wont supply this then you may want to engage the surveyor directly and pay for this upfront, and as its the same company the builder uses, then they may be willing to use them. Alternatively you can pay the surveyor afterwards for a copy as they wont need to repeat it which would cost about $300-500.

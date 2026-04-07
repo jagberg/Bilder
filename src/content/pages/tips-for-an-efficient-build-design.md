@@ -14,17 +14,25 @@ draft: false
 
 If you design a passive home you may require less double glazing or other alterations to the design to comply with BASIX and NatHERS. An architect or energy assessor can help you with this aspect of the home. Builders can pass on large extra costs to comply which might not have been required if the design incorporated these principles from the start.
 
+todo: Add BASIX examples like changing from solar to a washing line to pass BASIX energy component
+
 ## Walls
 
 ### How the First Floor sits above the Ground Floor
 
 Take a look at where your first floor sits above ground floor. If theres no external wall underneath you will need something to support it.
 
+todo: steel span across 6m
+
 #### How to improve this
 
 Ensure there is framing or external wall for part of the room to run along.
 
+todo: add photos
+
 ### Ins and Outs
+
+todo: show photos
 
 On a level block a square/rectangle would be the most efficient design. Where walls go in and out this leads to more walls being required which means more framing, gyprock, painting, etc.
 
@@ -32,7 +40,7 @@ On a level block a square/rectangle would be the most efficient design. Where wa
 
 Take a look at the [Windows](/windows/) page for more detail on the different types of windows and their costs.
 
-Things that can blow the budget:
+Things that can blow the budget (todo: add photos):
 
 #### Windows/Doors exceeding 2.4m
 

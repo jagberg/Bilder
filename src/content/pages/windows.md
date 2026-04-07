@@ -14,13 +14,13 @@ Windows are a very important aspect of a home and careful consideration should b
 
 Your first decision is to decide on the material such as timber, aluminium or uPVC.
 
-### Timber
+#### Timber
 
 <figure><img src="/images/windows/cedar-timber-window.png" alt="" width="274" height="220" loading="lazy"><figcaption>Cedar Timber</figcaption></figure>
 
 Timber frames are normally made from cedar which requires a lot of maintenance with sanding, re-staining, re-coating, and suffer from blackening/greying of timber. Timber can also be very expensive. If you have dogs, its very difficult to fix scratches on the doors. They can be stained in different colours and they also offer a wide profile.
 
-### Aluminium & Thermally Broken Aluminium
+#### Aluminium & Thermally Broken Aluminium
 
 <figure><img src="/images/windows/thermally-broken-aluminium-window.png" alt="" width="218" height="224" loading="lazy"><figcaption>Thermally Broken Aluminium</figcaption></figure>
 
@@ -28,13 +28,13 @@ Aluminium is common and has little maintenance compared to timber however comes 
 
 Thermally broken aluminium is thermally efficient. A non-conductive piece like uPVC is placed in the middle of the frame to prevent heat and cold from transferring through. Visually it looks the same as standard aluminium.
 
-### uPVC
+#### uPVC
 
 <figure><img src="/images/windows/upvc-window.png" alt="" width="284" height="188" loading="lazy"><figcaption>uPVC</figcaption></figure>
 
 uPVC offers many of the benefits of timber frames and aluminium but with fewer drawbacks than both. They are the most thermally efficient material and offer wide profiles like commercial windows.
 
-### Composite Windows (Timber + Aluminium)
+#### Composite Windows (Timber + Aluminium)
 
 <figure><img src="/images/windows/composite-timber-aluminium-window.png" alt="" width="151" height="187" loading="lazy"><figcaption>Composite Timber + Aluminium</figcaption></figure>
 
@@ -95,7 +95,7 @@ Types of windows
 
 Skylights will cost around $2300 to $2700 for a fixed skylight. Theres a few different standard sizes from Velux that are worth looking into as the cost different isnt much between them.
 
-<figure><img src="https://velcdn.azureedge.net/-/media/marketing/au/images/size_charts/fs%20vs%20vss%20-%202021.jpg" alt="" loading="lazy"><figcaption>Skylight sizes (pitched roofs)</figcaption></figure>
+<figure><img src="https://velcdn.azureedge.net/-/media/marketing/au/images/size_charts/fs%20vs%20vss%20-%202021.jpg?h=154&amp;iar=0&amp;w=940&amp;cc=grid_12&amp;key=1624441786" alt="" loading="lazy"><figcaption>Skylight sizes (pitched roofs)</figcaption></figure>
 
 ## Glazing Options
 
@@ -140,7 +140,7 @@ For thermal efficiency thermally broken windows are a major factor to consider a
 
 On a standard aluminium window its rare to find a UVal lower than 3 with double glazing and low-e whereas with thermally broken frames 1.5 is easily possible. A lot of people spend money changing from a single glazed window which has a rating of 6 to double glazing which just gets to 3.6 which is good but not great.
 
-### Wideline Windows Specifications
+#### Wideline Windows
 
 | Window Type | Frame | Glazing | U-Val | SHGC | TV | AI |
 |-------------|-------|---------|-------|------|----|----|
@@ -167,7 +167,7 @@ On a standard aluminium window its rare to find a UVal lower than 3 with double 
 | Stacker Door | Paragon | 6.38mm ComfortPlus Neutral | 4.7 | 0.39 | 0.43 | 0.39 |
 | Stacker Door | ASCEND | 6.38mm Clear Laminate | 6.1 | 0.63 | 0.69 | 0.91 |
 
-### Stegbar Windows Specifications
+#### Stegbar Windows
 
 | Window Type | Frame | Glazing | U-Val | SHGC | TV | AI |
 |-------------|-------|---------|-------|------|----|----|
@@ -186,7 +186,7 @@ On a standard aluminium window its rare to find a UVal lower than 3 with double 
 | Sliding Window | Alumiere | 6.38mm ComfortPlus Clear | 4.8 | 0.56 | 0.65 | 0.63 |
 | Sliding Window | Aluminium | 6.38mm Clear Laminate | 6.2 | 0.69 | 0.75 | 1.28 |
 
-### Deceuninck uPVC Windows Specifications
+#### Deceuninck uPVC Windows
 
 | Window Type | Frame | Glazing | U-Val | SHGC | TV | AI |
 |-------------|-------|---------|-------|------|----|----|
@@ -235,7 +235,9 @@ Single pane Low-e glass has the coating on the inside and can be difficult to ma
 | Low-e + Privacy | SolTech – Neutral | 6mm | 63 | 41 | 3.7 | 0.54 | |
 | Privacy | JailGuard – Neutral | 23mm | 56 | <1 | 3.0 | 0.47 | |
 
-<figure><img src="/images/windows/low-e-glass-types.png" alt="" width="427" height="399" loading="lazy"><figcaption>Types of Low-e glass</figcaption></figure>
+<figure><img src="/images/windows/window-performance-factors.png" alt="" width="430" height="243" loading="lazy"><figcaption>Source: https://www.windowsdoors.com.au/news/u-value-shgc-explained</figcaption></figure>
+
+<figure><img src="/images/windows/types-of-low-e-glass.png" alt="" width="427" height="399" loading="lazy"><figcaption>Types of Low-e glass</figcaption></figure>
 
 <div class="cols">
 <div class="col">
@@ -268,6 +270,18 @@ Theres many types of flyscreens including fixed and retractable ones. Some indic
 - Retractable flyscreen – $2000 for 4m bifold doors
 
 <figure><img src="/images/windows/standard-window-flyscreen.jpeg" alt="" width="293" height="226" loading="lazy"><figcaption>Standard Window Flyscreen</figcaption></figure>
+
+<div class="cols">
+<div class="col">
+<figure><img src="https://www.wideline.com.au/wp-content/uploads/2021/06/wideline-screens-secureline.jpg" alt="" loading="lazy"><figcaption>Rigid Door Flyscreen</figcaption></figure>
+</div>
+<div class="col">
+<figure><img src="https://www.idealscreens.com.au/wp-content/uploads/2020/06/3.jpg" alt="" loading="lazy"><figcaption>Retractable Flyscreen</figcaption></figure>
+</div>
+<div class="col">
+<figure><img src="https://www.ediesflyscreens.com.au/wp-content/uploads/2015/02/flyscreens_security1.jpg" alt="" loading="lazy"><figcaption>Secure Flyscreen Door</figcaption></figure>
+</div>
+</div>
 
 ## Snapshot of pricing as of Jan 22
 

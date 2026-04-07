@@ -14,39 +14,53 @@ There are a few things to consider when building a home.
 
 This is the cost of building the same home on a level block and no changes made to the design
 
-## Site Costs ($20,000–$140,000+)
+## Site Costs
 
-Even for a flat block with ideal conditions a builder will charge you for this. Standard site costs are minimal. They can be broken down further
+Even for a flat block with ideal conditions a builder will charge you for this. Standard site costs are minimal. They can be broken down further.
 
-### Drop Edge Beams (DEB) ($0–$40,000+)
+### Drop Edge Beams (DEB) (0-40k+)
 
 Retaining walls positioned beneath the house structure.
 
-### Splits in Home ($0–$40,000+)
+### Splits in home (0-40k+)
 
 Higher ceilings with associated increased expenses.
 
-### Hydraulics ($10,000–$30,000)
+### Hydraulics (10-30k)
 
 Stormwater management systems requiring engineer design. Options include:
 
-- **OSD**: Underground detention tank releasing water gradually
-- **Charged System**: Rainwater tank with excess water diverted uphill
-- **Silt Arrestor Pit**: Gravel pit with grate allowing water infiltration
-- **Spreader System**: Gravel channel distributing water across landscape
-- **Easement**: Water flow through neighboring property (requires negotiation)
+#### OSD
 
-### Rock Removal ($5,000–$40,000)
+Underground detention tank releasing water gradually.
+
+#### Charged System
+
+Rainwater tank with excess water diverted uphill.
+
+#### Silt arrestor pit
+
+Gravel pit with grate allowing water infiltration.
+
+#### Spreader system
+
+Gravel channel distributing water across landscape.
+
+#### Easement
+
+Water flow through neighboring property and may require negotiation.
+
+### Rock Removal (5-40k)
 
 Excavation of unforeseen rocks during land preparation.
 
 ### Soil Removal
 
-Import/export costs for excess or insufficient soil.
+Import or export costs for excess or insufficient soil.
 
-### Traffic Management/Control ($5,000–$10,000)
+### Traffic Management/Control (5-10k)
 
-OH&S compliance; provisional amounts typically refunded for unused services.
+OH&S compliance; provisional amounts are typically refunded for unused services.
 
 ### Extra Piering
 
@@ -59,79 +73,71 @@ Builders have varying inclusions like 2740mm ceilings or polyurethane kitchen ca
 - 2740mm ceilings to both floors in a double storey
 - Polyurethane kitchens
 - 40mm stone benchtops
-- 600×600mm tiles or laminate
+- 600x600mm tiles or laminate
 
 ## Owner Costs
 
-### Demolition ($22,000–$40,000+)
+### Demolition
 
-<pre class="wp-block-preformatted">CDC approval: $880-1000
-Gas abolishment: $1,141
-Electricity disconnection: ~$300</pre>
+#### Demolition CDC
+
+CDC approval for demolition is typically around $880-1000.
+
+#### Gas Abolishment
+
+Gas abolishment can cost around $1,141.
+
+#### NBN Electricity Disconnection
+
+Electricity disconnection is roughly $300.
 
 ### Council Contribution
 
-Aka Section 7.11/7.12 Environmental, or previously Section 94 Contribution Plan, or Planning & Assessment Act, 1979 (EP&A Act) contribution plans
+Aka Section 7.11/7.12 Environmental, or previously Section 94 Contribution Plan, or Planning & Assessment Act, 1979 (EP&A Act) contribution plans.
 
 - Approximately 1% of build cost for single residential homes
-- $8,400–$20,000 for other types of properties like duplexes
-- Varies by council; some exempt certain building types (eg. Willoughby, Ku Ring Gai, Wollongong, Campbelltown, Bankstown)
+- $8,400-20,000 for other types of properties like duplexes
+- Varies by council; some exempt certain building types eg. Willoughby, Ku Ring Gai, Wollongong, Campbelltown, Bankstown
 
 <figure><img src="/images/budget/council-contributions-table.png" alt="" width="335" height="129" loading="lazy"></figure>
 
 <figure><img src="/images/budget/council-contributions-detail.png" alt="" width="741" height="173" loading="lazy"></figure>
 
-### Driveway ($9,000–$13,000)
+### Driveway
 
 A standard coloured concrete double driveway costs around $11k.
 
-#### Crossover Replacement ($4,000–$5,000)
+#### Crossover Replacement
 
 Many builders will include this cost in the tender so it's not normally a surprise.
 
-### OHS (Occupational Health & Safety)
+### OHS (Occupational Health Safety)
+
+#### Tiger Tails
 
 <figure><img src="https://www.tigertailsotago.co.nz/images/600/450/tiger-tails-safety-standards?h=ad5e47c5" alt="" width="450" height="338" loading="lazy"><figcaption>Tiger Tails</figcaption></figure>
 
-**Tiger Tails**: $2,000 (electrical wire safety covers)
+Electrical wire safety covers can cost around $2,000.
+
+#### Engineered Pool Cover / Pool Void Cover / Pool Hard Cover
 
 <figure><img src="/images/budget/pool-cover.jpeg" alt="" width="300" height="168" loading="lazy"><figcaption>Pool Cover</figcaption></figure>
 
-**Pool Cover/Void Cover**: $2,400–$4,000 (engineered hard covers)
+Engineered hard covers generally cost around $2,400-4,000.
 
 ### Pool
 
-<pre>Fibreglass: $50,000–$75,000
-Concrete: $60,000–$100,000+</pre>
+<pre>Fibreglass: $50,000-$75,000
+Concrete: $60,000-$100,000+</pre>
 
 ### Solar
 
 <pre>Tesla Battery: $16,000
-Solar Panels: $5,000–$25,000</pre>
+Solar Panels: $5,000-$25,000</pre>
 
 Builders can offer solar as a package but this is just an offer from an affiliate of theirs and doesnt offer any major benefits unless they wont pre-wire the home for you. Its still possible to do this after handover but you may have pipes along the side of your home, though look further into this.
 
 You may be able to get a government rebate to offset some of your costs. Its worth looking into a battery system like Teslas so that you dont pay for electricity and you can get paid for supplying power to the grid.
-
-### Independent Building Inspector ($800–$4,000)
-
-Multiple stage inspections at $800–$900 each.
-
-### Arborist Report (~$1,500)
-
-Required for trees meeting protection thresholds.
-
-### Acoustic Report ($1,650–$3,800)
-
-Necessary if property affected by aircraft noise, train lines, or similar.
-
-### BAL Report
-
-Bushfire risk assessment determining material requirements. Risk levels range from BAL-LOW to BAL-FZ.
-
-### Flood Report
-
-Check 10.7 certificate for flood zone impact.
 
 ### General Items
 
@@ -152,14 +158,34 @@ For properties built on new land you may not have a fence around the perimeter o
 
 - Front fencing: $12,000+
 
-### Steps from the House or Alfresco
-
-Unless otherwise requested, steps from the alfresco or the house eg. laundry, will need to be done after the build. These can be built by concrete or timber and there are cost effective ways of achieving this. You might be able to do this yourself as bunnings sells timber stair frames or you can construct it yourself. Over a certain height you may require balustrades.
-
 ### Landscaping
 
 After your build the land around the house will not be level and may even slope towards the house. The cost of landscaping can be considerable even for blocks of land that are 400-500 sqm.
 
 - Landscape designer: $800+
-- Levelling, soil and turf: $15,000–$25,000
+- Levelling, soil and turf: $15,000-25,000
 - Overall cost can easily come to over $100k for a low to medium feature design
+
+### Steps from the house or alfresco
+
+Unless otherwise requested, steps from the alfresco or the house eg. laundry, will need to be done after the build. These can be built by concrete or timber and there are cost effective ways of achieving this. You might be able to do this yourself as bunnings sells timber stair frames or you can construct it yourself. Over a certain height you may require balustrades.
+
+### Independent Building Inspector
+
+Multiple stage inspections are often $800-900 each.
+
+### Arborist Report
+
+Required for trees meeting protection thresholds and often costs around $1,500.
+
+### Acoustic Report
+
+Necessary if property affected by aircraft noise, train lines, or similar and can cost around $1,650-3,800.
+
+### BAL Report
+
+Bushfire risk assessment determining material requirements. Risk levels range from BAL-LOW to BAL-FZ.
+
+### Flood Report
+
+Check 10.7 certificate for flood zone impact.

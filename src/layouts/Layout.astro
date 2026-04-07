@@ -255,6 +255,7 @@ const recentPages = [
   #main-content h5,
   #main-content h6 {
     font-family: 'Poppins', sans-serif;
+    @apply clear-both;
   }
 
   #main-content h1 {
@@ -364,11 +365,27 @@ const recentPages = [
   }
 
   #main-content figure {
-    margin: 0 0 1.5em;
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 1.5em;
+  }
+
+  #main-content figure:not(.img-left):not(.img-right) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
   }
 
   #main-content figure img {
     margin: 0;
+  }
+
+  #main-content figure:not(.img-left):not(.img-right) img {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #main-content figcaption {
@@ -377,6 +394,23 @@ const recentPages = [
     text-align: center;
     font-style: italic;
     margin-top: 5px;
+  }
+
+  @media (max-width: 680px) {
+    #main-content figure {
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    #main-content figure:not(.img-left):not(.img-right) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #main-content figure img {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   /* Sidebar */

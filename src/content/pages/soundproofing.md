@@ -41,6 +41,8 @@ Details extracted from [Hebel data sheets](https://hebel.com.au/uploads/download
 | Commercial Floor Timber Floating Ground Floor Enclosed | 37dB | 33dB |
 | Commercial Floor Timber Floating 2nd Storey Gyprock Ceiling (CSR 822) | 57dB | 48dB |
 
+Powerfloor acoustic ratings (Higher the better)
+
 ### Underlay
 
 | Product | AAAC Rating | Thickness | Price |

@@ -1,0 +1,4 @@
+name = "bilder-site"
+
+[env.preview]
+name = "bilder-site-preview"

@@ -2,125 +2,341 @@
 export const prerender = true;
 
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-
-const allPages = await getCollection('pages', ({ data }) => !data.draft);
-
-// Group pages by category
-const categories = {
-  'budget': { label: 'Budget', pages: [] as typeof allPages },
-  'house-plans': { label: 'House Plans', pages: [] as typeof allPages },
-  'choosing-a-builder': { label: 'Choosing a Builder', pages: [] as typeof allPages },
-  'building-materials': { label: 'Building Materials', pages: [] as typeof allPages },
-  'inclusions-and-options': { label: 'Inclusions & Options', pages: [] as typeof allPages },
-  'pre-construction': { label: 'Pre-Construction', pages: [] as typeof allPages },
-  'construction': { label: 'Construction', pages: [] as typeof allPages },
-  'other': { label: 'Other', pages: [] as typeof allPages },
-};
-
-for (const page of allPages) {
-  const cat = page.data.category as keyof typeof categories;
-  if (cat && categories[cat]) {
-    categories[cat].pages.push(page);
-  }
-}
-
-// Sort each category by order
-for (const cat of Object.values(categories)) {
-  cat.pages.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
-}
 ---
 
-<Layout title="Home" description="Your complete guide to building a new home in Australia — budgeting, plans, choosing a builder, materials, and more.">
-  <div class="home-intro">
-    <h1>Welcome to New Build Journey</h1>
-    <p>Your comprehensive guide to building a new home in Australia. Whether you're just starting to research builders or you're deep in the construction phase, you'll find practical, real-world information here.</p>
-    <p>This guide is based on extensive research and firsthand experience evaluating over 75 builders, reviewing 150+ floorplans, and navigating every phase of the new home build process.</p>
-  </div>
+<Layout
+  title="Home"
+  description="The inspiration for this site came from the many posts I came across and responded to in the different social media groups like Facebook, Instagram and forums."
+>
+  <article class="home-page">
+    <h1>New Build Journey</h1>
 
-  <div class="category-grid">
-    {Object.entries(categories).map(([key, cat]) => cat.pages.length > 0 && (
-      <div class="category-block">
-        <h2>{cat.label}</h2>
+    <p>
+      The inspiration for this site came from the many posts I came across and responded to in the
+      different social media groups like Facebook, Instagram and forums. There were a lot of
+      similar questions asked and I enjoy helping others who were in a similar position to where I
+      was when I didn&apos;t know anything about the build process
+    </p>
+
+    <p>I hope this site helps you in your build journey.</p>
+
+    <p>If theres anything missing here that you think should be then please leave a comment below.</p>
+
+    <p>The typical journey follows a pattern like this</p>
+
+    <h2>1. Understand what your overall budget is</h2>
+
+    <p>
+      It can be overwhelming to find out what a house can cost to build. The
+      <a href="/budget/" title="Budget">Budget</a> guideline will help guide you on this.
+    </p>
+
+    <h2>2. Understand what home you want to build</h2>
+
+    <p>
+      You need to
+      <a href="/knowing-what-you-can-build/" title="Knowing what you can build">know what you can build</a>
+      on your land. This will be set by either DA (Council) or CDC (State) guidelines. The
+      critical points to initially understand are:
+    </p>
+
+    <h4>Floor to Space Ratio (FSR)</h4>
+    <p>Determines the size of the house you are allowed to build</p>
+
+    <h4>Setbacks</h4>
+    <p>
+      Side setbacks can be different for the ground and first floor and will impact the width and
+      length of the home that you can build.
+    </p>
+
+    <p>
+      For the home, you need to think about your use of the space and what&apos;s important to you,
+      not just for now but for later too. For example, a theatre room might be great when the kids
+      are older but for now, it may just need to be a playroom. If it&apos;s a playroom you might want
+      to have it in close sight from the kitchen. You should also consider the following for your
+      build:
+    </p>
+
+    <ul>
+      <li>Single or double storey</li>
+      <li>How many bedrooms and bathrooms</li>
+      <li>Single or double garage</li>
+      <li>Type of facade and overall look eg. modern, French provincial, Hamptons</li>
+      <li>Steps in the house or outside if it&apos;s on a slanting block</li>
+    </ul>
+
+    <h3>2.1 Understand what you don&apos;t want in your home</h3>
+
+    <p>
+      This is incredibly important because it helps narrow your search from an endless amount of
+      options to a few. Its hard to visualise a floorplan so its worthwhile
+      <a href="/getting-inspiration/" title="Getting Inspiration">Getting Inspiration</a>
+      and looking through
+      <a href="/sources-of-information/" title="Great Sources of Information for building a New Home">
+        Great Sources of Information for building a New Home
+      </a>
+    </p>
+
+    <h3>2.2 Designing a floorplan</h3>
+
+    <p>
+      You can engage with an
+      <a href="/architect-plans/" title="Custom designed plan">architect, building designer, or draftsman to come up with a custom design</a>.
+      Alternatively, you can choose a
+      <a href="/builder-floorplan/">builders floorplan</a>
+      and customise it. Almost everything except the staircase in a builders plan can be changed.
+    </p>
+
+    <h3>2.4 Visualising your home in 3D</h3>
+
+    <p>
+      When you look at a floor plan theres only so much you can see how the home might look at
+      feel. There are some great
+      <a href="/helpful-visualisation-apps/" title="Helpful visualisation apps">
+        3D apps which start with simple to very complex ones that can help you visualise the house
+      </a>.
+    </p>
+
+    <h3>2.3 Design Tips</h3>
+
+    <p>
+      Some parts of the design can lead to excessive costs to the build. There are
+      <a href="/tips-for-an-efficient-build-design/">tips in this link for an efficient building design</a>
+      that will still give you a great result at a lower cost.
+    </p>
+
+    <h2>3. Choosing a Builder</h2>
+
+    <p>
+      <a href="/choosing-a-builder/" title="Choosing a Builder">Choosing a Builder</a>
+      is important because this is who you will be working with over the next 1-2 years and there
+      are different aspects to investigate when doing so. I found the following valuable though
+      they&apos;re just a subset of what I would look for.
+    </p>
+
+    <ul>
+      <li>
+        There are various
+        <a href="/sources-of-information/" title="Sources of Information">Sources of information</a>
+        that you can go through to get opinions from others when deciding
+      </li>
+      <li>
+        Are you looking for
+        <a href="/custom-or-project-build/" title="Custom or Project Build">Custom or Project Build</a>
+      </li>
+      <li>
+        Can they do what you want within your
+        <a href="/budget/" title="Budget">Budget</a>
+      </li>
+      <li>
+        <a href="/what-to-do-before-paying-a-builder/" title="What to do before paying a builder">
+          What to do before paying a builder
+        </a>
+      </li>
+      <li>
+        <a href="/comparing-pricing-for-tenders/" title="Comparing Pricing for Tenders">
+          Comparing Pricing for Tenders
+        </a>
+      </li>
+    </ul>
+
+    <p>Take a look through the first link in this section for more about this.</p>
+
+    <h2>4. Pre-Construction Phase</h2>
+
+    <p>
+      This is what happens from signing to before construction starts and includes below. Its good
+      to understand what <a href="/inclusions/" title="Inclusions">inclusions</a> you want in your
+      build too as it will impact your overall cost.
+    </p>
+
+    <h3>4.1 Timeline</h3>
+
+    <figure class="home-timeline">
+      <img
+        src="/images/home/build-timeline-1.png"
+        alt=""
+        width="1024"
+        height="768"
+        loading="lazy"
+      />
+    </figure>
+
+    <p>
+      Each build is different and has different timelines for each phase of the development so its
+      best to confirm these with them. The timeline in the image provides a high level view of the
+      different stages of the pre-construction stage.
+    </p>
+
+    <p>Other stages to consider:</p>
+
+    <ul>
+      <li>Tender</li>
+      <li>Selections</li>
+      <li>Construction contract signing</li>
+      <li>DA/CDC</li>
+      <li>Demolition</li>
+    </ul>
+
+    <h3>4.2 Selections</h3>
+
+    <p>
+      The selections phase will provide you an opportunity to add many different options to your
+      home for example:
+    </p>
+
+    <ul>
+      <li>
+        Building Materials
         <ul>
-          {cat.pages.map(page => (
-            <li>
-              <a href={`/${page.id}/`}>{page.data.title}</a>
-            </li>
-          ))}
-          {key === 'inclusions-and-options' && (
-            <li>
-              <a href="/builder-margin-and-markup/">Builder Margin &amp; Markup</a>
-            </li>
-          )}
+          <li>
+            <a href="/brick-cladding-hebel-or-otherwise/" title="Brick, cladding or otherwise">
+              Brick, cladding or otherwise
+            </a>
+            - Brick, Hebel, James Hardie Cladding, etc.
+          </li>
+          <li>
+            <a href="/windows/">Windows</a>
+            - Residential frames, double glazing, uPVC/Aluminium/Timber frames, thermally broken
+            frames, and different types of windows and doors. This also considers different UVal
+            and SHGC values of glazing.
+          </li>
+          <li>
+            <a href="/thermal-insulation/">Thermal Insulation</a>
+            - Insulation in exterior and interior walls, between ceilings and otherwise. Comparing
+            different R ratings and their effectiveness.
+          </li>
+          <li>
+            <a href="/steel-or-timber-frame/" title="Timber vs Steel frame">Timber vs Steel Frame</a>
+          </li>
+          <li>
+            <a href="/soundproofing/">Soundproofing</a>
+            - Between walls and floors
+          </li>
         </ul>
-      </div>
-    ))}
-  </div>
+      </li>
+      <li>
+        Internal Fitout
+        <ul>
+          <li>
+            <a href="/electrical-plan-and-home-automation/">Electrical and Home Automation</a>
+            - 1 phase vs 3 phase, downlights, plug sockets, speakers, sensors, garden lighting
+            provisions and many other items
+            <ul>
+              <li>
+                <a href="/lighting-tips-and-ideas-for-a-new-home/" title="Lighting Tips">
+                  Lighting tips
+                </a>
+                - Ideas on where to place lights around the house with examples of different
+                options
+              </li>
+              <li>
+                <a href="/staircase/">Staircase</a>
+                - Modern or classic looks with examples of different options and pricing
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>4.3 Tips for a quicker timeframe</h3>
+
+    <p>
+      Your builder is busy with either a handful of clients all the way up to hundreds or even
+      thousands at a time. Just because you could be spending over $1mil on a build will mean very
+      little to the admin team. My biggest tip is dont trust the builder will get things right or
+      will have initiated something unless they&apos;ve confirmed this. Also dont trust that the costs
+      they pass on or the building regulations they say your build needs to follow is actually
+      required. People make mistakes and things can easily be misinterpreted. The following are
+      tips to help speed up your journey
+    </p>
+
+    <h4>4.3.1 Understand your build regulations</h4>
+
+    <ul>
+      <li>
+        Do your best to understand how the house will be built and learn the regulations that apply
+        eg. CDC vs DA setbacks, building heights, what types of windows can be used, etc. The more
+        you know the quicker you can make decisions and anticipate issues.
+      </li>
+      <li>
+        BASIX Requirements - You might be able to use alternative methods that are suggested to
+        pass this
+      </li>
+    </ul>
+
+    <h4>4.3.2 Council Requirements</h4>
+
+    <ul>
+      <li>
+        Call the council to find out more about your site like hydraulic requirements and what
+        options are available. When you receive your stormwater plans you will be more informed to
+        suggest alternative options that suit you more.
+      </li>
+      <li>
+        Driveway applications - Some councils can take 4 months or longer to approve these alone.
+        Call the council to find out what the current wait times are. Once you have your signed off
+        site plan ask for this application to be raised asap.
+      </li>
+      <li>
+        DA Applications - Dont wait for the admin team to update you on this. You can speak
+        directly to the council to find out where things are in the process and what is
+        outstanding. Its up to you to chase, the builder will mostly wait for the council to get in
+        touch with them unless you ask them to follow up.
+      </li>
+    </ul>
+
+    <h4>4.3.3 Selections Preparation</h4>
+
+    <p>
+      Be well prepared for your selections. You should know exactly what you want before going to
+      the appointments and have a list of items you want costings for. Going back and forth and
+      adding to these will further delay the process.
+    </p>
+
+    <h2>5. Construction</h2>
+
+    <p>Timeframes (single/double)</p>
+
+    <p>Build process:</p>
+
+    <ul>
+      <li>Demolition</li>
+      <li>Pool install (left empty and with an engineered had cover which can cost between 2-4k)</li>
+      <li>House build</li>
+      <li>PCI</li>
+      <li>Preliminary and full occupancy certificate</li>
+    </ul>
+
+    <h2>6. Maintenance/Warranty</h2>
+
+    <p>
+      Its important to know your rights here as builders can put off maintenance issues and defects
+      for weeks or months, sometimes longer, and people arent aware of ways they can reduce this.
+      Take a look at
+      <a href="/conflict-resolution/" title="Conflict Resolution &amp; Quality Control">
+        Conflict Resolution &amp; Quality Control
+      </a>
+      to know what you can do before and after the build.
+    </p>
+  </article>
 </Layout>
 
 <style>
-  .home-intro {
-    margin-bottom: 30px;
-    padding-bottom: 25px;
-    border-bottom: 1px solid #eee;
+  .home-page ul {
+    margin-bottom: 14px;
   }
 
-  .home-intro h1 {
-    margin-bottom: 15px;
+  .home-page ul ul {
+    margin-top: 6px;
   }
 
-  .home-intro p {
-    color: #555;
-    line-height: 1.7;
+  .home-page li {
+    margin-bottom: 4px;
   }
 
-  .category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-  }
-
-  .category-block {
-    background: #f9f9f9;
-    border: 1px solid #e5e5e5;
-    border-left: 4px solid #0073aa;
-    padding: 18px;
-  }
-
-  .category-block h2 {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #0073aa;
-    margin: 0 0 12px;
-    font-weight: 700;
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .category-block ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .category-block li {
-    padding: 4px 0;
-    border-bottom: 1px solid #eee;
-    font-size: 0.88rem;
-  }
-
-  .category-block li:last-child {
-    border-bottom: none;
-  }
-
-  .category-block a {
-    color: #333;
-  }
-
-  .category-block a:hover {
-    color: #0073aa;
-    text-decoration: underline;
+  .home-timeline {
+    margin: 0 0 1.5em;
   }
 </style>

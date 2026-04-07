@@ -28,19 +28,28 @@ const categoryLabels: Record<string, string> = {
 
 const categoryLabel = page.data.category ? categoryLabels[page.data.category] : null;
 
-// Build numbered TOC from h2/h3 headings
-const tocHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
+// Build TOC from headings. Most pages use h2/h3, but some long reference pages
+// need one extra depth level to match the source structure.
+const tocDepths = page.id === 'checking-your-plans' ? [2, 3, 4] : [2, 3];
+const tocHeadings = headings.filter(h => tocDepths.includes(h.depth));
 let h2Count = 0;
 let h3Count = 0;
+let h4Count = 0;
 const numberedToc = tocHeadings.map(h => {
+  const displayText = h.text.replace(/^\d+(?:\.\d+)*\.?\s+/, '');
   if (h.depth === 2) {
     h2Count++;
     h3Count = 0;
-    return { ...h, number: `${h2Count}` };
-  } else {
-    h3Count++;
-    return { ...h, number: `${h2Count}.${h3Count}` };
+    h4Count = 0;
+    return { ...h, number: `${h2Count}`, displayText };
   }
+  if (h.depth === 3) {
+    h3Count++;
+    h4Count = 0;
+    return { ...h, number: `${h2Count}.${h3Count}`, displayText };
+  }
+  h4Count++;
+  return { ...h, number: `${h2Count}.${h3Count}.${h4Count}`, displayText };
 });
 const showToc = numberedToc.length >= 3;
 
@@ -78,7 +87,7 @@ const lastModified = page.data.lastUpdated
       <ol class="toc-list">
         {numberedToc.map(h => (
           <li class={`toc-item toc-depth-${h.depth}`}>
-            <a href={`#${h.slug}`}>{h.number} {h.text}</a>
+            <a href={`#${h.slug}`}>{h.number} {h.displayText}</a>
           </li>
         ))}
       </ol>
@@ -152,12 +161,16 @@ const lastModified = page.data.lastUpdated
 
   .toc-list {
     margin: 0;
-    padding: 0 0 0 20px;
+    padding: 0 0 0 0;
     list-style: none;
   }
 
+  .toc-list .toc-item::marker {
+    content: "";
+  }
+
   .toc-item {
-    padding: 1px 0;
+    padding: 1px 0 1px 0;
     font-size: 13px;
     line-height: 1.6;
   }
@@ -175,6 +188,12 @@ const lastModified = page.data.lastUpdated
   .toc-depth-3 {
     padding-left: 18px;
   }
+
+  .toc-depth-4 {
+    padding-left: 36px;
+    font-size: 12px;
+  }
+
 
   .last-updated {
     font-size: 13px;
