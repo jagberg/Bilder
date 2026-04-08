@@ -40,26 +40,30 @@ In the chart below 6 bricks in length is 1430 wide and has a height of 514mm. Th
 <div class="col">
 <figure><img src="/images/checking-your-plans/internal-wall-90mm.png" alt="" width="107" height="277" loading="lazy"><figcaption>90mm internal walls</figcaption></figure>
 </div>
-</div>
+<div class="col">
 
 Sometimes there are changes you want from the draftsman which doesnt work and it requires a room to change dimensions to achieve this. It should be obvious that if you want to extend one room you have to take from another but there can be cascading issues as a result. Check the dimensions provided.
 
 You can see the lines here show the outside of the room is 4680mm but the inner dimensions are 4200mm which account for 240mm walls. Some builders also use 90mm internal walls instead of 70mm and vice versa.
 
+</div>
+</div>
+
 ### Windows
+
+<div class="cols">
+<div class="col">
 
 #### Dimensions
 
 On your plans you will see codes for the windows. Over here you can read 06-09 as 600 high by either 850 (Wideline) or 970 (Stegbar) wide, depending on the window manufacturer. ASW = Aluminium Sliding Window. Note that there is no standard numbering use by all window manufacturers. Check the window schedule or the elevations for the exact sizes.
 
-<div class="cols">
-<div class="col">
 <figure class="img-left"><img src="/images/checking-your-plans/window-code.png" alt="" width="155" height="73" loading="lazy"><figcaption>Window Code</figcaption></figure>
+
+<figure><img src="/images/checking-your-plans/wideline-vs-stegbar-codes.png" alt="" width="302" height="244" loading="lazy"><figcaption>Wideline vs Stegbar Codes</figcaption></figure>
+
 </div>
 <div class="col">
-<figure><img src="/images/checking-your-plans/wideline-vs-stegbar-codes.png" alt="" width="302" height="244" loading="lazy"><figcaption>Wideline vs Stegbar Codes</figcaption></figure>
-</div>
-</div>
 
 #### Head Heights
 
@@ -67,12 +71,10 @@ Are the windows all the same head height and are these high enough. If you have 
 
 Sometimes the elevations might hide some windows so if you want the head heights to be different to the others you want to explicitly have this on the plans.
 
-<div class="cols">
-<div class="col">
-<figure><img src="https://www.yourhome.gov.au/sites/default/files/inline-images/PD_Shading_12.png" alt="Shading | YourHome" width="210" height="139" loading="lazy"><figcaption>Window to the Eaves</figcaption></figure>
-</div>
-<div class="col">
-<figure><img src="/images/checking-your-plans/window-head-height-from-elevation.png" alt="" width="252" height="106" loading="lazy"><figcaption>Hidden head height from elevation</figcaption></figure>
+<figure class="img-left"><img src="https://www.yourhome.gov.au/sites/default/files/inline-images/PD_Shading_12.png" alt="Shading | YourHome" width="210" height="139" loading="lazy"><figcaption>Window to the Eaves</figcaption></figure>
+
+<figure class="img-left"><img src="/images/checking-your-plans/window-head-height-from-elevation.png" alt="" width="252" height="106" loading="lazy"><figcaption>Hidden head height from elevation</figcaption></figure>
+
 </div>
 </div>
 
@@ -222,11 +224,18 @@ If you have ducted aircon and you have a double storey home you will need to run
 
 Think about the size of the coffered ceiling and the position from the walls. For the kitchen you may want pendant lights but the dimensions might not work as initially planned and may need some adjustments.
 
+<div class="cols">
+<div class="col">
+
 ### Bulkheads
 
 <figure><img src="/images/checking-your-plans/bulkhead-plan.png" alt="" width="333" height="64" loading="lazy"><figcaption>Bulkhead</figcaption></figure>
 
 Check the height of the bulkhead and if you may want to have a door installed there now or later.
+
+</div>
+<div class="col"></div>
+</div>
 
 ### Electrical
 
@@ -237,6 +246,9 @@ For tips on where to place lighting there are a various scenarios covered in: [L
 ### Site Plan
 
 <figure><img src="/images/checking-your-plans/setbacks-and-floor-levels.png" alt="" width="1024" height="470" loading="lazy"><figcaption>Setbacks and Floor Levels</figcaption></figure>
+
+<div class="cols">
+<div class="col">
 
 #### Setbacks
 
@@ -250,6 +262,9 @@ Side setbacks are also set through CDC or DA. You may want to maximise this and 
 
 Retaining walls should be shown on the plans and will give you an indication of what you may need to do yourself. If its above a certain height you may need an engineered wall.
 
+</div>
+<div class="col">
+
 #### Floor Levels
 
 These are the elevation numbers which come from the survey and when they site the house they will take this into account in terms of how high or low they place the slab.
@@ -261,7 +276,10 @@ In the image above you can see the left Living has a finished floor level of 31.
 
 The Porch, Garage and the Alfresco should be around 85mm lower than the living areas to protect against water coming into the house. In this case its 31.710 vs 31.795.
 
-## Rainwater Tank, Hot Water System, A/C Unit
+</div>
+</div>
+
+### Rainwater Tank, Hot Water System, A/C Unit
 
 <figure class="img-left"><img src="/images/checking-your-plans/rainwater-tank-and-ac-unit.png" alt="" width="224" height="238" loading="lazy"><figcaption>Rainwater Tank and A/C Unit</figcaption></figure>
 
@@ -271,7 +289,7 @@ The rainwater tank, A/C unit and if you have an electric Hot Water System (HWS),
 
 The HWS should ideally be placed as close to your taps and showers as possible to reduce the time it takes to get hot water.
 
-## Wall and Roof Materials
+### Wall and Roof Materials
 
 <figure><img src="/images/checking-your-plans/wall-and-roof-materials.png" alt="" width="1024" height="252" loading="lazy"><figcaption>Wall and Roof Materials</figcaption></figure>
 
@@ -283,7 +301,10 @@ In the image you can see the following:
 
 In some areas you may notice the type of lightweight material which could be weatherboard, Hebel or otherwise.
 
-## Downpipes
+<div class="cols">
+<div class="col">
+
+### Downpipes
 
 <figure class="img-left"><img src="/images/checking-your-plans/downpipe.png" alt="" width="62" height="183" loading="lazy"><figcaption>Downpipe</figcaption></figure>
 
@@ -291,8 +312,19 @@ In some areas you may notice the type of lightweight material which could be wea
 
 In some cases its not possible to change the location of a downpipe but you might be able to change it from one side of a corner to another. Speak to your builder about alternative locations.
 
-## Water & Gas Points
+</div>
+<div class="col"></div>
+</div>
 
-<figure class="img"><img src="/images/checking-your-plans/external-water-tap.png" alt="" width="118" height="119" loading="lazy"><figcaption>External Water Tap</figcaption></figure>
+<div class="cols">
+<div class="col">
+
+### Water & Gas Points
+
+<figure class="img-left"><img src="/images/checking-your-plans/external-water-tap.png" alt="" width="118" height="119" loading="lazy"><figcaption>External Water Tap</figcaption></figure>
 
 Check the location and number of water taps located around the house. Also check if its rain water or from the mains. For a garden you may want to use the water from your rainwater tank for things like an irrigation system.
+
+</div>
+<div class="col"></div>
+</div>

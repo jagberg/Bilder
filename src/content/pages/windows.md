@@ -14,11 +14,17 @@ Windows are a very important aspect of a home and careful consideration should b
 
 Your first decision is to decide on the material such as timber, aluminium or uPVC.
 
+<div class="cols">
+<div class="col">
+
 #### Timber
 
 <figure><img src="/images/windows/cedar-timber-window.png" alt="" width="274" height="220" loading="lazy"><figcaption>Cedar Timber</figcaption></figure>
 
 Timber frames are normally made from cedar which requires a lot of maintenance with sanding, re-staining, re-coating, and suffer from blackening/greying of timber. Timber can also be very expensive. If you have dogs, its very difficult to fix scratches on the doors. They can be stained in different colours and they also offer a wide profile.
+
+</div>
+<div class="col">
 
 #### Aluminium & Thermally Broken Aluminium
 
@@ -28,17 +34,29 @@ Aluminium is common and has little maintenance compared to timber however comes 
 
 Thermally broken aluminium is thermally efficient. A non-conductive piece like uPVC is placed in the middle of the frame to prevent heat and cold from transferring through. Visually it looks the same as standard aluminium.
 
+</div>
+</div>
+
+<div class="cols">
+<div class="col">
+
 #### uPVC
 
 <figure><img src="/images/windows/upvc-window.png" alt="" width="284" height="188" loading="lazy"><figcaption>uPVC</figcaption></figure>
 
 uPVC offers many of the benefits of timber frames and aluminium but with fewer drawbacks than both. They are the most thermally efficient material and offer wide profiles like commercial windows.
 
+</div>
+<div class="col">
+
 #### Composite Windows (Timber + Aluminium)
 
 <figure><img src="/images/windows/composite-timber-aluminium-window.png" alt="" width="151" height="187" loading="lazy"><figcaption>Composite Timber + Aluminium</figcaption></figure>
 
 You can also get composite windows where the inside is timber and the outside is aluminium which significantly reduces its maintenance.
+
+</div>
+</div>
 
 | | Aluminium | Thermally Broken Aluminium | Timber | uPVC |
 |---|---|---|---|---|
@@ -55,11 +73,14 @@ Residential windows also come in standard sizes. If you want ones that are outsi
 
 When increasing your ceiling heights consider increasing your door and window heights as they can look out of place otherwise eg. consider 2.34/2.4m window heights with 2.7m ceilings. Also consider the head heights for the windows and make sure they are aligned with each other. For ceilings above 3m consider having standard window heights and having a highlight window above them.
 
-<figure><img src="https://st.hzcdn.com/simgs/pictures/kitchens/suncatcher-tim-casagrande-photography-img~bc21a3280ac29159_3-6861-1-de128bd.jpg" alt="" loading="lazy"><figcaption>Highlight Windows</figcaption></figure>
+<figure><img src="/images/windows/highlight-windows.jpg" alt="" loading="lazy"><figcaption>Highlight Windows</figcaption></figure>
 
 Doors and windows above 2.34m might not be possible with standard residential frames so you may be forced to upgrade to commercial frames. There is also a hard limit on the height of the commercial doors so go onto the manufacturer's website to confirm these heights.
 
 <figure><img src="/images/windows/wideline-sliding-door-max-dimensions.png" alt="" width="659" height="189" loading="lazy"><figcaption>Wideline Sliding Door: Max Heights and Widths</figcaption></figure>
+
+<div class="cols">
+<div class="col">
 
 | Brand | Type | Range |
 |---|---|---|
@@ -75,9 +96,16 @@ Doors and windows above 2.34m might not be possible with standard residential fr
 
 Window Brand Ranges
 
+</div>
+<div class="col"></div>
+</div>
+
 ## Types of Windows
 
 Consider the use of the windows because some types of windows provide a sealed system like an awning window where heat and sound cant pass easily whereas a sliding window will have a small gap in the middle of the window as it cant form a tight seal. Also when it's raining some types of windows will allow rain to come in more easily than others eg. awning vs sliding.
+
+<div class="cols">
+<div class="col">
 
 | Type | Airflow | Sound Isolation & Thermal loss (gaps) | Open during Rain | Pricing | Notes |
 |---|---|---|---|---|---|
@@ -91,15 +119,18 @@ Consider the use of the windows because some types of windows provide a sealed s
 
 Types of windows
 
+</div>
+</div>
+
 ### Skylight
 
 Skylights will cost around $2300 to $2700 for a fixed skylight. Theres a few different standard sizes from Velux that are worth looking into as the cost different isnt much between them.
 
-<figure><img src="https://velcdn.azureedge.net/-/media/marketing/au/images/size_charts/fs%20vs%20vss%20-%202021.jpg?h=154&amp;iar=0&amp;w=940&amp;cc=grid_12&amp;key=1624441786" alt="" loading="lazy"><figcaption>Skylight sizes (pitched roofs)</figcaption></figure>
+<figure><img src="/images/windows/skylight-options.png" alt="" loading="lazy"><figcaption>Skylight sizes (pitched roofs)</figcaption></figure>
 
 ## Glazing Options
 
-### Double Glazing
+#### Double Glazing
 
 Double glazing is where a window is constructed with 2 panes of windows that are separated by a pocket of air and that pocket of air will usually be injected with a type of gas. The thickness and type of window panels can be adjusted too.
 
@@ -107,21 +138,21 @@ Double glazing will help ensure there's less thermal loss through your windows a
 
 For larger windows/doors consider the total weight of it as it might require onsite glazing (unsure how this work for double glazing) or cranes to be used as it can be too heavy for people to carry themselves.
 
-### Glazing for sound/acoustics/noise reduction
+#### Glazing for sound/acoustics/noise reduction
 
 Double glazing has mixed messaging from the suppliers on its effectiveness. To be effective for sound proofing you would require a gap of over 100mm to be as effective. Wideline for instance use a product called Viridian's VLam Hush™ which is a laminated glass product suitable for acoustic treatments. Density plays a crucial part.
 
-### Glazing for thermal efficiency
+#### Glazing for thermal efficiency
 
 Low-e or Comfort (Viridian) are often used as alternatives to double glazing as you don't need to upgrade the frame to commercial ranges and can save you on onsite glazing costs too.
 
-### Other window costs
+#### Other window costs
 
 Onsite glazing – If a single window is more than 80kg (there can be leniency in this) it may require onsite glazing which would cost at least $500 per window. The window may also require craning which would add another significant cost.
 
 ## Thermal Efficiency & How to Compare Windows for this
 
-Source: https://www.windowsdoors.com.au/news/u-value-shgc-explained
+<figure class="img-left"><img src="/images/windows/glazing-types-diagram.png" alt="" width="260" height="333" loading="lazy"><figcaption>Source: https://www.windowsdoors.com.au/news/u-value-shgc-explained</figcaption></figure>
 
 ### Window Factors
 
@@ -208,7 +239,10 @@ Its very difficult for a single glazed window, no matter the treatment applied o
 
 Viridian is one of the main glass suppliers in Australia and has multiple products that can be considered for your use case.
 
-Low-e windows are common and they make a significant difference compared to standard clear windows. They go through a process of either (source from Viridian – what-is-the-difference-between-hard-coated-and-soft-coated-low-e-glass)
+<div class="cols">
+<div class="col">
+
+Low-e windows are common and they make a significant difference compared to standard clear windows. They go through a process of either (source from [Viridian – what-is-the-difference-between-hard-coated-and-soft-coated-low-e-glass](https://www.viridianglass.com/resources/faqs/energy/what-is-the-difference-between-hard-coated-and-soft-coated-low-e-glass/))
 
 - Soft coated Low E glasses
   - must be incorporated into a double glazed unit as the coating is 'less durable' than a hard coated (pyrolytic) coating when exposed to the atmosphere. Soft coated Low E glasses cannot be glazed in single glazed applications but hard coated products such as ComfortPlus™ and EnergyTech™ can.
@@ -217,6 +251,12 @@ Low-e windows are common and they make a significant difference compared to stan
 - Hard-coated Low E glasses are manufactured online during the float manufacturing process where soft coats are applied by a special offline process at some time after the glass has been manufactured.
 
 Single pane Low-e glass has the coating on the inside and can be difficult to maintain a clear window: https://www.productreview.com.au/listings/oceania-glass
+
+</div>
+<div class="col">
+<figure><img src="/images/windows/types-of-low-e-glass.png" alt="" width="427" height="399" loading="lazy"><figcaption>Types of Low-e glass</figcaption></figure>
+</div>
+</div>
 
 ### Glass Options
 
@@ -235,20 +275,10 @@ Single pane Low-e glass has the coating on the inside and can be difficult to ma
 | Low-e + Privacy | SolTech – Neutral | 6mm | 63 | 41 | 3.7 | 0.54 | |
 | Privacy | JailGuard – Neutral | 23mm | 56 | <1 | 3.0 | 0.47 | |
 
-<figure><img src="/images/windows/window-performance-factors.png" alt="" width="430" height="243" loading="lazy"><figcaption>Source: https://www.windowsdoors.com.au/news/u-value-shgc-explained</figcaption></figure>
-
-<figure><img src="/images/windows/types-of-low-e-glass.png" alt="" width="427" height="399" loading="lazy"><figcaption>Types of Low-e glass</figcaption></figure>
-
-<div class="cols">
-<div class="col">
-<figure><img src="/images/windows/glazing-types-diagram.png" alt="" width="260" height="333" loading="lazy"><figcaption>Source: windowsdoors.com.au</figcaption></figure>
-</div>
-<div class="col">
-<figure><img src="/images/windows/thermally-broken-window.png" alt="" width="460" height="328" loading="lazy"><figcaption>Thermally broken window</figcaption></figure>
-</div>
-</div>
 
 ### Thermally Broken Window Frames
+
+<figure class="img-left"><img src="/images/windows/thermally-broken-window.png" alt="" width="460" height="328" loading="lazy"><figcaption>Thermally broken window</figcaption></figure>
 
 Double glazing is important and it will reduce the chance of condensation forming and provide thermal insulation however if the frames aren't thermally broken then it will mean a transfer of heat or cold through the frame and it can cause condensation on the frame and have a lower overall performance of the window. Think of a thermally broken window as having an insulating material in the middle of the frame stopping the transfer of heat/cold.
 
@@ -269,17 +299,21 @@ Theres many types of flyscreens including fixed and retractable ones. Some indic
 - Standard window flyscreen – $45
 - Retractable flyscreen – $2000 for 4m bifold doors
 
-<figure><img src="/images/windows/standard-window-flyscreen.jpeg" alt="" width="293" height="226" loading="lazy"><figcaption>Standard Window Flyscreen</figcaption></figure>
+<div class="cols">
+<div class="col">
+<figure class="img-left"><img src="/images/windows/standard-window-flyscreen.jpeg" alt="" width="293" height="226" loading="lazy"><figcaption>Standard window flyscreen</figcaption></figure>
+</div>
+<div class="col">
+<figure class="img-left"><img src="/images/windows/rigid-door-flyscreen.jpg" alt="" loading="lazy"><figcaption>Rigid Door Flyscreen</figcaption></figure>
+</div>
+</div>
 
 <div class="cols">
 <div class="col">
-<figure><img src="https://www.wideline.com.au/wp-content/uploads/2021/06/wideline-screens-secureline.jpg" alt="" loading="lazy"><figcaption>Rigid Door Flyscreen</figcaption></figure>
+<figure class="img-left"><img src="/images/windows/retractable-flyscreen.jpg" alt="" loading="lazy"><figcaption>Retractable Flyscreen</figcaption></figure>
 </div>
 <div class="col">
-<figure><img src="https://www.idealscreens.com.au/wp-content/uploads/2020/06/3.jpg" alt="" loading="lazy"><figcaption>Retractable Flyscreen</figcaption></figure>
-</div>
-<div class="col">
-<figure><img src="https://www.ediesflyscreens.com.au/wp-content/uploads/2015/02/flyscreens_security1.jpg" alt="" loading="lazy"><figcaption>Secure Flyscreen Door</figcaption></figure>
+<figure class="img-left"><img src="/images/windows/secure-flyscreen-door.jpg" alt="" loading="lazy"><figcaption>Secure Flyscreen Door</figcaption></figure>
 </div>
 </div>
 

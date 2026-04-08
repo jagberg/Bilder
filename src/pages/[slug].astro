@@ -30,7 +30,7 @@ const categoryLabel = page.data.category ? categoryLabels[page.data.category] : 
 
 // Build TOC from headings. Most pages use h2/h3, but some long reference pages
 // need one extra depth level to match the source structure.
-const tocDepths = page.id === 'checking-your-plans' ? [2, 3, 4] : [2, 3];
+const tocDepths = ['checking-your-plans', 'inclusions'].includes(page.id) ? [2, 3, 4] : [2, 3];
 const tocHeadings = headings.filter(h => tocDepths.includes(h.depth));
 let h2Count = 0;
 let h3Count = 0;
@@ -235,13 +235,8 @@ const lastModified = page.data.lastUpdated
 </style>
 
 <script>
-  // Move TOC to after the first paragraph in main content
   const toc = document.getElementById('page-toc');
   if (toc) {
-    const main = document.getElementById('main-content');
-    const firstP = main?.querySelector('p');
-    if (firstP) firstP.after(toc);
-
     const toggle = toc.querySelector('.toc-toggle') as HTMLButtonElement;
     const list = toc.querySelector('.toc-list') as HTMLElement;
     toggle?.addEventListener('click', () => {

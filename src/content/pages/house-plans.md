@@ -24,9 +24,9 @@ You should have [some idea of what you can build](/knowing-what-you-can-build/) 
 
 ### Services Location
 
+<figure class="img-center"><img src="/images/house-plans/side-access-plans.png" alt="" width="550" height="318" loading="lazy"><figcaption>Side Access Plans – Yellow shows the clear paths</figcaption></figure>
+
 An afterthought is normally the location of the rainwater tanks, A/C and hotwater system. You want to consider the following:
 
 - **Clear access -** Ideally have all these large external items on one side of the house so that you have clear access to the back garden for things like your lawnmower, rubbish bins and landscaping machinery. After your build you may need a bobcat or digger and you would need in many cases 0.9m and larger to get to the back otherwise theres a lot of manual work which is costly or you may need to go through the house.
 - **Window positions -** You may not have a wall thats long enough to place a rainwater tank without either blocking a window or putting it in clear sight at the front or back of the house.
-
-<figure class="img-center"><img src="/images/house-plans/side-access-plans.png" alt="" width="193" height="318" loading="lazy"><figcaption>Side Access Plans – Yellow shows the clear paths</figcaption></figure>
