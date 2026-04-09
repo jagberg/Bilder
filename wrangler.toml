@@ -1,4 +1,6 @@
 name = "bilder-site"
+compatibility_date = "2026-04-05"
 
 [env.preview]
 name = "bilder-site-preview"
+compatibility_date = "2026-04-05"

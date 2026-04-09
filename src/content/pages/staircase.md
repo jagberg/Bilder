@@ -101,7 +101,7 @@ The main parts of a standard staircase, which you may consider upgrading, are:
 <figure><img src="/images/staircase/metricon-stair-option-2.jpg" alt="" loading="lazy"></figure>
 </div>
 <div class="col">
-<figure class="img-fill"><img src="/images/staircase/metricon-stair-option-3.jpg" alt="" loading="lazy"></figure>
+<figure class="img-fill"><img src="/images/staircase/metricon-stair-option-3.jpg" alt="" width="1962" height="820" loading="lazy"></figure>
 </div>
 </div>
 
