@@ -30,7 +30,7 @@ const categoryLabel = page.data.category ? categoryLabels[page.data.category] : 
 
 // Build TOC from headings. Most pages use h2/h3, but some long reference pages
 // need one extra depth level to match the source structure.
-const tocDepths = ['checking-your-plans', 'inclusions'].includes(page.id) ? [2, 3, 4] : [2, 3];
+const tocDepths = ['checking-your-plans', 'inclusions', 'lighting-tips-and-ideas-for-a-new-home'].includes(page.id) ? [2, 3, 4] : [2, 3];
 const tocHeadings = headings.filter(h => tocDepths.includes(h.depth));
 let h2Count = 0;
 let h3Count = 0;
