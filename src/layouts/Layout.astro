@@ -371,6 +371,16 @@ const recentPages = [
     margin: 0 auto 1.5em;
   }
 
+  #main-content figure.img-left {
+    float: left;
+    margin: 0 24px 16px 0;
+  }
+
+  #main-content figure.img-right {
+    float: right;
+    margin: 0 0 16px 24px;
+  }
+
   #main-content figure:not(.img-left):not(.img-right) {
     display: flex;
     flex-direction: column;
@@ -400,6 +410,12 @@ const recentPages = [
     #main-content figure {
       width: fit-content;
       max-width: 100%;
+    }
+
+    #main-content figure.img-left,
+    #main-content figure.img-right {
+      float: none;
+      margin: 0 auto 1em;
     }
 
     #main-content figure:not(.img-left):not(.img-right) {
