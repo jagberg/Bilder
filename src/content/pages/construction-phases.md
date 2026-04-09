@@ -134,7 +134,7 @@ The final step is to use fans / power trowels which will go over the surface of 
 
 ## Inspections by an Engineer, Certifier and NSW Fair Trading
 
-Under Section 61(2) of the EP&A (Development Certification and Fire Safety) Regulation, NSW Fair Trading says a certifier is required to inspect the following which is also in the document Certifier Practice Standard Vol 2 class 1a buildings:
+Under [Section 61(2) of the EP&A (Development Certification and Fire Safety) Regulation](https://legislation.nsw.gov.au/view/html/inforce/current/sl-2021-0689#sec.61), NSW Fair Trading says a certifier is required to inspect the following which is also in the document [Certifier Practice Standard Vol 2 class 1a buildings](https://www.fairtrading.nsw.gov.au/__data/assets/pdf_file/0008/1112111/Certifier-Practice-Standard-Vol-2-class-1a-buildings.pdf):
 
 - After the commencement of the excavation for, and before the placement of, a footing
 - Before pouring an in-situ reinforced concrete building element
@@ -157,10 +157,10 @@ The certifier can rely on this report and may not necessarily go onto the site t
 
 ### NSW Fair Trading Inspections
 
-Plumbing and drainage inspections are required by NSW Fair Trading. The following require inspections:
+[Plumbing and drainage inspections are required by NSW Fair Trading](https://www.fairtrading.nsw.gov.au/trades-and-businesses/construction-and-trade-essentials/plumbers-and-drainers/work-requiring-inspections). The following require inspections:
 
 - Internal drainage, meaning all sanitary drainage located internal of a building including drainage and pump wells in basements of multi-storey buildings, and drainage cast into slabs
-- External drainage, meaning all sanitary drainage located external of a building up to the point of connection as detailed in the NSW Fair Trading point of connection document.
+- External drainage, meaning all sanitary drainage located external of a building up to the [point of connection](https://www.fairtrading.nsw.gov.au/__data/assets/pdf_file/0019/371440/Point_of_Connection_explanatory_notes.pdf) as detailed in the NSW Fair Trading point of connection document.
 - Recycled water front run, meaning all recycled or alternative water service pipework from the point of connection to the building entry
 - Recycled water rough-in, meaning all recycled or alternative water service internal of the building.
 - Final inspection, once all fixtures and fittings are connected and the building is ready to be occupied.
