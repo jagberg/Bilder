@@ -34,6 +34,9 @@ The application is straightforward. You will need to specify what will be demoli
 
 Before demolishing a property the gas, electrical, and NBN service needs to be disconnected or the demolition company cannot do anything.
 
+<div class="cols">
+<div class="col">
+
 ### Gas
 
 <pre>Timeframe: 4-6 weeks
@@ -41,6 +44,9 @@ Cost: $1151.70 (NSW)
 Requirement: Vacant property</pre>
 
 For a house to be demolished you are required to remove/decommission your gas connection to the property. In NSW [Jemena](https://jemena.com.au/gas/home-and-business/relocate-replace-or-remove-my-supply) manages gas abolishments and they require the property to be vacant before submitting the application. Once submitted it can take 4-6 weeks (20 business days or more) for them to come out to remove it. It can take less however you cant easily get in touch with them to find out when they will do it.
+
+</div>
+<div class="col">
 
 ### Electrical
 
@@ -51,12 +57,18 @@ If you have a smart meter and its managed by Energy Australia the process can be
 
 Cancel your supply with your electrical company who will do a final reading. A level 2 electrician will be required to disconnect the power cables that connect from the road to your house. They can also take the meter box back to Ausgrid so someone may not be required to come out to do a final reading. The Optus cable can also be cut by the electrician.
 
+</div>
+<div class="col">
+
 ### NBN
 
 <pre>Timeframe: 1 week  
 Cost: N/A</pre>
 
 For houses being demolished you wont be charged for an abolishment. Raise a case with NBN directly however you need to also cancel the service with your NBN service provider.
+
+</div>
+</div>
 
 ## Selling Items in your House
 

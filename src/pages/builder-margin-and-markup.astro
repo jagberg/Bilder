@@ -28,84 +28,102 @@ import Layout from '../layouts/Layout.astro';
   <p><strong>Margin</strong> is calculated on the sale price:<br />
   Cost ÷ (1 − margin%) = Sale price (ex. GST)</p>
 
-  <p>For example, on a $1,000 item with a 20% margin:</p>
-  <ul>
-    <li>$1,000 ÷ (1 − 0.20) = <strong>$1,250</strong> (sale price ex. GST)</li>
-    <li>$1,250 × 1.10 = <strong>$1,375</strong> total including GST</li>
-    <li>A simplified factor of <strong>1.375</strong> multiplies the cost directly for the total with both margin and GST</li>
-  </ul>
+  <div style="display:flex;gap:2rem;flex-wrap:wrap;margin:20px 0">
+    <div style="flex:1;min-width:220px">
+      <p><strong>To calculate what the builder will charge</strong></p>
+      <table>
+        <tbody>
+          <tr><td>Cost ex GST</td><td>$1,000</td></tr>
+          <tr><td>Margin</td><td>20%</td></tr>
+          <tr><td>Total with margin</td><td>$1,250 (cost/(1-0.2))</td></tr>
+          <tr><td>Total with margin &amp; GST</td><td>$1,375 (above × 1.1)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="flex:1;min-width:220px">
+      <p><strong>To calculate cost price from builders charge</strong></p>
+      <table>
+        <tbody>
+          <tr><td>Builders variation</td><td>$1,375</td></tr>
+          <tr><td>Margin</td><td>20%</td></tr>
+          <tr><td>Total without GST</td><td>$1,250 (variation/1.1)</td></tr>
+          <tr><td>Total cost</td><td>$1,000 (above×(1-0.2))</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-  <h2>Calculator 1 — Forward Calculation</h2>
-  <p>Enter a cost and margin percentage to calculate the total charge to the client.</p>
+  <p>To easily calculate this, you can use a factor of 1.375, including GST. $1,000 * 1.375 = $1,375</p>
+
+  <h2>Cost incl. Builder Margin Calculator</h2>
 
   <div class="calculator-card" id="calc1">
     <div class="calc-row">
-      <label for="c1-cost">Cost (ex. GST)</label>
+      <label for="c1-cost">Cost ex. GST</label>
       <div class="input-group">
         <span class="prefix">$</span>
-        <input type="number" id="c1-cost" placeholder="e.g. 1000" min="0" step="0.01" />
+        <input type="number" id="c1-cost" value="1000" min="0" step="0.01" />
       </div>
     </div>
 
     <div class="calc-row">
-      <label for="c1-margin">Builder Margin</label>
+      <label for="c1-margin">Builder Margin % (not markup)</label>
       <div class="input-group">
-        <input type="number" id="c1-margin" placeholder="e.g. 20" min="0" max="99" step="0.1" />
+        <input type="number" id="c1-margin" value="20" min="0" max="99" step="0.1" />
         <span class="suffix">%</span>
       </div>
     </div>
 
     <button class="calc-btn" id="c1-btn">Calculate</button>
 
-    <div class="calc-results" id="c1-results" style="display:none">
+    <div class="calc-results" id="c1-results">
       <div class="result-row">
-        <span>Equivalent Markup</span>
+        <span>Markup</span>
         <strong id="c1-markup"></strong>
       </div>
       <div class="result-row">
-        <span>Total to Client (ex. GST)</span>
+        <span>Total cost to client (ex. GST)</span>
         <strong id="c1-total-ex"></strong>
       </div>
       <div class="result-row highlight">
-        <span>Total to Client (incl. GST)</span>
+        <span>Total cost to client (incl. GST)</span>
         <strong id="c1-total-incl"></strong>
       </div>
       <div class="result-row">
-        <span>Additional Cost (incl. GST)</span>
+        <span>Additional cost (incl. GST)</span>
         <strong id="c1-additional"></strong>
       </div>
     </div>
   </div>
 
-  <h2>Calculator 2 — Reverse Calculation</h2>
-  <p>Enter the total you were charged (including margin and GST) to find the original cost.</p>
+  <h2>Cost before Builder Margin Calculator</h2>
 
   <div class="calculator-card" id="calc2">
     <div class="calc-row">
-      <label for="c2-total">Total Charged to Client (incl. GST)</label>
+      <label for="c2-total">Total cost incl. builder margin and GST</label>
       <div class="input-group">
         <span class="prefix">$</span>
-        <input type="number" id="c2-total" placeholder="e.g. 1375" min="0" step="0.01" />
+        <input type="number" id="c2-total" value="1375" min="0" step="0.01" />
       </div>
     </div>
 
     <div class="calc-row">
-      <label for="c2-margin">Builder Margin</label>
+      <label for="c2-margin">Builder Margin % (not markup)</label>
       <div class="input-group">
-        <input type="number" id="c2-margin" placeholder="e.g. 20" min="0" max="99" step="0.1" />
+        <input type="number" id="c2-margin" value="20" min="0" max="99" step="0.1" />
         <span class="suffix">%</span>
       </div>
     </div>
 
     <button class="calc-btn" id="c2-btn">Calculate</button>
 
-    <div class="calc-results" id="c2-results" style="display:none">
+    <div class="calc-results" id="c2-results">
       <div class="result-row">
-        <span>Equivalent Markup</span>
+        <span>Markup</span>
         <strong id="c2-markup"></strong>
       </div>
       <div class="result-row highlight">
-        <span>Original Cost (ex. GST)</span>
+        <span>Cost before margin and GST</span>
         <strong id="c2-cost"></strong>
       </div>
       <div class="result-row">
@@ -260,53 +278,57 @@ import Layout from '../layouts/Layout.astro';
     return value.toFixed(2) + '%';
   }
 
-  // Calculator 1: Forward
-  document.getElementById('c1-btn')?.addEventListener('click', () => {
+  function calc1() {
     const cost = parseFloat((document.getElementById('c1-cost') as HTMLInputElement).value);
     const margin = parseFloat((document.getElementById('c1-margin') as HTMLInputElement).value);
-
-    if (isNaN(cost) || isNaN(margin) || margin >= 100 || margin < 0) {
-      alert('Please enter valid values. Margin must be between 0 and 99.');
-      return;
-    }
-
+    if (isNaN(cost) || isNaN(margin) || margin >= 100 || margin < 0) return;
     const totalExGST = cost / (1 - margin / 100);
     const totalInclGST = totalExGST * 1.1;
     const additional = totalInclGST - cost;
     const markup = (totalExGST / cost - 1) * 100;
-
     (document.getElementById('c1-markup') as HTMLElement).textContent = formatPercent(markup);
     (document.getElementById('c1-total-ex') as HTMLElement).textContent = formatCurrency(totalExGST);
     (document.getElementById('c1-total-incl') as HTMLElement).textContent = formatCurrency(totalInclGST);
     (document.getElementById('c1-additional') as HTMLElement).textContent = formatCurrency(additional);
+  }
 
-    const results = document.getElementById('c1-results') as HTMLElement;
-    results.style.display = 'block';
-  });
-
-  // Calculator 2: Reverse
-  document.getElementById('c2-btn')?.addEventListener('click', () => {
+  function calc2() {
     const total = parseFloat((document.getElementById('c2-total') as HTMLInputElement).value);
     const margin = parseFloat((document.getElementById('c2-margin') as HTMLInputElement).value);
-
-    if (isNaN(total) || isNaN(margin) || margin >= 100 || margin < 0) {
-      alert('Please enter valid values. Margin must be between 0 and 99.');
-      return;
-    }
-
+    if (isNaN(total) || isNaN(margin) || margin >= 100 || margin < 0) return;
     const totalExGST = total / 1.1;
     const cost = totalExGST * (1 - margin / 100);
     const marginAmount = totalExGST - cost;
     const gst = total - totalExGST;
     const markup = (totalExGST / cost - 1) * 100;
-
     (document.getElementById('c2-markup') as HTMLElement).textContent = formatPercent(markup);
     (document.getElementById('c2-cost') as HTMLElement).textContent = formatCurrency(cost);
     (document.getElementById('c2-margin-amount') as HTMLElement).textContent = formatCurrency(marginAmount);
     (document.getElementById('c2-gst') as HTMLElement).textContent = formatCurrency(gst);
+  }
 
-    const results = document.getElementById('c2-results') as HTMLElement;
-    results.style.display = 'block';
+  // Auto-calculate on load with default values
+  calc1();
+  calc2();
+
+  document.getElementById('c1-btn')?.addEventListener('click', () => {
+    const cost = parseFloat((document.getElementById('c1-cost') as HTMLInputElement).value);
+    const margin = parseFloat((document.getElementById('c1-margin') as HTMLInputElement).value);
+    if (isNaN(cost) || isNaN(margin) || margin >= 100 || margin < 0) {
+      alert('Please enter valid values. Margin must be between 0 and 99.');
+      return;
+    }
+    calc1();
+  });
+
+  document.getElementById('c2-btn')?.addEventListener('click', () => {
+    const total = parseFloat((document.getElementById('c2-total') as HTMLInputElement).value);
+    const margin = parseFloat((document.getElementById('c2-margin') as HTMLInputElement).value);
+    if (isNaN(total) || isNaN(margin) || margin >= 100 || margin < 0) {
+      alert('Please enter valid values. Margin must be between 0 and 99.');
+      return;
+    }
+    calc2();
   });
 
   // Allow Enter key to trigger calculation
