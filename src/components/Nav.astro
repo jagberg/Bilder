@@ -7,7 +7,6 @@ function isActive(href: string) {
 }
 ---
 
-<div class="nav-backdrop" id="nav-backdrop"></div>
 <nav id="main-nav">
   <div class="container nav-inner">
     <ul class="nav-menu">
@@ -96,7 +95,7 @@ function isActive(href: string) {
     background: #fff;
     border-bottom: 1px solid #f0f0f0;
     position: relative;
-    z-index: 100;
+    z-index: 200;
   }
 
   .nav-inner {
@@ -176,34 +175,9 @@ function isActive(href: string) {
     text-decoration: none;
   }
 
-  /* Chevron indicator on dropdown items */
-  .has-dropdown > a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .has-dropdown > a::after {
-    content: '';
-    display: none;
-    width: 8px;
-    height: 8px;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: rotate(45deg);
-    transition: transform 0.2s ease;
-    flex-shrink: 0;
-    margin-left: 8px;
-  }
-
   @media (max-width: 900px) {
-    /* Slide-down panel */
-    #main-nav {
-      position: relative;
-    }
-
     .nav-menu {
-      display: flex;
+      display: none;
       flex-direction: column;
       position: absolute;
       top: 100%;
@@ -211,16 +185,20 @@ function isActive(href: string) {
       right: 0;
       background: #fff;
       border-top: 3px solid #fd356f;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       z-index: 150;
+      max-height: calc(100svh - 80px);
+      overflow-y: auto;
     }
 
     .nav-menu.open {
-      max-height: 100svh;
-      overflow-y: auto;
+      display: flex;
+      animation: navSlideDown 0.22s ease;
+    }
+
+    @keyframes navSlideDown {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .nav-menu > li > a {
@@ -234,21 +212,9 @@ function isActive(href: string) {
       border-bottom: none;
     }
 
-    /* Show chevron on mobile only */
-    .has-dropdown > a::after {
-      display: block;
-    }
-
-    .has-dropdown.open > a::after {
-      transform: rotate(-135deg);
-    }
-
-    /* Accordion sub-menu */
     .dropdown {
       position: static;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
+      display: none;
       border-top: none;
       box-shadow: none;
       border: none;
@@ -256,7 +222,7 @@ function isActive(href: string) {
     }
 
     .has-dropdown.open .dropdown {
-      max-height: 800px;
+      display: block;
     }
 
     .dropdown li a {
@@ -268,40 +234,22 @@ function isActive(href: string) {
     .dropdown li:last-child a {
       border-bottom: none;
     }
-
-    /* Backdrop */
-    .nav-backdrop {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.3);
-      z-index: 140;
-    }
-
-    .nav-backdrop.active {
-      display: block;
-    }
   }
 </style>
 
 <script>
   const toggle = document.getElementById('nav-toggle') as HTMLButtonElement;
   const menu = document.querySelector('.nav-menu') as HTMLElement;
-  const backdrop = document.getElementById('nav-backdrop') as HTMLElement;
 
   function closeMenu() {
     menu.classList.remove('open');
-    backdrop.classList.remove('active');
     toggle.setAttribute('aria-expanded', 'false');
   }
 
   toggle?.addEventListener('click', () => {
     const isOpen = menu.classList.toggle('open');
-    backdrop.classList.toggle('active', isOpen);
     toggle.setAttribute('aria-expanded', String(isOpen));
   });
-
-  backdrop?.addEventListener('click', closeMenu);
 
   document.querySelectorAll('.has-dropdown > a').forEach(link => {
     link.addEventListener('click', (e) => {
@@ -309,20 +257,13 @@ function isActive(href: string) {
         e.preventDefault();
         const parent = (e.currentTarget as HTMLElement).closest('.has-dropdown') as HTMLElement;
         const wasOpen = parent.classList.contains('open');
-        // Close all others
         document.querySelectorAll('.has-dropdown.open').forEach(el => el.classList.remove('open'));
         if (!wasOpen) parent.classList.add('open');
       }
     });
   });
 
-  // Close menu on nav link click (non-dropdown)
-  document.querySelectorAll('.nav-menu > li:not(.has-dropdown) > a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Close menu on sub-item click
-  document.querySelectorAll('.dropdown a').forEach(link => {
+  document.querySelectorAll('.nav-menu > li:not(.has-dropdown) > a, .dropdown a').forEach(link => {
     link.addEventListener('click', closeMenu);
   });
 </script>
