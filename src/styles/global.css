@@ -48,6 +48,20 @@
     @apply block;
   }
 
+  /* Force figure + image to fill column width */
+  figure.img-fill,
+  .col > figure.img-fill {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  figure.img-fill img {
+    width: 100%;
+    height: auto;
+  }
+
   /* Stack columns on mobile */
   @media (max-width: 680px) {
     .cols {
