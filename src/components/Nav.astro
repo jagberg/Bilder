@@ -14,11 +14,12 @@ function isActive(href: string) {
         <a href="/">Home</a>
       </li>
 
-      <li class={`has-dropdown ${isActive('/budget') || isActive('/how-to-save') ? 'active' : ''}`}>
+      <li class={`has-dropdown ${isActive('/budget') || isActive('/how-to-save') || isActive('/builder-margin') ? 'active' : ''}`}>
         <a href="/budget/">Budget</a>
         <ul class="dropdown">
           <li><a href="/budget/">Budget Overview</a></li>
           <li><a href="/how-to-save-on-costs/">How to save on costs</a></li>
+          <li><a href="/builder-margin-and-markup/">Builder Margin and Markup with Calculators</a></li>
         </ul>
       </li>
 
@@ -45,8 +46,8 @@ function isActive(href: string) {
         </ul>
       </li>
 
-      <li class={`has-dropdown ${isActive('/brick-cladding') || isActive('/windows') || isActive('/thermal-insulation') || isActive('/steel-or-timber') || isActive('/soundproofing') || isActive('/pools') || isActive('/structural-considerations') ? 'active' : ''}`}>
-        <a href="/brick-cladding-hebel-or-otherwise/">Building Materials</a>
+      <li class={`has-dropdown ${isActive('/brick-cladding') || isActive('/windows') || isActive('/thermal-insulation') || isActive('/steel-or-timber') || isActive('/soundproofing') || isActive('/pools') || isActive('/structural-considerations') || isActive('/inclusions') || isActive('/electrical-plan') || isActive('/lighting-tips') || isActive('/staircase') ? 'active' : ''}`}>
+        <a href="/brick-cladding-hebel-or-otherwise/">Building Materials and Inclusions</a>
         <ul class="dropdown">
           <li><a href="/brick-cladding-hebel-or-otherwise/">Brick, Cladding, Hebel or Otherwise</a></li>
           <li><a href="/windows/">Windows</a></li>
@@ -55,47 +56,31 @@ function isActive(href: string) {
           <li><a href="/soundproofing/">Soundproofing</a></li>
           <li><a href="/pools/">Pools</a></li>
           <li><a href="/structural-considerations/">Structural Considerations</a></li>
-        </ul>
-      </li>
-
-      <li class={`has-dropdown ${isActive('/inclusions') || isActive('/electrical-plan') || isActive('/lighting-tips') || isActive('/staircase') || isActive('/builder-margin') ? 'active' : ''}`}>
-        <a href="/inclusions/">Inclusions and Options</a>
-        <ul class="dropdown">
           <li><a href="/inclusions/">Builder Inclusions and Selection Options for a New Build</a></li>
           <li><a href="/electrical-plan-and-home-automation/">Electrical and Home Automation</a></li>
           <li><a href="/lighting-tips-and-ideas-for-a-new-home/">Lighting Tips and Ideas for a New Home</a></li>
           <li><a href="/staircase/">Staircase Options</a></li>
-          <li><a href="/builder-margin-and-markup/">Builder Margin and Markup with Calculators</a></li>
         </ul>
       </li>
 
-      <li class={`has-dropdown ${isActive('/pre-construction-phase') || isActive('/demolition') ? 'active' : ''}`}>
-        <a href="/pre-construction-phase/">Pre-Construction Phase</a>
+      <li class={`has-dropdown ${isActive('/pre-construction-phase') || isActive('/demolition') || isActive('/construction-phases') || isActive('/quality-control') || isActive('/conflict-resolution') ? 'active' : ''}`}>
+        <a href="/pre-construction-phase/">Construction</a>
         <ul class="dropdown">
           <li><a href="/pre-construction-phase/">Pre-Construction Phase</a></li>
           <li><a href="/demolition/">Demolishing a house</a></li>
-        </ul>
-      </li>
-
-      <li class={`has-dropdown ${isActive('/construction-phases') || isActive('/quality-control') || isActive('/conflict-resolution') ? 'active' : ''}`}>
-        <a href="/construction-phases/">Construction</a>
-        <ul class="dropdown">
           <li><a href="/construction-phases/">Construction Phases</a></li>
           <li><a href="/quality-control/">Quality Control and Private Inspections</a></li>
           <li><a href="/conflict-resolution/">Conflict Resolution</a></li>
         </ul>
       </li>
 
-      <li class={`has-dropdown ${isActive('/sources-of-information') || isActive('/getting-inspiration') ? 'active' : ''}`}>
-        <a href="/sources-of-information/">Sources of Information</a>
+      <li class={`has-dropdown ${isActive('/sources-of-information') || isActive('/getting-inspiration') || isActive('/common-mistakes') ? 'active' : ''}`}>
+        <a href="/sources-of-information/">Research and Tips</a>
         <ul class="dropdown">
           <li><a href="/sources-of-information/">Sources of Information</a></li>
           <li><a href="/getting-inspiration/">Getting Inspiration</a></li>
+          <li><a href="/common-mistakes/">Common Mistakes</a></li>
         </ul>
-      </li>
-
-      <li class={isActive('/common-mistakes') ? 'active' : ''}>
-        <a href="/common-mistakes/">Common Mistakes</a>
       </li>
 
       <li class={isActive('/about') ? 'active' : ''}>
