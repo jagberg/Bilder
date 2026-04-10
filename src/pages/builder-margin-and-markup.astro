@@ -373,7 +373,9 @@ import Layout from '../layouts/Layout.astro';
       localStorage.setItem(storageKey, '1');
       fetch(`/api/likes/${slug}`, { method: 'POST' })
         .then(r => r.json())
-        .then(({ count }: { count: number }) => { countEl.textContent = String(count); })
+        .then(({ count }: { count: number }) => {
+          if (count > parseInt(countEl.textContent || '0')) countEl.textContent = String(count);
+        })
         .catch(() => {});
     });
   }
