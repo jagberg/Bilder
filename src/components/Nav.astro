@@ -5,92 +5,178 @@ function isActive(href: string) {
   if (href === '/') return currentPath === '/';
   return currentPath.startsWith(href);
 }
+
+const navGroups = [
+  {
+    label: 'Budget',
+    href: '/budget/',
+    children: [
+      { label: 'Budget Overview', href: '/budget/' },
+      { label: 'How to Save on Costs', href: '/how-to-save-on-costs/' },
+      { label: 'Builder Margin and Markup', href: '/builder-margin-and-markup/' },
+    ],
+  },
+  {
+    label: 'House Plans',
+    href: '/house-plans/',
+    children: [
+      { label: 'House Plans Overview', href: '/house-plans/' },
+      { label: 'Knowing What You Can Build', href: '/knowing-what-you-can-build/' },
+      { label: 'Builder Floorplan', href: '/builder-floorplan/' },
+      { label: 'Architect Plans', href: '/architect-plans/' },
+      { label: 'Tips for an Efficient Build Design', href: '/tips-for-an-efficient-build-design/' },
+      { label: 'Checking Your Plans', href: '/checking-your-plans/' },
+      { label: 'Helpful Visualisation Apps', href: '/helpful-visualisation-apps/' },
+    ],
+  },
+  {
+    label: 'Choosing a Builder',
+    href: '/choosing-a-builder/',
+    children: [
+      { label: 'Choosing a Builder Overview', href: '/choosing-a-builder/' },
+      { label: 'Custom or Project Build', href: '/custom-or-project-build/' },
+      { label: 'What to Consider Before Paying a Builder', href: '/what-to-do-before-paying-a-builder/' },
+      { label: 'Comparing Pricing of Tenders', href: '/comparing-pricing-for-tenders/' },
+    ],
+  },
+  {
+    label: 'Building Materials & Inclusions',
+    href: '/brick-cladding-hebel-or-otherwise/',
+    children: [
+      { label: 'Brick, Cladding, Hebel or Otherwise', href: '/brick-cladding-hebel-or-otherwise/' },
+      { label: 'Builder Inclusions and Selection Options', href: '/inclusions/' },
+      { label: 'Electrical and Home Automation', href: '/electrical-plan-and-home-automation/' },
+      { label: 'Lighting Tips and Ideas', href: '/lighting-tips-and-ideas-for-a-new-home/' },
+      { label: 'Pools', href: '/pools/' },
+      { label: 'Soundproofing', href: '/soundproofing/' },
+      { label: 'Staircase Options', href: '/staircase/' },
+      { label: 'Steel or Timber Frame', href: '/steel-or-timber-frame/' },
+      { label: 'Structural Considerations', href: '/structural-considerations/' },
+      { label: 'Thermal Insulation', href: '/thermal-insulation/' },
+      { label: 'Windows', href: '/windows/' },
+    ],
+  },
+  {
+    label: 'Construction',
+    href: '/pre-construction-phase/',
+    children: [
+      { label: 'Pre-Construction Phase', href: '/pre-construction-phase/' },
+      { label: 'Demolishing a House', href: '/demolition/' },
+      { label: 'Construction Phases', href: '/construction-phases/' },
+      { label: 'Quality Control and Private Inspections', href: '/quality-control/' },
+      { label: 'Conflict Resolution', href: '/conflict-resolution/' },
+    ],
+  },
+  {
+    label: 'Research and Tips',
+    href: '/sources-of-information/',
+    children: [
+      { label: 'Sources of Information', href: '/sources-of-information/' },
+      { label: 'Getting Inspiration', href: '/getting-inspiration/' },
+      { label: 'Common Mistakes', href: '/common-mistakes/' },
+    ],
+  },
+];
+
+const standaloneLinks = [
+  { label: 'About', href: '/about/' },
+];
 ---
 
-<nav id="main-nav">
+<!-- Desktop nav -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
   <div class="container nav-inner">
-    <ul class="nav-menu">
+    <ul class="desktop-menu" role="list">
       <li class={isActive('/') && currentPath === '/' ? 'active' : ''}>
         <a href="/">Home</a>
       </li>
-
-      <li class={`has-dropdown ${isActive('/budget') || isActive('/how-to-save') || isActive('/builder-margin') ? 'active' : ''}`}>
-        <a href="/budget/">Budget</a>
-        <ul class="dropdown">
-          <li><a href="/budget/">Budget Overview</a></li>
-          <li><a href="/how-to-save-on-costs/">How to save on costs</a></li>
-          <li><a href="/builder-margin-and-markup/">Builder Margin and Markup with Calculators</a></li>
-        </ul>
-      </li>
-
-      <li class={`has-dropdown ${isActive('/house-plans') || isActive('/knowing-what') || isActive('/builder-floorplan') || isActive('/architect-plans') || isActive('/tips-for-an-efficient') || isActive('/checking-your-plans') || isActive('/helpful-visualisation') ? 'active' : ''}`}>
-        <a href="/house-plans/">House Plans</a>
-        <ul class="dropdown">
-          <li><a href="/house-plans/">House Plans Overview</a></li>
-          <li><a href="/knowing-what-you-can-build/">Knowing what you can build</a></li>
-          <li><a href="/builder-floorplan/">Builder Floorplan</a></li>
-          <li><a href="/architect-plans/">Architect Plans</a></li>
-          <li><a href="/tips-for-an-efficient-build-design/">Tips for an Efficient Build Design</a></li>
-          <li><a href="/checking-your-plans/">Checking Your House Plans &amp; How to Correctly Read Them</a></li>
-          <li><a href="/helpful-visualisation-apps/">Helpful Home Visualisation Apps</a></li>
-        </ul>
-      </li>
-
-      <li class={`has-dropdown ${isActive('/choosing-a-builder') || isActive('/custom-or-project') || isActive('/what-to-do-before') || isActive('/comparing-pricing') ? 'active' : ''}`}>
-        <a href="/choosing-a-builder/">Choosing a Builder</a>
-        <ul class="dropdown">
-          <li><a href="/choosing-a-builder/">Choosing a Builder</a></li>
-          <li><a href="/custom-or-project-build/">Custom or Project Build</a></li>
-          <li><a href="/what-to-do-before-paying-a-builder/">What to consider before paying a builder</a></li>
-          <li><a href="/comparing-pricing-for-tenders/">Comparing Pricing of Tenders against other Builders</a></li>
-        </ul>
-      </li>
-
-      <li class={`has-dropdown ${isActive('/brick-cladding') || isActive('/windows') || isActive('/thermal-insulation') || isActive('/steel-or-timber') || isActive('/soundproofing') || isActive('/pools') || isActive('/structural-considerations') || isActive('/inclusions') || isActive('/electrical-plan') || isActive('/lighting-tips') || isActive('/staircase') ? 'active' : ''}`}>
-        <a href="/brick-cladding-hebel-or-otherwise/">Building Materials and Inclusions</a>
-        <ul class="dropdown">
-          <li><a href="/brick-cladding-hebel-or-otherwise/">Brick, Cladding, Hebel or Otherwise</a></li>
-          <li><a href="/inclusions/">Builder Inclusions and Selection Options for a New Build</a></li>
-          <li><a href="/electrical-plan-and-home-automation/">Electrical and Home Automation</a></li>
-          <li><a href="/lighting-tips-and-ideas-for-a-new-home/">Lighting Tips and Ideas for a New Home</a></li>
-          <li><a href="/pools/">Pools</a></li>
-          <li><a href="/soundproofing/">Soundproofing</a></li>
-          <li><a href="/staircase/">Staircase Options</a></li>
-          <li><a href="/steel-or-timber-frame/">Steel or Timber Frame</a></li>
-          <li><a href="/structural-considerations/">Structural Considerations</a></li>
-          <li><a href="/thermal-insulation/">Thermal Insulation</a></li>
-          <li><a href="/windows/">Windows</a></li>
-        </ul>
-      </li>
-
-      <li class={`has-dropdown ${isActive('/pre-construction-phase') || isActive('/demolition') || isActive('/construction-phases') || isActive('/quality-control') || isActive('/conflict-resolution') ? 'active' : ''}`}>
-        <a href="/pre-construction-phase/">Construction</a>
-        <ul class="dropdown">
-          <li><a href="/pre-construction-phase/">Pre-Construction Phase</a></li>
-          <li><a href="/demolition/">Demolishing a house</a></li>
-          <li><a href="/construction-phases/">Construction Phases</a></li>
-          <li><a href="/quality-control/">Quality Control and Private Inspections</a></li>
-          <li><a href="/conflict-resolution/">Conflict Resolution</a></li>
-        </ul>
-      </li>
-
-      <li class={`has-dropdown ${isActive('/sources-of-information') || isActive('/getting-inspiration') || isActive('/common-mistakes') ? 'active' : ''}`}>
-        <a href="/sources-of-information/">Research and Tips</a>
-        <ul class="dropdown">
-          <li><a href="/sources-of-information/">Sources of Information</a></li>
-          <li><a href="/getting-inspiration/">Getting Inspiration</a></li>
-          <li><a href="/common-mistakes/">Common Mistakes</a></li>
-        </ul>
-      </li>
-
-      <li class={isActive('/about') ? 'active' : ''}>
-        <a href="/about/">About</a>
-      </li>
+      {navGroups.map(group => {
+        const groupActive = group.children.some(c => isActive(c.href));
+        return (
+          <li class={`has-dropdown${groupActive ? ' active' : ''}`}>
+            <button class="dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+              {group.label}
+              <svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="dropdown" role="list">
+              {group.children.map(child => (
+                <li class={isActive(child.href) ? 'active' : ''}>
+                  <a href={child.href}>{child.label}</a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        );
+      })}
+      {standaloneLinks.map(link => (
+        <li class={isActive(link.href) ? 'active' : ''}>
+          <a href={link.href}>{link.label}</a>
+        </li>
+      ))}
     </ul>
   </div>
 </nav>
 
+<!-- Mobile overlay -->
+<div id="mobile-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation menu">
+  <div class="overlay-header">
+    <a href="/" class="overlay-logo">
+      <img src="/images/bilder-logo.png" alt="New Build Journey" height="44" />
+    </a>
+    <button id="mobile-close" aria-label="Close navigation">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M1 1l16 16M17 1L1 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="overlay-nav" aria-label="Mobile navigation">
+    <ul role="list">
+      <li>
+        <a href="/" class={`overlay-link${isActive('/') && currentPath === '/' ? ' active' : ''}`}>Home</a>
+      </li>
+      {navGroups.map((group, i) => {
+        const groupActive = group.children.some(c => isActive(c.href));
+        return (
+          <li class="overlay-group">
+            <button
+              class={`overlay-group-trigger${groupActive ? ' active' : ''}`}
+              aria-expanded="false"
+              data-group={i}
+            >
+              {group.label}
+              <svg class="chevron" width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true">
+                <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <ul class="overlay-children" aria-hidden="true" role="list">
+              {group.children.map(child => (
+                <li>
+                  <a href={child.href} class={`overlay-child-link${isActive(child.href) ? ' active' : ''}`}>
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        );
+      })}
+      {standaloneLinks.map(link => (
+        <li>
+          <a href={link.href} class={`overlay-link${isActive(link.href) ? ' active' : ''}`}>{link.label}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>
+
+<!-- Backdrop -->
+<div id="nav-backdrop"></div>
+
 <style>
+  /* ── Desktop nav ── */
   #main-nav {
     background: #fff;
     border-bottom: 1px solid #f0f0f0;
@@ -102,168 +188,374 @@ function isActive(href: string) {
     position: relative;
   }
 
-  .nav-menu {
+  .desktop-menu {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
+    gap: 0;
   }
 
-  .nav-menu > li > a {
-    display: block;
+  /* Top-level links and buttons */
+  .desktop-menu > li > a,
+  .dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     padding: 13px 12px;
-    color: #7f7f7f;
+    color: #555;
     font-size: 0.82rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    transition: color 0.2s;
-    white-space: nowrap;
     text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    transition: color 0.15s;
+    line-height: 1;
   }
 
-  .nav-menu > li > a:hover,
-  .nav-menu > li.active > a {
+  .desktop-menu > li > a:hover,
+  .dropdown-trigger:hover,
+  .desktop-menu > li.active > a,
+  .desktop-menu > li.active .dropdown-trigger {
     color: #fd356f;
     text-decoration: none;
   }
 
-  /* Dropdown */
+  .dropdown-trigger .chevron {
+    transition: transform 0.2s ease;
+    color: currentColor;
+    flex-shrink: 0;
+  }
+
+  .has-dropdown.dropdown-open .dropdown-trigger .chevron,
+  .has-dropdown:hover .dropdown-trigger .chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown panel */
   .has-dropdown {
     position: relative;
   }
 
   .dropdown {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 4px);
     left: 0;
     background: #fff;
-    min-width: 220px;
+    min-width: 260px;
     list-style: none;
-    padding: 0;
+    padding: 6px 0;
     margin: 0;
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
     border-top: 2px solid #fd356f;
-    border: 1px solid #f0f0f0;
-    border-top: 2px solid #fd356f;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    z-index: 200;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+    z-index: 300;
+    transform: translateY(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
   }
 
   .has-dropdown:hover .dropdown,
-  .has-dropdown:focus-within .dropdown {
-    display: block;
+  .has-dropdown:focus-within .dropdown,
+  .has-dropdown.dropdown-open .dropdown {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .dropdown li a {
     display: block;
-    padding: 9px 16px;
-    color: #7f7f7f;
+    padding: 9px 18px;
+    color: #555;
     font-size: 0.82rem;
-    border-bottom: 1px solid #f0f0f0;
-    transition: color 0.15s;
+    text-decoration: none;
+    transition: color 0.12s, background 0.12s;
+    border-radius: 0;
+  }
+
+  .dropdown li a:hover,
+  .dropdown li.active a {
+    color: #fd356f;
+    background: #fff5f8;
     text-decoration: none;
   }
 
-  .dropdown li:last-child a {
-    border-bottom: none;
+  /* ── Mobile overlay ── */
+  #mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #fff;
+    z-index: 600;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .dropdown li a:hover {
+  #mobile-overlay.open {
+    display: block;
+    animation: overlayIn 0.22s ease;
+  }
+
+  @keyframes overlayIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .overlay-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1;
+  }
+
+  .overlay-logo img {
+    display: block;
+    height: 44px;
+    width: auto;
+  }
+
+  #mobile-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    border-radius: 50%;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+
+  #mobile-close:hover {
+    background: #f5f5f5;
+  }
+
+  .overlay-nav {
+    padding: 8px 0 40px;
+  }
+
+  .overlay-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Direct links (Home, About) */
+  .overlay-link {
+    display: block;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #222;
+    text-decoration: none;
+    border-bottom: 1px solid #f4f4f4;
+    transition: color 0.12s;
+  }
+
+  .overlay-link:hover,
+  .overlay-link.active {
     color: #fd356f;
     text-decoration: none;
   }
 
+  /* Group trigger */
+  .overlay-group-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #222;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #f4f4f4;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+    transition: color 0.12s;
+  }
+
+  .overlay-group-trigger:hover,
+  .overlay-group-trigger.active {
+    color: #fd356f;
+  }
+
+  .overlay-group-trigger .chevron {
+    flex-shrink: 0;
+    transition: transform 0.22s ease;
+    color: #999;
+  }
+
+  .overlay-group-trigger[aria-expanded="true"] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .overlay-group-trigger[aria-expanded="true"] {
+    color: #fd356f;
+  }
+
+  /* Children accordion */
+  .overlay-children {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s ease;
+    overflow: hidden;
+    background: #fafafa;
+  }
+
+  .overlay-children.open {
+    grid-template-rows: 1fr;
+  }
+
+  .overlay-children > * {
+    overflow: hidden;
+  }
+
+  .overlay-child-link {
+    display: block;
+    padding: 11px 20px 11px 32px;
+    font-size: 0.88rem;
+    color: #555;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+    transition: color 0.12s;
+  }
+
+  .overlay-child-link:hover,
+  .overlay-child-link.active {
+    color: #fd356f;
+    text-decoration: none;
+  }
+
+  .overlay-children li:last-child .overlay-child-link {
+    border-bottom: none;
+  }
+
+  /* Backdrop (click outside to close) */
+  #nav-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 590;
+    backdrop-filter: blur(2px);
+  }
+
+  #nav-backdrop.visible {
+    display: block;
+    animation: backdropIn 0.2s ease;
+  }
+
+  @keyframes backdropIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* Hide mobile overlay on desktop */
+  @media (min-width: 901px) {
+    #mobile-overlay,
+    #nav-backdrop {
+      display: none !important;
+    }
+  }
+
+  /* Hide desktop nav on mobile */
   @media (max-width: 900px) {
-    .nav-menu {
+    #main-nav {
       display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: #fff;
-      border-top: 3px solid #fd356f;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      z-index: 150;
-      max-height: calc(100svh - 80px);
-      overflow-y: auto;
-    }
-
-    .nav-menu.open {
-      display: flex;
-      animation: navSlideDown 0.22s ease;
-    }
-
-    @keyframes navSlideDown {
-      from { opacity: 0; transform: translateY(-6px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .nav-menu > li > a {
-      padding: 14px 20px;
-      font-size: 0.88rem;
-      border-bottom: 1px solid #f0f0f0;
-      white-space: normal;
-    }
-
-    .nav-menu > li:last-child > a {
-      border-bottom: none;
-    }
-
-    .dropdown {
-      position: static;
-      display: none;
-      border-top: none;
-      box-shadow: none;
-      border: none;
-      background: #fafafa;
-    }
-
-    .has-dropdown.open .dropdown {
-      display: block;
-    }
-
-    .dropdown li a {
-      padding: 11px 20px 11px 32px;
-      font-size: 0.82rem;
-      border-bottom: 1px solid #efefef;
-    }
-
-    .dropdown li:last-child a {
-      border-bottom: none;
     }
   }
 </style>
 
 <script>
-  const toggle = document.getElementById('nav-toggle') as HTMLButtonElement;
-  const menu = document.querySelector('.nav-menu') as HTMLElement;
+  const toggle = document.getElementById('nav-toggle') as HTMLButtonElement | null;
+  const closeBtn = document.getElementById('mobile-close') as HTMLButtonElement | null;
+  const overlay = document.getElementById('mobile-overlay') as HTMLElement | null;
+  const backdrop = document.getElementById('nav-backdrop') as HTMLElement | null;
+
+  function openMenu() {
+    overlay?.classList.add('open');
+    backdrop?.classList.add('visible');
+    overlay?.removeAttribute('aria-hidden');
+    toggle?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
 
   function closeMenu() {
-    menu.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
+    overlay?.classList.remove('open');
+    backdrop?.classList.remove('visible');
+    overlay?.setAttribute('aria-hidden', 'true');
+    toggle?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
   }
 
   toggle?.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
+    const isOpen = overlay?.classList.contains('open');
+    isOpen ? closeMenu() : openMenu();
   });
 
-  document.querySelectorAll('.has-dropdown > a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      if (window.innerWidth <= 900) {
-        e.preventDefault();
-        const parent = (e.currentTarget as HTMLElement).closest('.has-dropdown') as HTMLElement;
-        const wasOpen = parent.classList.contains('open');
-        document.querySelectorAll('.has-dropdown.open').forEach(el => el.classList.remove('open'));
-        if (!wasOpen) parent.classList.add('open');
-      }
+  closeBtn?.addEventListener('click', closeMenu);
+  backdrop?.addEventListener('click', closeMenu);
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Accordion groups
+  document.querySelectorAll('.overlay-group-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      const children = btn.nextElementSibling as HTMLElement | null;
+
+      // Collapse all others
+      document.querySelectorAll('.overlay-group-trigger').forEach(other => {
+        if (other !== btn) {
+          other.setAttribute('aria-expanded', 'false');
+          const otherChildren = other.nextElementSibling as HTMLElement | null;
+          otherChildren?.classList.remove('open');
+          otherChildren?.setAttribute('aria-hidden', 'true');
+        }
+      });
+
+      // Toggle this one
+      const next = !isExpanded;
+      btn.setAttribute('aria-expanded', String(next));
+      children?.classList.toggle('open', next);
+      children?.setAttribute('aria-hidden', String(!next));
     });
   });
 
-  document.querySelectorAll('.nav-menu > li:not(.has-dropdown) > a, .dropdown a').forEach(link => {
+  // Close overlay when a child link is clicked
+  document.querySelectorAll('.overlay-child-link, .overlay-link').forEach(link => {
     link.addEventListener('click', closeMenu);
+  });
+
+  // Auto-expand active group on load
+  document.querySelectorAll('.overlay-group-trigger.active').forEach(btn => {
+    btn.setAttribute('aria-expanded', 'true');
+    const children = btn.nextElementSibling as HTMLElement | null;
+    children?.classList.add('open');
+    children?.setAttribute('aria-hidden', 'false');
   });
 </script>

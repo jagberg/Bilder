@@ -178,6 +178,11 @@ const recentPages = [
     width: 44px;
     height: 44px;
     flex-shrink: 0;
+    transition: background 0.15s;
+  }
+
+  .nav-toggle:hover {
+    background: #e02860;
   }
 
   .nav-toggle span {
@@ -185,20 +190,7 @@ const recentPages = [
     width: 22px;
     height: 2px;
     background: #fff;
-    transition: transform 0.25s ease, opacity 0.25s ease;
-    transform-origin: center;
-  }
-
-  /* Animate to × when open */
-  .nav-toggle[aria-expanded="true"] span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-  .nav-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  .nav-toggle[aria-expanded="true"] span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    border-radius: 2px;
   }
 
   @media (max-width: 900px) {
