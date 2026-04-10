@@ -277,7 +277,9 @@ const lastModified = page.data.lastUpdated
       localStorage.setItem(storageKey, '1');
       fetch(`/api/likes/${slug}`, { method: 'POST' })
         .then(r => r.json())
-        .then(({ count }) => { countEl.textContent = count; })
+        .then(({ count }) => {
+          if (count > parseInt(countEl.textContent || '0')) countEl.textContent = String(count);
+        })
         .catch(() => {});
     });
   }
