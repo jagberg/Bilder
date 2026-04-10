@@ -77,10 +77,6 @@ const navGroups = [
     ],
   },
 ];
-
-const standaloneLinks = [
-  { label: 'About', href: '/about/' },
-];
 ---
 
 <!-- Desktop nav -->
@@ -110,11 +106,9 @@ const standaloneLinks = [
           </li>
         );
       })}
-      {standaloneLinks.map(link => (
-        <li class={isActive(link.href) ? 'active' : ''}>
-          <a href={link.href}>{link.label}</a>
-        </li>
-      ))}
+      <li class={isActive('/about') ? 'active' : ''}>
+        <a href="/about/">About</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -137,13 +131,14 @@ const standaloneLinks = [
       <li>
         <a href="/" class={`overlay-link${isActive('/') && currentPath === '/' ? ' active' : ''}`}>Home</a>
       </li>
+
       {navGroups.map((group, i) => {
         const groupActive = group.children.some(c => isActive(c.href));
         return (
           <li class="overlay-group">
             <button
               class={`overlay-group-trigger${groupActive ? ' active' : ''}`}
-              aria-expanded="false"
+              aria-expanded={groupActive ? 'true' : 'false'}
               data-group={i}
             >
               {group.label}
@@ -151,7 +146,11 @@ const standaloneLinks = [
                 <path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-            <ul class="overlay-children" aria-hidden="true" role="list">
+            <ul
+              class={`overlay-children${groupActive ? ' open' : ''}`}
+              aria-hidden={groupActive ? 'false' : 'true'}
+              role="list"
+            >
               {group.children.map(child => (
                 <li>
                   <a href={child.href} class={`overlay-child-link${isActive(child.href) ? ' active' : ''}`}>
@@ -163,11 +162,10 @@ const standaloneLinks = [
           </li>
         );
       })}
-      {standaloneLinks.map(link => (
-        <li>
-          <a href={link.href} class={`overlay-link${isActive(link.href) ? ' active' : ''}`}>{link.label}</a>
-        </li>
-      ))}
+
+      <li>
+        <a href="/about/" class={`overlay-link${isActive('/about') ? ' active' : ''}`}>About</a>
+      </li>
     </ul>
   </nav>
 </div>
@@ -194,10 +192,8 @@ const standaloneLinks = [
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
-    gap: 0;
   }
 
-  /* Top-level links and buttons */
   .desktop-menu > li > a,
   .dropdown-trigger {
     display: flex;
@@ -229,16 +225,13 @@ const standaloneLinks = [
 
   .dropdown-trigger .chevron {
     transition: transform 0.2s ease;
-    color: currentColor;
     flex-shrink: 0;
   }
 
-  .has-dropdown.dropdown-open .dropdown-trigger .chevron,
   .has-dropdown:hover .dropdown-trigger .chevron {
     transform: rotate(180deg);
   }
 
-  /* Dropdown panel */
   .has-dropdown {
     position: relative;
   }
@@ -265,8 +258,7 @@ const standaloneLinks = [
   }
 
   .has-dropdown:hover .dropdown,
-  .has-dropdown:focus-within .dropdown,
-  .has-dropdown.dropdown-open .dropdown {
+  .has-dropdown:focus-within .dropdown {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
@@ -280,7 +272,6 @@ const standaloneLinks = [
     font-size: 0.82rem;
     text-decoration: none;
     transition: color 0.12s, background 0.12s;
-    border-radius: 0;
   }
 
   .dropdown li a:hover,
@@ -352,7 +343,7 @@ const standaloneLinks = [
     padding: 8px 0 40px;
   }
 
-  .overlay-nav ul {
+  .overlay-nav > ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -400,6 +391,11 @@ const standaloneLinks = [
     color: #fd356f;
   }
 
+  .overlay-group-trigger[aria-expanded="true"] {
+    color: #fd356f;
+    border-bottom-color: transparent;
+  }
+
   .overlay-group-trigger .chevron {
     flex-shrink: 0;
     transition: transform 0.22s ease;
@@ -410,25 +406,15 @@ const standaloneLinks = [
     transform: rotate(180deg);
   }
 
-  .overlay-group-trigger[aria-expanded="true"] {
-    color: #fd356f;
-  }
-
-  /* Children accordion */
+  /* Accordion — height driven by JS */
   .overlay-children {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.25s ease;
     overflow: hidden;
+    height: 0;
+    transition: height 0.25s ease;
     background: #fafafa;
-  }
-
-  .overlay-children.open {
-    grid-template-rows: 1fr;
-  }
-
-  .overlay-children > * {
-    overflow: hidden;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .overlay-child-link {
@@ -437,8 +423,12 @@ const standaloneLinks = [
     font-size: 0.88rem;
     color: #555;
     text-decoration: none;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #efefef;
     transition: color 0.12s;
+  }
+
+  .overlay-children li:last-child .overlay-child-link {
+    border-bottom: 1px solid #f4f4f4;
   }
 
   .overlay-child-link:hover,
@@ -447,11 +437,7 @@ const standaloneLinks = [
     text-decoration: none;
   }
 
-  .overlay-children li:last-child .overlay-child-link {
-    border-bottom: none;
-  }
-
-  /* Backdrop (click outside to close) */
+  /* Backdrop */
   #nav-backdrop {
     display: none;
     position: fixed;
@@ -471,7 +457,6 @@ const standaloneLinks = [
     to   { opacity: 1; }
   }
 
-  /* Hide mobile overlay on desktop */
   @media (min-width: 901px) {
     #mobile-overlay,
     #nav-backdrop {
@@ -479,7 +464,6 @@ const standaloneLinks = [
     }
   }
 
-  /* Hide desktop nav on mobile */
   @media (max-width: 900px) {
     #main-nav {
       display: none;
@@ -488,9 +472,10 @@ const standaloneLinks = [
 </style>
 
 <script>
-  const toggle = document.getElementById('nav-toggle') as HTMLButtonElement | null;
+  // ── Overlay open/close ──
+  const toggle   = document.getElementById('nav-toggle') as HTMLButtonElement | null;
   const closeBtn = document.getElementById('mobile-close') as HTMLButtonElement | null;
-  const overlay = document.getElementById('mobile-overlay') as HTMLElement | null;
+  const overlay  = document.getElementById('mobile-overlay') as HTMLElement | null;
   const backdrop = document.getElementById('nav-backdrop') as HTMLElement | null;
 
   function openMenu() {
@@ -510,52 +495,64 @@ const standaloneLinks = [
   }
 
   toggle?.addEventListener('click', () => {
-    const isOpen = overlay?.classList.contains('open');
-    isOpen ? closeMenu() : openMenu();
+    overlay?.classList.contains('open') ? closeMenu() : openMenu();
   });
 
   closeBtn?.addEventListener('click', closeMenu);
   backdrop?.addEventListener('click', closeMenu);
 
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeMenu();
   });
 
-  // Accordion groups
-  document.querySelectorAll('.overlay-group-trigger').forEach(btn => {
+  // Close overlay when any link inside it is clicked
+  overlay?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // ── Accordion ──
+  function setHeight(el: HTMLElement, open: boolean) {
+    if (open) {
+      el.style.height = el.scrollHeight + 'px';
+    } else {
+      // Animate from current rendered height down to 0
+      el.style.height = el.scrollHeight + 'px';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          el.style.height = '0';
+        });
+      });
+    }
+  }
+
+  // Initialise heights for any groups that start open (active page)
+  document.querySelectorAll<HTMLElement>('.overlay-children').forEach(el => {
+    if (el.classList.contains('open') ||
+        el.previousElementSibling?.getAttribute('aria-expanded') === 'true') {
+      el.style.height = el.scrollHeight + 'px';
+    } else {
+      el.style.height = '0';
+    }
+  });
+
+  document.querySelectorAll<HTMLButtonElement>('.overlay-group-trigger').forEach(btn => {
     btn.addEventListener('click', () => {
       const isExpanded = btn.getAttribute('aria-expanded') === 'true';
       const children = btn.nextElementSibling as HTMLElement | null;
 
-      // Collapse all others
-      document.querySelectorAll('.overlay-group-trigger').forEach(other => {
-        if (other !== btn) {
+      // Collapse all other groups
+      document.querySelectorAll<HTMLButtonElement>('.overlay-group-trigger').forEach(other => {
+        if (other !== btn && other.getAttribute('aria-expanded') === 'true') {
           other.setAttribute('aria-expanded', 'false');
           const otherChildren = other.nextElementSibling as HTMLElement | null;
-          otherChildren?.classList.remove('open');
-          otherChildren?.setAttribute('aria-hidden', 'true');
+          if (otherChildren) setHeight(otherChildren, false);
         }
       });
 
-      // Toggle this one
+      // Toggle this group
       const next = !isExpanded;
       btn.setAttribute('aria-expanded', String(next));
-      children?.classList.toggle('open', next);
-      children?.setAttribute('aria-hidden', String(!next));
+      if (children) setHeight(children, next);
     });
-  });
-
-  // Close overlay when a child link is clicked
-  document.querySelectorAll('.overlay-child-link, .overlay-link').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Auto-expand active group on load
-  document.querySelectorAll('.overlay-group-trigger.active').forEach(btn => {
-    btn.setAttribute('aria-expanded', 'true');
-    const children = btn.nextElementSibling as HTMLElement | null;
-    children?.classList.add('open');
-    children?.setAttribute('aria-hidden', 'false');
   });
 </script>
