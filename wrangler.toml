@@ -1,14 +1,16 @@
 name = "bilder-site"
 compatibility_date = "2026-04-05"
 
-[[kv_namespaces]]
-binding = "LIKES"
-id = "5d114eb8273f4c849dd58d2830e4d3dd"
+[[d1_databases]]
+binding = "DB"
+database_name = "bilder-likes"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
 
 [env.preview]
 name = "bilder-site-preview"
 compatibility_date = "2026-04-05"
 
-[[env.preview.kv_namespaces]]
-binding = "LIKES"
-id = "f1105bb447e24121adb1ec5743132adf"
+[[env.preview.d1_databases]]
+binding = "DB"
+database_name = "bilder-likes-preview"
+database_id = "REPLACE_WITH_PREVIEW_D1_DATABASE_ID"
