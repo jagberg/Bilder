@@ -26,3 +26,4 @@ pnpm-debug.log*
 # Cloudflare Wrangler
 .dev.vars
 .wrangler/
+PageLikesSeedFromWordpress.csv
