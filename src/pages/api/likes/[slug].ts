@@ -3,8 +3,8 @@ import seeds from '../../../data/like-seeds.json';
 
 export const prerender = false;
 
-function kv(locals: App.Locals): KVNamespace | null {
-  return (locals as any).runtime?.env?.LIKES ?? null;
+function db(locals: App.Locals): D1Database | null {
+  return (locals as any).runtime?.env?.DB ?? null;
 }
 
 function seed(slug: string): number {
@@ -12,25 +12,35 @@ function seed(slug: string): number {
 }
 
 export const GET: APIRoute = async ({ params, locals }) => {
+  const slug = params.slug!;
   try {
-    const store = kv(locals);
-    const raw = store ? await store.get(`likes:${params.slug}`) : null;
-    const count = parseInt(raw ?? '0') + seed(params.slug!);
-    return Response.json({ count });
+    const database = db(locals);
+    if (!database) return Response.json({ count: seed(slug) });
+    const row = await database
+      .prepare('SELECT COUNT(*) AS count FROM likes WHERE slug = ?')
+      .bind(slug)
+      .first<{ count: number }>();
+    return Response.json({ count: (row?.count ?? 0) + seed(slug) });
   } catch {
-    return Response.json({ count: seed(params.slug!) });
+    return Response.json({ count: seed(slug) });
   }
 };
 
 export const POST: APIRoute = async ({ params, locals }) => {
+  const slug = params.slug!;
   try {
-    const store = kv(locals);
-    if (!store) return Response.json({ count: seed(params.slug!) });
-    const raw = await store.get(`likes:${params.slug}`);
-    const next = parseInt(raw ?? '0') + 1;
-    await store.put(`likes:${params.slug}`, String(next));
-    return Response.json({ count: next + seed(params.slug!) });
+    const database = db(locals);
+    if (!database) return Response.json({ count: seed(slug) });
+    await database
+      .prepare('INSERT INTO likes (slug, created_at) VALUES (?, ?)')
+      .bind(slug, new Date().toISOString())
+      .run();
+    const row = await database
+      .prepare('SELECT COUNT(*) AS count FROM likes WHERE slug = ?')
+      .bind(slug)
+      .first<{ count: number }>();
+    return Response.json({ count: (row?.count ?? 0) + seed(slug) });
   } catch {
-    return Response.json({ count: seed(params.slug!) });
+    return Response.json({ count: seed(slug) });
   }
 };
