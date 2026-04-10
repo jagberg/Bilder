@@ -257,24 +257,19 @@ const lastModified = page.data.lastUpdated
   if (likeBtn) {
     const slug = likeBtn.dataset.slug!;
     const countEl = likeBtn.querySelector('.like-count') as HTMLElement;
-    const storageKey = `liked:${slug}`;
+    let hasLiked = false;
 
-    // Load current count
     fetch(`/api/likes/${slug}`)
       .then(r => r.json())
-      .then(({ count }) => {
-        countEl.textContent = count;
-        if (localStorage.getItem(storageKey)) likeBtn.classList.add('liked');
-      })
+      .then(({ count }) => { countEl.textContent = count; })
       .catch(() => { countEl.textContent = '0'; });
 
     likeBtn.addEventListener('click', () => {
-      if (localStorage.getItem(storageKey)) return; // already liked
-      // Optimistic increment — feels instant, server corrects if needed
+      if (hasLiked) return;
+      hasLiked = true;
       const current = parseInt(countEl.textContent || '0');
       countEl.textContent = String(current + 1);
       likeBtn.classList.add('liked');
-      localStorage.setItem(storageKey, '1');
       fetch(`/api/likes/${slug}`, { method: 'POST' })
         .then(r => r.json())
         .then(({ count }) => {
