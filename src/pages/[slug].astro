@@ -270,13 +270,14 @@ const lastModified = page.data.lastUpdated
 
     likeBtn.addEventListener('click', () => {
       if (localStorage.getItem(storageKey)) return; // already liked
+      // Optimistic increment — feels instant, server corrects if needed
+      const current = parseInt(countEl.textContent || '0');
+      countEl.textContent = String(current + 1);
+      likeBtn.classList.add('liked');
+      localStorage.setItem(storageKey, '1');
       fetch(`/api/likes/${slug}`, { method: 'POST' })
         .then(r => r.json())
-        .then(({ count }) => {
-          countEl.textContent = count;
-          likeBtn.classList.add('liked');
-          localStorage.setItem(storageKey, '1');
-        })
+        .then(({ count }) => { countEl.textContent = count; })
         .catch(() => {});
     });
   }
