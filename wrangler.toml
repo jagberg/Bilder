@@ -4,7 +4,7 @@ compatibility_date = "2026-04-05"
 [[d1_databases]]
 binding = "DB"
 database_name = "bilder-likes"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "4d42b11b-3a4f-4601-9b52-03ae692aa350"
 
 [env.preview]
 name = "bilder-site-preview"
@@ -13,4 +13,4 @@ compatibility_date = "2026-04-05"
 [[env.preview.d1_databases]]
 binding = "DB"
 database_name = "bilder-likes-preview"
-database_id = "REPLACE_WITH_PREVIEW_D1_DATABASE_ID"
+database_id = "1ee04b43-2d71-4d09-b3f9-2b388e2c37cc"
