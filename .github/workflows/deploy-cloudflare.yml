@@ -25,7 +25,7 @@ jobs:
 
       - name: Deploy to Cloudflare Workers
         run: |
-          rm -rf dist/server/.wrangler
+          rm -rf .wrangler
           cd dist/server
           npx wrangler deploy
         env:
