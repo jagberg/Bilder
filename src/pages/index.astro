@@ -375,20 +375,17 @@ import Layout from '../layouts/Layout.astro';
   if (likeBtn) {
     const slug = likeBtn.dataset.slug!;
     const countEl = likeBtn.querySelector('.like-count') as HTMLElement;
-    const storageKey = `liked:${slug}`;
+    let hasLiked = false;
     fetch(`/api/likes/${slug}`)
       .then(r => r.json())
-      .then(({ count }: { count: number }) => {
-        countEl.textContent = String(count);
-        if (localStorage.getItem(storageKey)) likeBtn.classList.add('liked');
-      })
+      .then(({ count }: { count: number }) => { countEl.textContent = String(count); })
       .catch(() => { countEl.textContent = '0'; });
     likeBtn.addEventListener('click', () => {
-      if (localStorage.getItem(storageKey)) return;
+      if (hasLiked) return;
+      hasLiked = true;
       const current = parseInt(countEl.textContent || '0');
       countEl.textContent = String(current + 1);
       likeBtn.classList.add('liked');
-      localStorage.setItem(storageKey, '1');
       fetch(`/api/likes/${slug}`, { method: 'POST' })
         .then(r => r.json())
         .then(({ count }: { count: number }) => {
