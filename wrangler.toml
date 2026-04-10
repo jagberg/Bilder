@@ -3,7 +3,7 @@ compatibility_date = "2026-04-05"
 
 [[kv_namespaces]]
 binding = "LIKES"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "5d114eb8273f4c849dd58d2830e4d3dd"
 
 [env.preview]
 name = "bilder-site-preview"
@@ -11,4 +11,4 @@ compatibility_date = "2026-04-05"
 
 [[env.preview.kv_namespaces]]
 binding = "LIKES"
-id = "REPLACE_WITH_PREVIEW_KV_NAMESPACE_ID"
+id = "f1105bb447e24121adb1ec5743132adf"
