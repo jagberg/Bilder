@@ -1,0 +1,208 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map(page => ({
+    params: { slug: page.id },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content, headings } = await render(page);
+
+const categoryLabels: Record<string, string> = {
+  'budget': 'Budget',
+  'house-plans': 'House Plans',
+  'choosing-a-builder': 'Choosing a Builder',
+  'building-materials': 'Building Materials',
+  'inclusions-and-options': 'Inclusions & Options',
+  'pre-construction': 'Pre-Construction',
+  'construction': 'Construction',
+  'other': 'Other',
+};
+
+const categoryLabel = page.data.category ? categoryLabels[page.data.category] : null;
+
+// Build TOC from headings. Most pages use h2/h3, but some long reference pages
+// need one extra depth level to match the source structure.
+const tocDepths = ['checking-your-plans', 'inclusions', 'lighting-tips-and-ideas-for-a-new-home'].includes(page.id) ? [2, 3, 4] : [2, 3];
+const tocHeadings = headings.filter(h => tocDepths.includes(h.depth));
+let h2Count = 0;
+let h3Count = 0;
+let h4Count = 0;
+const numberedToc = tocHeadings.map(h => {
+  const displayText = h.text.replace(/^\d+(?:\.\d+)*\.?\s+/, '');
+  if (h.depth === 2) {
+    h2Count++;
+    h3Count = 0;
+    h4Count = 0;
+    return { ...h, number: `${h2Count}`, displayText };
+  }
+  if (h.depth === 3) {
+    h3Count++;
+    h4Count = 0;
+    return { ...h, number: `${h2Count}.${h3Count}`, displayText };
+  }
+  h4Count++;
+  return { ...h, number: `${h2Count}.${h3Count}.${h4Count}`, displayText };
+});
+const showToc = numberedToc.length >= 3;
+
+// Last updated date from frontmatter
+const lastModified = page.data.lastUpdated
+  ? new Date(page.data.lastUpdated).toLocaleDateString('en-AU', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    })
+  : '';
+---
+
+<Layout title={page.data.title} description={page.data.description}>
+  <div class="breadcrumb">
+    <a href="/">Home</a>
+    {categoryLabel && (
+      <> &rsaquo; <span>{categoryLabel}</span></>
+    )}
+    <> &rsaquo; <span>{page.data.title}</span></>
+  </div>
+
+  {page.data.draft && (
+    <div class="draft-notice">
+      This page is a draft and may be incomplete.
+    </div>
+  )}
+
+  {showToc && (
+    <nav id="page-toc" class="toc-box" aria-label="Table of Contents">
+      <div class="toc-header">
+        <span class="toc-title">Contents</span>
+        <button class="toc-toggle" aria-expanded="true">[hide]</button>
+      </div>
+      <ol class="toc-list">
+        {numberedToc.map(h => (
+          <li class={`toc-item toc-depth-${h.depth}`}>
+            <a href={`#${h.slug}`}>{h.number} {h.displayText}</a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  )}
+
+  <Content />
+
+  {lastModified && (
+    <p class="last-updated">Last updated: {lastModified}</p>
+  )}
+</Layout>
+
+<style>
+  .draft-notice {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    border-radius: 3px;
+  }
+
+  .toc-box {
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    padding: 14px 18px;
+    margin: 0 0 24px;
+    display: inline-block;
+    min-width: 200px;
+    max-width: 100%;
+  }
+
+  .toc-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .toc-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .toc-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    color: #7f7f7f;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .toc-toggle:hover {
+    color: #fd356f;
+  }
+
+  .toc-list {
+    margin: 0;
+    padding: 0 0 0 0;
+    list-style: none;
+  }
+
+  .toc-list .toc-item::marker {
+    content: "";
+  }
+
+  .toc-item {
+    padding: 1px 0 1px 0;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .toc-item a {
+    color: #fd356f;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .toc-item a:hover {
+    text-decoration: underline;
+  }
+
+  .toc-depth-3 {
+    padding-left: 18px;
+  }
+
+  .toc-depth-4 {
+    padding-left: 36px;
+    font-size: 12px;
+  }
+
+
+  .last-updated {
+    font-size: 13px;
+    color: #aaa;
+    margin: 32px 0 0;
+    font-family: 'Poppins', sans-serif;
+  }
+</style>
+
+<script>
+  const toc = document.getElementById('page-toc');
+  if (toc) {
+    const toggle = toc.querySelector('.toc-toggle') as HTMLButtonElement;
+    const list = toc.querySelector('.toc-list') as HTMLElement;
+    toggle?.addEventListener('click', () => {
+      const isVisible = list.style.display !== 'none';
+      list.style.display = isVisible ? 'none' : '';
+      toggle.textContent = isVisible ? '[show]' : '[hide]';
+      toggle.setAttribute('aria-expanded', String(!isVisible));
+    });
+  }
+</script>

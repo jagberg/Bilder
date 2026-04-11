@@ -1,0 +1,35 @@
+name: Deploy Preview to Cloudflare Workers
+
+on:
+  push:
+    branches: [preview]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Exclude worker from assets
+        run: echo "_worker.js" > dist/.assetsignore
+
+      - name: Deploy to Cloudflare Workers (preview)
+        run: |
+          rm -rf .wrangler
+          npx wrangler deploy -e preview
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

@@ -1,0 +1,16 @@
+name = "bilder-site"
+compatibility_date = "2026-04-05"
+compatibility_flags = ["nodejs_compat"]
+main = "dist/_worker.js/index.js"
+
+[assets]
+directory = "dist"
+
+[env.preview]
+name = "bilder-site-preview"
+compatibility_date = "2026-04-05"
+compatibility_flags = ["nodejs_compat"]
+main = "dist/_worker.js/index.js"
+
+[env.preview.assets]
+directory = "dist"

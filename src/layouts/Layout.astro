@@ -1,0 +1,518 @@
+---
+import Nav from '../components/Nav.astro';
+import '../styles/global.css';
+import Search from '../components/Search.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Your guide to building a new home in Australia.' } = Astro.props;
+
+const recentPages = [
+  { title: 'Brick, Cladding, Hebel or Otherwise', slug: 'brick-cladding-hebel-or-otherwise' },
+  { title: 'Checking Your House Plans', slug: 'checking-your-plans' },
+  { title: 'Soundproofing', slug: 'soundproofing' },
+  { title: 'Thermal Insulation', slug: 'thermal-insulation' },
+  { title: 'Common Mistakes in a Build Journey', slug: 'common-mistakes' },
+];
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title} | New Build Journey</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-34GMKNVNB8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-34GMKNVNB8');
+    </script>
+
+    <!-- Hotjar -->
+    <script>
+      (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2913441,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <!-- Project ID: clarity.microsoft.com → New Project → get the ID from the setup snippet -->
+    <script>
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window,document,"clarity","script","REPLACE_WITH_CLARITY_PROJECT_ID");
+    </script>
+  </head>
+  <body>
+    <header id="site-header">
+      <div class="container header-inner">
+        <div id="site-branding">
+          <a href="/" id="site-logo-link">
+            <img src="/images/bilder-logo.png" alt="New Build Journey" id="site-logo-img" />
+          </a>
+          <p class="site-description">Your guide to building a new home</p>
+        </div>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <Nav />
+
+    <div id="page-wrapper">
+      <div class="container">
+        <div id="content-sidebar-wrap">
+          <main id="main-content">
+            <slot />
+          </main>
+
+          <aside id="sidebar">
+            <div class="widget widget-search">
+              <h3 class="widget-title">Search</h3>
+              <Search />
+            </div>
+
+            <div class="widget widget-recent-posts">
+              <h3 class="widget-title">Recent Posts</h3>
+              <ul>
+                {recentPages.map(page => (
+                  <li><a href={`/${page.slug}/`}>{page.title}</a></li>
+                ))}
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <footer id="site-footer">
+      <div class="footer-widgets">
+        <div class="container">
+          <p class="footer-copy">Copyright &copy; {new Date().getFullYear()} New Build Journey. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Poppins', serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #7f7f7f;
+    background: #fff;
+  }
+
+  a {
+    color: #fd356f;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Site Header */
+  #site-header {
+    background: #fff;
+    box-shadow: 2px 0 15px rgb(0 0 0 / 15%);
+    padding: 18px 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Hamburger — hidden on desktop, shown on mobile */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: #fd356f;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+
+  .nav-toggle:hover {
+    background: #e02860;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .nav-toggle {
+      display: flex;
+    }
+  }
+
+  #site-branding {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #site-logo-link {
+    display: block;
+    text-decoration: none;
+  }
+
+  #site-logo-img {
+    height: 60px;
+    width: auto;
+    display: block;
+  }
+
+  .site-description {
+    font-size: 0.82rem;
+    color: #7f7f7f;
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* Page layout */
+  #page-wrapper {
+    padding: 30px 0;
+    background: #f9f9f9;
+    min-height: calc(100vh - 200px);
+  }
+
+  #content-sidebar-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  #sidebar {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  #sidebar .widget {
+    flex: 1 1 260px;
+  }
+
+  /* Main content */
+  #main-content {
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #f0f0f0;
+  }
+
+  #main-content h1,
+  #main-content h2,
+  #main-content h3,
+  #main-content h4,
+  #main-content h5,
+  #main-content h6 {
+    font-family: 'Poppins', sans-serif;
+    @apply clear-both;
+  }
+
+  #main-content h1 {
+    font-size: 34px;
+    color: #cf2e2e;
+    font-weight: 700;
+    margin: 0 0 10px;
+  }
+
+  #main-content h2 {
+    font-size: 28px;
+    color: #cf2e2e;
+    font-weight: 700;
+    margin: 20px 0 5px;
+  }
+
+  #main-content h3 {
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+    margin: 5px 0 5px;
+  }
+
+  #main-content h4 {
+    font-size: 14px;
+    color: #000;
+    font-weight: 700;
+    margin: 8px 0 4px;
+  }
+
+  #main-content p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #7f7f7f;
+  }
+
+  #main-content pre {
+    font-family: Courier New, Courier, monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+    color: #7f7f7f;
+    margin-bottom: 14px;
+  }
+
+  #main-content ul {
+    list-style-type: disc;
+  }
+
+  #main-content ol {
+    list-style-type: decimal;
+  }
+
+  #main-content ul,
+  #main-content ol {
+    margin: 0 0 14px 22px;
+  }
+
+  #main-content li {
+    font-size: 14px;
+    margin-bottom: 2px;
+    color: #7f7f7f;
+  }
+
+  #main-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.88rem;
+  }
+
+  #main-content th {
+    background: #fd356f;
+    color: #fff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  #main-content td {
+    padding: 8px 12px;
+    border: 1px solid #f0f0f0;
+    color: #7f7f7f;
+  }
+
+  #main-content tr:nth-child(even) td {
+    background: #fafafa;
+  }
+
+  #main-content strong {
+    color: #000;
+    font-weight: 600;
+  }
+
+  #main-content blockquote {
+    border-left: 4px solid #fd356f;
+    padding: 10px 20px;
+    margin: 20px 0;
+    background: #fff5f8;
+    color: #7f7f7f;
+    font-style: italic;
+  }
+
+  #main-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #main-content figure {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 1.5em;
+  }
+
+  #main-content figure.img-left {
+    float: left;
+    margin: 0 24px 16px 0;
+  }
+
+  #main-content figure.img-right {
+    float: right;
+    margin: 0 0 16px 24px;
+  }
+
+  #main-content figure:not(.img-left):not(.img-right) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  #main-content figure img {
+    margin: 0;
+  }
+
+  #main-content figure:not(.img-left):not(.img-right) img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #main-content figcaption {
+    font-size: 13px;
+    color: #7f7f7f;
+    text-align: center;
+    font-style: italic;
+    margin-top: 5px;
+  }
+
+  @media (max-width: 680px) {
+    #main-content figure {
+      width: fit-content;
+      max-width: 100%;
+    }
+
+    #main-content figure.img-left,
+    #main-content figure.img-right {
+      float: none;
+      margin: 0 auto 1em;
+    }
+
+    #main-content figure:not(.img-left):not(.img-right) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #main-content figure img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* Sidebar */
+  .widget {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+  }
+
+  .widget-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0;
+    padding: 10px 15px;
+    background: #fd356f;
+  }
+
+  .widget-search,
+  .widget-recent-posts {
+    overflow: hidden;
+  }
+
+  .widget-search > :not(.widget-title),
+  .widget-recent-posts > :not(.widget-title) {
+    padding: 15px;
+  }
+
+  .widget-recent-posts ul {
+    list-style: none;
+    margin: 0;
+    padding: 15px;
+  }
+
+  .widget-recent-posts li {
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .widget-recent-posts li:last-child {
+    border-bottom: none;
+  }
+
+  .widget-recent-posts a {
+    color: #7f7f7f;
+  }
+
+  .widget-recent-posts a:hover {
+    color: #fd356f;
+    text-decoration: none;
+  }
+
+  /* Footer */
+  #site-footer {
+    background: #6102d3;
+    color: #fff;
+  }
+
+  .footer-widgets {
+    padding: 20px 0;
+  }
+
+  .footer-copy {
+    color: #fff;
+    font-size: 0.82rem;
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 18px;
+  }
+
+  .breadcrumb a {
+    color: #aaa;
+  }
+
+  .breadcrumb a:hover {
+    color: #fd356f;
+    text-decoration: none;
+  }
+</style>

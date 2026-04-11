@@ -1,0 +1,344 @@
+---
+export const prerender = true;
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Builder Margin and Markup Calculator"
+  description="Calculate builder margin, markup, and total cost including GST. Understand the difference between margin and markup when dealing with builders."
+>
+  <div class="breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/inclusions/">Inclusions &amp; Options</a> &rsaquo; <span>Builder Margin &amp; Markup</span>
+  </div>
+
+  <h1>Builder Margin and Markup Calculator</h1>
+
+  <p>A common source of confusion when dealing with builders is the difference between <strong>margin</strong> and <strong>markup</strong>. These terms are not interchangeable.</p>
+
+  <blockquote>
+    <strong>A margin of 20% is NOT the same as a markup of 20%.</strong><br />
+    A margin of 20% is equivalent to a markup of 25%.
+  </blockquote>
+
+  <h2>Understanding the Difference</h2>
+
+  <p><strong>Markup</strong> is calculated on the cost price:<br />
+  Cost + (Cost × markup%) = Sale price</p>
+
+  <p><strong>Margin</strong> is calculated on the sale price:<br />
+  Cost ÷ (1 − margin%) = Sale price (ex. GST)</p>
+
+  <div style="display:flex;gap:2rem;flex-wrap:wrap;margin:20px 0">
+    <div style="flex:1;min-width:220px">
+      <p><strong>To calculate what the builder will charge</strong></p>
+      <table>
+        <tbody>
+          <tr><td>Cost ex GST</td><td>$1,000</td></tr>
+          <tr><td>Margin</td><td>20%</td></tr>
+          <tr><td>Total with margin</td><td>$1,250 (cost/(1-0.2))</td></tr>
+          <tr><td>Total with margin &amp; GST</td><td>$1,375 (above × 1.1)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="flex:1;min-width:220px">
+      <p><strong>To calculate cost price from builders charge</strong></p>
+      <table>
+        <tbody>
+          <tr><td>Builders variation</td><td>$1,375</td></tr>
+          <tr><td>Margin</td><td>20%</td></tr>
+          <tr><td>Total without GST</td><td>$1,250 (variation/1.1)</td></tr>
+          <tr><td>Total cost</td><td>$1,000 (above×(1-0.2))</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <p>To easily calculate this, you can use a factor of 1.375, including GST. $1,000 * 1.375 = $1,375</p>
+
+  <h2>Cost incl. Builder Margin Calculator</h2>
+
+  <div class="calculator-card" id="calc1">
+    <div class="calc-row">
+      <label for="c1-cost">Cost ex. GST</label>
+      <div class="input-group">
+        <span class="prefix">$</span>
+        <input type="number" id="c1-cost" value="1000" min="0" step="0.01" />
+      </div>
+    </div>
+
+    <div class="calc-row">
+      <label for="c1-margin">Builder Margin % (not markup)</label>
+      <div class="input-group">
+        <input type="number" id="c1-margin" value="20" min="0" max="99" step="0.1" />
+        <span class="suffix">%</span>
+      </div>
+    </div>
+
+    <button class="calc-btn" id="c1-btn">Calculate</button>
+
+    <div class="calc-results" id="c1-results">
+      <div class="result-row">
+        <span>Markup</span>
+        <strong id="c1-markup"></strong>
+      </div>
+      <div class="result-row">
+        <span>Total cost to client (ex. GST)</span>
+        <strong id="c1-total-ex"></strong>
+      </div>
+      <div class="result-row highlight">
+        <span>Total cost to client (incl. GST)</span>
+        <strong id="c1-total-incl"></strong>
+      </div>
+      <div class="result-row">
+        <span>Additional cost (incl. GST)</span>
+        <strong id="c1-additional"></strong>
+      </div>
+    </div>
+  </div>
+
+  <h2>Cost before Builder Margin Calculator</h2>
+
+  <div class="calculator-card" id="calc2">
+    <div class="calc-row">
+      <label for="c2-total">Total cost incl. builder margin and GST</label>
+      <div class="input-group">
+        <span class="prefix">$</span>
+        <input type="number" id="c2-total" value="1375" min="0" step="0.01" />
+      </div>
+    </div>
+
+    <div class="calc-row">
+      <label for="c2-margin">Builder Margin % (not markup)</label>
+      <div class="input-group">
+        <input type="number" id="c2-margin" value="20" min="0" max="99" step="0.1" />
+        <span class="suffix">%</span>
+      </div>
+    </div>
+
+    <button class="calc-btn" id="c2-btn">Calculate</button>
+
+    <div class="calc-results" id="c2-results">
+      <div class="result-row">
+        <span>Markup</span>
+        <strong id="c2-markup"></strong>
+      </div>
+      <div class="result-row highlight">
+        <span>Cost before margin and GST</span>
+        <strong id="c2-cost"></strong>
+      </div>
+      <div class="result-row">
+        <span>Builder's Margin Amount</span>
+        <strong id="c2-margin-amount"></strong>
+      </div>
+      <div class="result-row">
+        <span>GST Component</span>
+        <strong id="c2-gst"></strong>
+      </div>
+    </div>
+  </div>
+
+  <h2>Common Margin Multipliers (incl. 10% GST)</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Margin %</th>
+        <th>Markup %</th>
+        <th>Multiplier (incl. GST)</th>
+        <th>Example: $10,000 cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>10%</td><td>11.1%</td><td>×1.222</td><td>$12,222</td></tr>
+      <tr><td>15%</td><td>17.6%</td><td>×1.294</td><td>$12,941</td></tr>
+      <tr><td>20%</td><td>25.0%</td><td>×1.375</td><td>$13,750</td></tr>
+      <tr><td>25%</td><td>33.3%</td><td>×1.467</td><td>$14,667</td></tr>
+      <tr><td>30%</td><td>42.9%</td><td>×1.571</td><td>$15,714</td></tr>
+    </tbody>
+  </table>
+
+</Layout>
+
+<style>
+  blockquote {
+    background: #f0f7fb;
+    border-left: 4px solid #0073aa;
+    padding: 15px 20px;
+    margin: 20px 0;
+  }
+
+  .calculator-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 24px;
+    margin: 20px 0 30px;
+    max-width: 500px;
+  }
+
+  .calc-row {
+    margin-bottom: 16px;
+  }
+
+  .calc-row label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: #333;
+  }
+
+  .input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .input-group input {
+    flex: 1;
+    border: none;
+    padding: 9px 12px;
+    font-size: 1rem;
+    outline: none;
+    font-family: inherit;
+  }
+
+  .prefix, .suffix {
+    padding: 9px 12px;
+    background: #eee;
+    color: #555;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .calc-btn {
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 4px;
+    font-family: inherit;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .calc-btn:hover {
+    background: #005177;
+  }
+
+  .calc-results {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 16px;
+  }
+
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .result-row:last-child {
+    border-bottom: none;
+  }
+
+  .result-row.highlight {
+    background: #e8f4f8;
+    padding: 7px 10px;
+    margin: 4px -10px;
+    border-radius: 3px;
+    border-bottom: none;
+    font-size: 1rem;
+  }
+
+  .result-row strong {
+    color: #0073aa;
+  }
+
+  .result-row.highlight strong {
+    font-size: 1.1rem;
+    color: #005177;
+  }
+</style>
+
+<script>
+  function formatCurrency(value: number): string {
+    return '$' + value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  function formatPercent(value: number): string {
+    return value.toFixed(2) + '%';
+  }
+
+  function calc1() {
+    const cost = parseFloat((document.getElementById('c1-cost') as HTMLInputElement).value);
+    const margin = parseFloat((document.getElementById('c1-margin') as HTMLInputElement).value);
+    if (isNaN(cost) || isNaN(margin) || margin >= 100 || margin < 0) return;
+    const totalExGST = cost / (1 - margin / 100);
+    const totalInclGST = totalExGST * 1.1;
+    const additional = totalInclGST - cost;
+    const markup = (totalExGST / cost - 1) * 100;
+    (document.getElementById('c1-markup') as HTMLElement).textContent = formatPercent(markup);
+    (document.getElementById('c1-total-ex') as HTMLElement).textContent = formatCurrency(totalExGST);
+    (document.getElementById('c1-total-incl') as HTMLElement).textContent = formatCurrency(totalInclGST);
+    (document.getElementById('c1-additional') as HTMLElement).textContent = formatCurrency(additional);
+  }
+
+  function calc2() {
+    const total = parseFloat((document.getElementById('c2-total') as HTMLInputElement).value);
+    const margin = parseFloat((document.getElementById('c2-margin') as HTMLInputElement).value);
+    if (isNaN(total) || isNaN(margin) || margin >= 100 || margin < 0) return;
+    const totalExGST = total / 1.1;
+    const cost = totalExGST * (1 - margin / 100);
+    const marginAmount = totalExGST - cost;
+    const gst = total - totalExGST;
+    const markup = (totalExGST / cost - 1) * 100;
+    (document.getElementById('c2-markup') as HTMLElement).textContent = formatPercent(markup);
+    (document.getElementById('c2-cost') as HTMLElement).textContent = formatCurrency(cost);
+    (document.getElementById('c2-margin-amount') as HTMLElement).textContent = formatCurrency(marginAmount);
+    (document.getElementById('c2-gst') as HTMLElement).textContent = formatCurrency(gst);
+  }
+
+  // Auto-calculate on load with default values
+  calc1();
+  calc2();
+
+  document.getElementById('c1-btn')?.addEventListener('click', () => {
+    const cost = parseFloat((document.getElementById('c1-cost') as HTMLInputElement).value);
+    const margin = parseFloat((document.getElementById('c1-margin') as HTMLInputElement).value);
+    if (isNaN(cost) || isNaN(margin) || margin >= 100 || margin < 0) {
+      alert('Please enter valid values. Margin must be between 0 and 99.');
+      return;
+    }
+    calc1();
+  });
+
+  document.getElementById('c2-btn')?.addEventListener('click', () => {
+    const total = parseFloat((document.getElementById('c2-total') as HTMLInputElement).value);
+    const margin = parseFloat((document.getElementById('c2-margin') as HTMLInputElement).value);
+    if (isNaN(total) || isNaN(margin) || margin >= 100 || margin < 0) {
+      alert('Please enter valid values. Margin must be between 0 and 99.');
+      return;
+    }
+    calc2();
+  });
+
+  // Allow Enter key to trigger calculation
+  document.querySelectorAll('.calculator-card input').forEach(input => {
+    input.addEventListener('keypress', (e: Event) => {
+      if ((e as KeyboardEvent).key === 'Enter') {
+        const card = (e.target as HTMLElement).closest('.calculator-card');
+        const btn = card?.querySelector('.calc-btn') as HTMLButtonElement;
+        btn?.click();
+      }
+    });
+  });
+</script>

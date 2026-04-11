@@ -1,0 +1,57 @@
+---
+// Pagefind search widget
+// The pagefind JS/CSS is injected at build time by astro-pagefind
+---
+
+<div id="search-container">
+  <div id="search"></div>
+</div>
+
+<style>
+  #search-container {
+    width: 100%;
+  }
+
+  /* Override pagefind styles to match site theme */
+  :global(.pagefind-ui .pagefind-ui__search-input) {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    width: 100%;
+    font-family: inherit;
+  }
+
+  :global(.pagefind-ui .pagefind-ui__search-input:focus) {
+    outline: 2px solid #0073aa;
+    border-color: #0073aa;
+  }
+
+  :global(.pagefind-ui .pagefind-ui__result-title a) {
+    color: #0073aa;
+  }
+
+  :global(.pagefind-ui .pagefind-ui__button) {
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 0.85rem;
+  }
+</style>
+
+<script>
+  // Initialize pagefind UI when available
+  window.addEventListener('DOMContentLoaded', () => {
+    // @ts-ignore - pagefind is injected at build time
+    if (typeof window.PagefindUI !== 'undefined') {
+      // @ts-ignore
+      new window.PagefindUI({
+        element: '#search',
+        showImages: false,
+        excerptLength: 15,
+        resetStyles: false,
+      });
+    }
+  });
+</script>
