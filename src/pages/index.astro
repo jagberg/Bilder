@@ -11,6 +11,16 @@ import Layout from '../layouts/Layout.astro';
   <article class="home-page">
     <h1>New Build Journey</h1>
 
+    <button
+      id="page-like-btn"
+      class="like-btn"
+      data-slug="home"
+      aria-label="Like this page"
+    >
+      <span class="like-heart">&#9829;</span>
+      <span class="like-count">–</span>
+    </button>
+
     <p>
       The inspiration for this site came from the many posts I came across and responded to in the
       different social media groups like Facebook, Instagram and forums. There were a lot of
@@ -339,4 +349,49 @@ import Layout from '../layouts/Layout.astro';
   .home-timeline {
     margin: 0 0 1.5em;
   }
+
+  .like-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 7px 16px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #888;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.15s, background 0.15s;
+    margin-bottom: 24px;
+  }
+  .like-btn:hover { border-color: #bbb; background: #efefef; }
+  .like-btn.liked .like-heart { color: #e53935; }
+  .like-heart { font-size: 18px; line-height: 1; color: #e53935; }
 </style>
+
+<script>
+  const likeBtn = document.getElementById('page-like-btn') as HTMLButtonElement | null;
+  if (likeBtn) {
+    const slug = likeBtn.dataset.slug!;
+    const countEl = likeBtn.querySelector('.like-count') as HTMLElement;
+    let hasLiked = false;
+    fetch(`/api/likes/${slug}`)
+      .then(r => r.json())
+      .then(({ count }: { count: number }) => { countEl.textContent = String(count); })
+      .catch(() => { countEl.textContent = '0'; });
+    likeBtn.addEventListener('click', () => {
+      if (hasLiked) return;
+      hasLiked = true;
+      const current = parseInt(countEl.textContent || '0');
+      countEl.textContent = String(current + 1);
+      likeBtn.classList.add('liked');
+      fetch(`/api/likes/${slug}`, { method: 'POST' })
+        .then(r => r.json())
+        .then(({ count }: { count: number }) => {
+          if (count > parseInt(countEl.textContent || '0')) countEl.textContent = String(count);
+        })
+        .catch(() => {});
+    });
+  }
+</script>

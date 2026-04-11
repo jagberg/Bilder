@@ -94,6 +94,16 @@ const lastModified = page.data.lastUpdated
     </nav>
   )}
 
+  <button
+    id="page-like-btn"
+    class="like-btn"
+    data-slug={page.id}
+    aria-label="Like this page"
+  >
+    <span class="like-heart">&#9829;</span>
+    <span class="like-count">–</span>
+  </button>
+
   <Content />
 
   {lastModified && (
@@ -191,6 +201,37 @@ const lastModified = page.data.lastUpdated
     margin: 32px 0 0;
     font-family: 'Poppins', sans-serif;
   }
+
+  .like-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 7px 16px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #888;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.15s, background 0.15s;
+    margin-bottom: 24px;
+  }
+
+  .like-btn:hover {
+    border-color: #bbb;
+    background: #efefef;
+  }
+
+  .like-btn.liked .like-heart {
+    color: #e53935;
+  }
+
+  .like-heart {
+    font-size: 18px;
+    line-height: 1;
+    color: #e53935;
+  }
 </style>
 
 <script>
@@ -203,6 +244,38 @@ const lastModified = page.data.lastUpdated
       list.style.display = isVisible ? 'none' : '';
       toggle.textContent = isVisible ? '[show]' : '[hide]';
       toggle.setAttribute('aria-expanded', String(!isVisible));
+    });
+  }
+
+  // Move like button to after the first h1 in main content
+  const likeBtn = document.getElementById('page-like-btn') as HTMLButtonElement;
+  if (likeBtn) {
+    const main = document.getElementById('main-content');
+    const h1 = main?.querySelector('h1');
+    if (h1) h1.after(likeBtn);
+  }
+  if (likeBtn) {
+    const slug = likeBtn.dataset.slug!;
+    const countEl = likeBtn.querySelector('.like-count') as HTMLElement;
+    let hasLiked = false;
+
+    fetch(`/api/likes/${slug}`)
+      .then(r => r.json())
+      .then(({ count }) => { countEl.textContent = count; })
+      .catch(() => { countEl.textContent = '0'; });
+
+    likeBtn.addEventListener('click', () => {
+      if (hasLiked) return;
+      hasLiked = true;
+      const current = parseInt(countEl.textContent || '0');
+      countEl.textContent = String(current + 1);
+      likeBtn.classList.add('liked');
+      fetch(`/api/likes/${slug}`, { method: 'POST' })
+        .then(r => r.json())
+        .then(({ count }) => {
+          if (count > parseInt(countEl.textContent || '0')) countEl.textContent = String(count);
+        })
+        .catch(() => {});
     });
   }
 </script>
