@@ -1,5 +1,10 @@
 name = "bilder-site"
 compatibility_date = "2026-04-05"
+compatibility_flags = ["nodejs_compat"]
+main = "dist/_worker.js/index.js"
+
+[assets]
+directory = "dist"
 
 [[d1_databases]]
 binding = "DB"
@@ -9,6 +14,11 @@ database_id = "4d42b11b-3a4f-4601-9b52-03ae692aa350"
 [env.preview]
 name = "bilder-site-preview"
 compatibility_date = "2026-04-05"
+compatibility_flags = ["nodejs_compat"]
+main = "dist/_worker.js/index.js"
+
+[env.preview.assets]
+directory = "dist"
 
 [[env.preview.d1_databases]]
 binding = "DB"

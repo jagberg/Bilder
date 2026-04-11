@@ -7,13 +7,13 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/check-images.mjs && astro build && npx pagefind --site dist/client",
+    "build": "node scripts/check-images.mjs && astro build",
     "check-images": "node scripts/check-images.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.1.8",
+    "@astrojs/cloudflare": "^12.6.13",
     "@astrojs/react": "^5.0.2",
     "@keystatic/astro": "^5.0.6",
     "@keystatic/core": "^0.5.50",
@@ -27,8 +27,5 @@
   },
   "devDependencies": {
     "wrangler": "^4.81.0"
-  },
-  "optionalDependencies": {
-    "@cloudflare/workerd-windows-64": "^1.20260403.1"
   }
 }
