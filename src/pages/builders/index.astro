@@ -1,0 +1,337 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const PAGE_SIZE = 20;
+const PREVIEW_HEARINGS = 5;
+---
+
+<Layout
+  title="Builder Lookup"
+  description="Search for Australian home builders and see their legal proceedings on public record."
+>
+  <h1>Builder Lookup</h1>
+  <p>Search for a builder to see their legal proceedings in NSW tribunals and courts. Enter the builder's trading name or any of their registered aliases.</p>
+
+  <form id="search-form" class="builder-search-form" role="search">
+    <input
+      class="builder-search-input"
+      id="search-input"
+      type="search"
+      name="q"
+      placeholder="e.g. Metricon, Metricon Homes Pty Ltd…"
+      aria-label="Builder name"
+      autocomplete="off"
+    />
+    <button class="builder-search-btn" type="submit">Search</button>
+  </form>
+  <p class="search-hint">You can search by trading name or alias — all known names for a builder return the same results.</p>
+
+  <div id="search-error" class="alias-banner" role="alert" style="display:none;border-left-color:#c62828;background:#ffebee;border-color:#ef9a9a;">
+    <strong>Couldn't reach the builder API.</strong> Please try again in a moment.
+  </div>
+
+  <div id="empty-state" class="empty-state">
+    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+      <circle cx="26" cy="26" r="18" stroke="#888" stroke-width="3"/>
+      <line x1="39" y1="39" x2="54" y2="54" stroke="#888" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <h3>Enter a builder name to get started</h3>
+    <p>Results will appear here, grouped by builder.</p>
+  </div>
+
+  <div id="no-results" class="empty-state" style="display:none;">
+    <h3 id="no-results-msg"></h3>
+    <p>Try a shorter or different search term.</p>
+  </div>
+
+  <div id="search-loading" class="search-loading-state" style="display:none;">
+    <div class="search-loading-spinner"></div>
+    <h3 id="search-loading-title">Searching…</h3>
+    <p id="search-loading-detail">Checking known builders</p>
+  </div>
+
+  <div id="results-section" style="display:none;">
+    <div id="results-header" class="results-header">
+      <p class="results-label">Showing results for <strong id="results-query"></strong></p>
+      <span class="results-count-badge" id="results-count"></span>
+    </div>
+    <div id="results-body">
+      <div id="results-overlay" class="results-overlay"></div>
+      <div id="builders-list"></div>
+    </div>
+    <div id="scroll-sentinel" class="scroll-sentinel"></div>
+    <div id="scroll-spinner" class="scroll-spinner" aria-hidden="true"></div>
+    <div id="end-of-results" class="end-of-results"></div>
+  </div>
+</Layout>
+
+<script>
+  import { attachInfiniteScroll } from '../../lib/infinite-scroll';
+
+  interface Hearing {
+    externalId: string;
+    caseNumber: string;
+    parties: string;
+    listingDate: string;
+    listingTime: string;
+    court: string;
+    location: string;
+    listingType: string;
+  }
+
+  interface Builder {
+    builderName: string;
+    aliases: string[];
+  }
+
+  interface Group {
+    builder: Builder;
+    hearings: Hearing[];
+    total: number;
+    similarMatchCount: number;
+  }
+
+  const PAGE_SIZE = 20;
+  const PREVIEW_LIMIT = 5;
+
+  const form = document.getElementById('search-form') as HTMLFormElement;
+  const input = document.getElementById('search-input') as HTMLInputElement;
+  const emptyState = document.getElementById('empty-state')!;
+  const noResults = document.getElementById('no-results')!;
+  const noResultsMsg = document.getElementById('no-results-msg')!;
+  const searchError = document.getElementById('search-error')!;
+  const searchLoading = document.getElementById('search-loading')!;
+  const loadingTitle = document.getElementById('search-loading-title')!;
+  const loadingDetail = document.getElementById('search-loading-detail')!;
+  const resultsSection = document.getElementById('results-section')!;
+  const resultsQuery = document.getElementById('results-query')!;
+  const resultsCount = document.getElementById('results-count')!;
+  const list = document.getElementById('builders-list')!;
+  const sentinel = document.getElementById('scroll-sentinel')!;
+  const spinner = document.getElementById('scroll-spinner')!;
+  const endUi = document.getElementById('end-of-results')!;
+
+  const overlay = document.getElementById('results-overlay')!;
+  let currentScrollCleanup: (() => void) | null = null;
+  let hasResults = false;
+
+  // Populate input from URL on load (back/forward navigation)
+  const urlQ = new URLSearchParams(window.location.search).get('q')?.trim() ?? '';
+  if (urlQ) {
+    input.value = urlQ;
+    doSearch(urlQ);
+  }
+
+  // Handle back/forward
+  window.addEventListener('popstate', () => {
+    const q = new URLSearchParams(window.location.search).get('q')?.trim() ?? '';
+    input.value = q;
+    if (q) doSearch(q);
+    else resetUI();
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const q = input.value.trim();
+    if (!q) return;
+    const url = new URL(window.location.href);
+    url.searchParams.set('q', q);
+    history.pushState(null, '', url.toString());
+    doSearch(q);
+  });
+
+  function resetUI() {
+    hasResults = false;
+    emptyState.style.display = '';
+    noResults.style.display = 'none';
+    searchError.style.display = 'none';
+    searchLoading.style.display = 'none';
+    resultsSection.style.display = 'none';
+    overlay.classList.remove('active');
+    list.innerHTML = '';
+    endUi.style.display = 'none';
+    if (currentScrollCleanup) { currentScrollCleanup(); currentScrollCleanup = null; }
+  }
+
+  async function doSearch(q: string) {
+    emptyState.style.display = 'none';
+    noResults.style.display = 'none';
+    searchError.style.display = 'none';
+    if (currentScrollCleanup) { currentScrollCleanup(); currentScrollCleanup = null; }
+    endUi.style.display = 'none';
+    let slowTimer: number | undefined;
+
+    if (hasResults) {
+      // Results already visible — dim them with overlay instead of removing
+      overlay.classList.add('active');
+    } else {
+      // First search — show prominent loading state
+      resultsSection.style.display = 'none';
+      loadingTitle.textContent = 'Searching…';
+      loadingDetail.textContent = 'Checking known builders';
+      searchLoading.style.display = '';
+      // If it takes a while (fallback scrape), update the message
+      slowTimer = window.setTimeout(() => {
+        loadingDetail.textContent = 'Searching the NSW registry — this can take a few seconds';
+      }, 2000);
+    }
+
+    try {
+      const res = await fetch(`/api/builders-search?q=${encodeURIComponent(q)}&offset=0&limit=${PAGE_SIZE}`);
+      if (!res.ok) throw new Error(String(res.status));
+      const data = await res.json();
+      const groups: Group[] = data.groups;
+      const total: number = data.total;
+
+      window.clearTimeout(slowTimer);
+      searchLoading.style.display = 'none';
+      overlay.classList.remove('active');
+
+      if (total === 0) {
+        hasResults = false;
+        resultsSection.style.display = 'none';
+        noResultsMsg.textContent = `No builders match "${q}"`;
+        noResults.style.display = '';
+        return;
+      }
+
+      hasResults = true;
+      resultsQuery.textContent = `"${q}"`;
+      resultsCount.textContent = `${total} builder${total === 1 ? '' : 's'} found`;
+      list.innerHTML = groups.map(renderGroup).join('');
+      resultsSection.style.display = '';
+
+      // Attach infinite scroll for remaining results
+      const cleanup = attachInfiniteScroll<Group>({
+        list,
+        sentinel,
+        spinner,
+        endUi,
+        batchSize: PAGE_SIZE,
+        total,
+        initialLoaded: groups.length,
+        async fetchBatch(offset, limit) {
+          const url = `/api/builders-search?q=${encodeURIComponent(q)}&offset=${offset}&limit=${limit}`;
+          const r = await fetch(url);
+          if (!r.ok) throw new Error(`${r.status}`);
+          const d = await r.json();
+          return d.groups as Group[];
+        },
+        renderItem: renderGroup,
+        endMessage: (n) => `End of results · ${n} builder${n === 1 ? '' : 's'}`,
+      });
+      currentScrollCleanup = cleanup;
+    } catch {
+      window.clearTimeout(slowTimer);
+      searchLoading.style.display = 'none';
+      overlay.classList.remove('active');
+      hasResults = false;
+      resultsSection.style.display = 'none';
+      searchError.style.display = '';
+    }
+  }
+
+  function escapeHtml(s: string): string {
+    return s.replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]!));
+  }
+
+  function formatDate(iso: string): string {
+    try {
+      return new Date(iso).toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' });
+    } catch {
+      return iso;
+    }
+  }
+
+  function splitParties(p: string): { applicant: string; respondent: string } {
+    const m = p.match(/^(.*?)\s+v\s+(.*)$/i);
+    if (m) return { applicant: m[1].trim(), respondent: `v ${m[2].trim()}` };
+    return { applicant: p, respondent: '' };
+  }
+
+  function typeBadge(listingType: string): string {
+    const t = listingType.toLowerCase();
+    let cls = 'type-badge';
+    if (t.includes('direction')) cls += ' directions';
+    else if (t.includes('mediation') || t.includes('conciliation')) cls += ' mediation';
+    const text = listingType.replace(/\s*Hearing\s*$/i, '').trim() || listingType;
+    return `<span class="${cls}">${escapeHtml(text)}</span>`;
+  }
+
+  function renderHearingCompact(h: Hearing): string {
+    const { applicant, respondent } = splitParties(h.parties);
+    return `
+      <tr class="hearing-row">
+        <td class="hc-date" data-label="Date">
+          <div class="hc-date-d">${escapeHtml(formatDate(h.listingDate))}</div>
+          <div class="hc-date-t">${escapeHtml((h.listingTime || '').slice(0, 5))}</div>
+        </td>
+        <td class="hc-case" data-label="Case #"><span class="hc-case-number">${escapeHtml(h.caseNumber)}</span></td>
+        <td class="hc-parties" data-label="Parties">
+          <span class="hc-parties-name">${escapeHtml(applicant)}</span>
+          ${respondent ? `<span class="hc-parties-v">${escapeHtml(respondent)}</span>` : ''}
+        </td>
+        <td class="hc-court" data-label="Court">
+          <span class="court-badge">${escapeHtml(h.court)}</span>
+          <span class="hc-location">${escapeHtml(h.location)}</span>
+        </td>
+        <td class="hc-type" data-label="Type">${typeBadge(h.listingType)}</td>
+      </tr>`;
+  }
+
+  function renderGroup(g: Group): string {
+    const builder = g.builder;
+    const href = `/builders/${encodeURIComponent(builder.builderName)}/`;
+    const otherAliases = builder.aliases.filter(a => a !== builder.builderName);
+    const previewCount = Math.min(g.hearings.length, PREVIEW_LIMIT);
+    const total = g.total;
+    const body = g.hearings.length === 0
+      ? `<div class="builder-group-empty">No hearings on record for this builder.</div>`
+      : `<div class="hearings-table-wrap">
+           <table class="hearings-table compact">
+             <thead>
+               <tr>
+                 <th class="hc-date">Date</th>
+                 <th class="hc-case">Case #</th>
+                 <th class="hc-parties">Parties</th>
+                 <th class="hc-court">Court</th>
+                 <th class="hc-type">Type</th>
+               </tr>
+             </thead>
+             <tbody>${g.hearings.slice(0, PREVIEW_LIMIT).map(renderHearingCompact).join('')}</tbody>
+           </table>
+         </div>`;
+    const aliasesHtml = otherAliases.length
+      ? `<div class="alias-row"><span class="alias-label">Also known as</span>${otherAliases.map(a => `<span class="alias-pill">${escapeHtml(a)}</span>`).join('')}</div>`
+      : '';
+    const similarCount = g.similarMatchCount ?? 0;
+    const similarHtml = similarCount > 0
+      ? `<span class="similar-match-notice">${similarCount} similar match${similarCount === 1 ? '' : 'es'} to review —
+           <a href="${href}" class="similar-match-link">view in full profile</a></span>`
+      : '';
+    const footer = total > 0 || similarCount > 0
+      ? `<footer class="builder-group-footer">
+           <span>${total > 0 ? `Showing ${previewCount} of ${total} hearing${total === 1 ? '' : 's'}` : 'No confirmed hearings'}</span>
+           ${similarHtml}
+           <a href="${href}" class="view-all-link">View full profile for ${escapeHtml(builder.builderName)} →</a>
+         </footer>`
+      : '';
+    return `
+      <article class="builder-group" data-builder="${escapeHtml(builder.builderName)}">
+        <header class="builder-group-header">
+          <div class="builder-group-title">
+            <h2 class="builder-group-name"><a href="${href}">${escapeHtml(builder.builderName)}</a></h2>
+            ${aliasesHtml}
+          </div>
+          <div class="builder-group-actions">
+            <span class="hearing-count"><strong>${total}</strong> hearing${total === 1 ? '' : 's'} on record</span>
+            <a href="${href}" class="btn-view-profile">View full profile →</a>
+          </div>
+        </header>
+        ${body}
+        ${footer}
+      </article>`;
+  }
+</script>
