@@ -1,0 +1,331 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import HearingCard from '../../components/HearingCard.astro';
+import SimilarMatchesTable from '../../components/SimilarMatchesTable.astro';
+import { getHearings, getBuilders } from '../../lib/builders-api';
+import type { Builder, Hearing, HearingsResponse } from '../../lib/builders-api';
+
+const rawName = Astro.params.name ?? '';
+const name = decodeURIComponent(rawName);
+const fromDate = Astro.url.searchParams.get('fromDate') ?? '';
+const toDate = Astro.url.searchParams.get('toDate') ?? '';
+const PAGE_SIZE = 20;
+
+let data: HearingsResponse | null = null;
+let builderMeta: Builder | null = null;
+let apiError: string | null = null;
+
+try {
+  data = await getHearings(name, {
+    offset: 0,
+    limit: PAGE_SIZE,
+    fromDate: fromDate || undefined,
+    toDate: toDate || undefined,
+  });
+} catch (err) {
+  apiError = String(err);
+}
+
+// Also fetch builder metadata (is_active, last_scraped_at) — not in hearings response.
+// Only meaningful when a real builder exists (not ephemeral).
+if (data && !data.ephemeral && data.builderName) {
+  try {
+    const all = await getBuilders();
+    const canonical = data.builderName.toLowerCase();
+    builderMeta = all.find(
+      (b) =>
+        b.builderName.toLowerCase() === canonical ||
+        b.aliases.some((a) => a.toLowerCase() === canonical)
+    ) ?? null;
+  } catch {
+    builderMeta = null;
+  }
+}
+
+const notFound = !apiError && data === null;
+const isEphemeral = !!(data && data.ephemeral);
+const displayName = data?.builderName ?? data?.searchedFor ?? name;
+
+// Compute stats when we have data
+function withinDays(iso: string, days: number): boolean {
+  try {
+    const d = new Date(iso).getTime();
+    const now = Date.now();
+    return d >= now && d <= now + days * 24 * 60 * 60 * 1000;
+  } catch {
+    return false;
+  }
+}
+
+let statsTotal = 0;
+let statsUpcoming = 0;
+let statsContested = 0;
+let statsAliasCount = 0;
+
+if (data) {
+  statsTotal = data.total;
+  statsUpcoming = data.hearings.filter((h) => withinDays(h.listingDate, 60)).length;
+  statsContested = data.hearings.filter((h) => h.listingType.toLowerCase().includes('contested')).length;
+  statsAliasCount = data.aliases.length;
+}
+
+function formatScrapedAt(raw: string | null): string {
+  if (!raw) return 'Never';
+  try {
+    return new Date(raw.replace(' ', 'T')).toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' });
+  } catch {
+    return raw;
+  }
+}
+
+const pageTitle = data && !isEphemeral ? `${displayName} | Builder Lookup` : 'Builder Lookup';
+const initialLoaded = data?.hearings.length ?? 0;
+---
+
+<Layout
+  title={pageTitle}
+  description={data && !isEphemeral ? `Legal proceedings on public record for ${displayName}.` : 'Builder not found'}
+>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="/builders/">Builder Lookup</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">{displayName}</span>
+  </nav>
+
+  {apiError && (
+    <div class="alias-banner" role="alert" style="border-left-color:#c62828;background:#ffebee;border-color:#ef9a9a;">
+      <strong>Couldn't reach the builder API.</strong> Please try again in a moment.
+    </div>
+  )}
+
+  {notFound && (
+    <div class="not-found">
+      <h2>Builder not found</h2>
+      <p>We couldn't find a builder named "{name}".</p>
+      <p><a href="/builders/" class="view-all-link">← Back to builder search</a></p>
+    </div>
+  )}
+
+  {data && isEphemeral && (
+    <>
+      <div class="alias-banner ephemeral-banner">
+        <strong>We don't have a profile for "{data.searchedFor}" yet.</strong>
+        These NSW registry cases look similar but couldn't be matched confidently — try searching the builder's full legal name.
+      </div>
+      <SimilarMatchesTable matches={data.similarMatches} builderName={null} readOnly={true} />
+      <p class="back-link"><a href="/builders/" class="view-all-link">← Back to builder search</a></p>
+    </>
+  )}
+
+  {data && !isEphemeral && (
+    <>
+      {data.resolvedAlias && (
+        <div class="alias-banner">
+          <strong>{data.searchedFor}</strong> is a trading alias — showing all hearings for <strong>{displayName}</strong>.
+        </div>
+      )}
+
+      <section class="profile-compact">
+        <div class="profile-compact-left">
+          <h1>
+            {displayName}
+            {builderMeta && (
+              <span class={`status-badge ${builderMeta.isActive ? 'active' : 'inactive'}`}>
+                {builderMeta.isActive ? 'Active' : 'Inactive'}
+              </span>
+            )}
+          </h1>
+          <div class="profile-meta">
+            {data.aliases.filter(a => a !== data!.builderName).map(a => <span class="alias-pill">{a}</span>)}
+            {builderMeta && (
+              <>
+                <span class="meta-sep">·</span>
+                <span>Last scraped: <strong>{formatScrapedAt(builderMeta.lastScrapedAt)}</strong></span>
+              </>
+            )}
+          </div>
+        </div>
+        <div class="inline-stats" aria-label="Builder statistics">
+          <div class="inline-stat">
+            <div class="inline-stat-value">{statsTotal}</div>
+            <div class="inline-stat-label">Hearings</div>
+          </div>
+          <div class="inline-stat">
+            <div class="inline-stat-value">{statsUpcoming}</div>
+            <div class="inline-stat-label">Upcoming</div>
+          </div>
+          <div class="inline-stat">
+            <div class="inline-stat-value">{statsContested}</div>
+            <div class="inline-stat-label">Contested</div>
+          </div>
+          <div class="inline-stat">
+            <div class="inline-stat-value">{statsAliasCount}</div>
+            <div class="inline-stat-label">Alias{statsAliasCount === 1 ? '' : 'es'}</div>
+          </div>
+        </div>
+      </section>
+
+      <form class="filter-bar" method="get" action={`/builders/${encodeURIComponent(name)}/`}>
+        <label class="filter-bar-label" for="fromDate">From</label>
+        <input class="filter-bar-input" type="date" id="fromDate" name="fromDate" value={fromDate} />
+        <label class="filter-bar-label" for="toDate">To</label>
+        <input class="filter-bar-input" type="date" id="toDate" name="toDate" value={toDate} />
+        <button class="filter-bar-btn" type="submit">Filter</button>
+        {(fromDate || toDate) && (
+          <a class="filter-bar-clear" href={`/builders/${encodeURIComponent(name)}/`}>Clear</a>
+        )}
+      </form>
+
+      {data.hearings.length === 0 ? (
+        <div class="empty-state">
+          <h3>No hearings on record</h3>
+          <p>{(fromDate || toDate) ? 'Try adjusting or clearing your date filter.' : 'This builder has no hearings on record yet.'}</p>
+        </div>
+      ) : (
+        <div class="hearings-table-wrap">
+          <table class="hearings-table full">
+            <thead>
+              <tr>
+                <th class="hc-date">Date</th>
+                <th class="hc-time">Time</th>
+                <th class="hc-case">Case #</th>
+                <th class="hc-parties">Parties</th>
+                <th class="hc-court">Court</th>
+                <th class="hc-location-cell">Location</th>
+                <th class="hc-courtroom">Courtroom</th>
+                <th class="hc-type">Type</th>
+                <th class="hc-officer">Officer</th>
+              </tr>
+            </thead>
+            <tbody
+              id="hearings-list"
+              data-builder={displayName}
+              data-total={data.total}
+              data-loaded={initialLoaded}
+              data-page-size={PAGE_SIZE}
+              data-from-date={fromDate}
+              data-to-date={toDate}
+            >
+              {data.hearings.map((h) => <HearingCard hearing={h} />)}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      <div id="scroll-sentinel" class="scroll-sentinel"></div>
+      <div id="scroll-spinner" class="scroll-spinner" aria-hidden="true"></div>
+      <div id="end-of-results" class="end-of-results"></div>
+
+      <SimilarMatchesTable matches={data.similarMatches} builderName={displayName} />
+    </>
+  )}
+</Layout>
+
+<script>
+  import { attachInfiniteScroll } from '../../lib/infinite-scroll';
+
+  interface Hearing {
+    externalId: string;
+    caseNumber: string;
+    parties: string;
+    listingDate: string;
+    listingTime: string;
+    court: string;
+    location: string;
+    courtroom: string;
+    listingType: string;
+    presidingOfficer: string | null;
+  }
+
+  const list = document.getElementById('hearings-list') as HTMLElement | null;
+  const sentinel = document.getElementById('scroll-sentinel');
+  const spinner = document.getElementById('scroll-spinner');
+  const endUi = document.getElementById('end-of-results');
+
+  if (list && sentinel && spinner && endUi) {
+    const builderName = list.dataset.builder ?? '';
+    const total = Number(list.dataset.total ?? '0');
+    const initialLoaded = Number(list.dataset.loaded ?? '0');
+    const pageSize = Number(list.dataset.pageSize ?? '20');
+    const fromDate = list.dataset.fromDate ?? '';
+    const toDate = list.dataset.toDate ?? '';
+
+    function escapeHtml(s: string): string {
+      return s.replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]!));
+    }
+
+    function formatDate(iso: string): string {
+      try {
+        return new Date(iso).toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' });
+      } catch {
+        return iso;
+      }
+    }
+
+    function splitParties(p: string): { applicant: string; respondent: string } {
+      const m = p.match(/^(.*?)\s+v\s+(.*)$/i);
+      if (m) return { applicant: m[1].trim(), respondent: `v ${m[2].trim()}` };
+      return { applicant: p, respondent: '' };
+    }
+
+    function typeBadge(listingType: string): string {
+      const t = listingType.toLowerCase();
+      let cls = 'type-badge';
+      if (t.includes('direction')) cls += ' directions';
+      else if (t.includes('mediation') || t.includes('conciliation')) cls += ' mediation';
+      const text = listingType.replace(/\s*Hearing\s*$/i, '').trim() || listingType;
+      return `<span class="${cls}">${escapeHtml(text)}</span>`;
+    }
+
+    function renderHearing(h: Hearing): string {
+      const { applicant, respondent } = splitParties(h.parties);
+      const officer = h.presidingOfficer
+        ? `<span class="hc-officer-t">${escapeHtml(h.presidingOfficer)}</span>`
+        : `<span class="hc-officer-t hc-null">—</span>`;
+      const time = (h.listingTime || '').slice(0, 5);
+      return `
+        <tr class="hearing-row">
+          <td class="hc-date" data-label="Date"><span class="hc-date-d">${escapeHtml(formatDate(h.listingDate))}</span></td>
+          <td class="hc-time" data-label="Time"><span class="hc-time-t">${escapeHtml(time || '—')}</span></td>
+          <td class="hc-case" data-label="Case #"><span class="hc-case-number">${escapeHtml(h.caseNumber)}</span></td>
+          <td class="hc-parties" data-label="Parties">
+            <span class="hc-parties-name">${escapeHtml(applicant)}</span>
+            ${respondent ? `<span class="hc-parties-v">${escapeHtml(respondent)}</span>` : ''}
+          </td>
+          <td class="hc-court" data-label="Court"><span class="court-badge">${escapeHtml(h.court)}</span></td>
+          <td class="hc-location-cell" data-label="Location"><span class="hc-location-t">${escapeHtml(h.location || '—')}</span></td>
+          <td class="hc-courtroom" data-label="Courtroom"><span class="hc-courtroom-t">${escapeHtml(h.courtroom || '—')}</span></td>
+          <td class="hc-type" data-label="Type">${typeBadge(h.listingType)}</td>
+          <td class="hc-officer" data-label="Officer">${officer}</td>
+        </tr>`;
+    }
+
+    attachInfiniteScroll<Hearing>({
+      list,
+      sentinel,
+      spinner,
+      endUi,
+      batchSize: pageSize,
+      total,
+      initialLoaded,
+      async fetchBatch(offset, limit) {
+        const params = new URLSearchParams();
+        params.set('offset', String(offset));
+        params.set('limit', String(limit));
+        if (fromDate) params.set('fromDate', fromDate);
+        if (toDate) params.set('toDate', toDate);
+        const url = `/api/hearings/${encodeURIComponent(builderName)}?${params}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`${res.status}`);
+        const data = await res.json();
+        return data.hearings as Hearing[];
+      },
+      renderItem: renderHearing,
+      endMessage: (n) => `End of results · ${n} hearing${n === 1 ? '' : 's'}`,
+    });
+  }
+</script>
