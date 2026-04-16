@@ -1,0 +1,169 @@
+---
+import type { SimilarMatch } from '../lib/builders-api';
+
+interface Props {
+  matches: SimilarMatch[];
+  builderName: string | null;
+  readOnly?: boolean;
+}
+
+const INITIAL_VISIBLE = 5;
+const { matches, builderName, readOnly = false } = Astro.props;
+const hasMore = matches.length > INITIAL_VISIBLE;
+
+function formatDate(iso: string | null): string {
+  if (!iso) return '—';
+  try {
+    return new Date(iso).toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' });
+  } catch {
+    return iso;
+  }
+}
+
+function splitParties(parties: string): { applicant: string; respondent: string } {
+  const match = parties.match(/^(.*?)\s+v\s+(.*)$/i);
+  if (match) return { applicant: match[1].trim(), respondent: `v ${match[2].trim()}` };
+  return { applicant: parties, respondent: '' };
+}
+---
+
+{matches.length > 0 && (
+  <section class="similar-matches" aria-label="Similar matches awaiting review">
+    <header class="similar-matches-header">
+      <h2>Similar matches <span class="similar-count">{matches.length}</span></h2>
+      <p>
+        {readOnly
+          ? `These NSW registry cases may be related but couldn't be matched confidently.`
+          : `These cases might belong to ${builderName ?? 'this builder'} but the match was fuzzy. Approve to add as an alias, or dismiss.`}
+      </p>
+    </header>
+
+    <div class="similar-table-wrap">
+      <table class="similar-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Case #</th>
+            <th>Parties</th>
+            <th>Matched as</th>
+            {!readOnly && <th>Actions</th>}
+          </tr>
+        </thead>
+        <tbody>
+          {matches.map((m, i) => {
+            const { applicant, respondent } = splitParties(m.parties);
+            const hidden = i >= INITIAL_VISIBLE;
+            return (
+              <tr class={`similar-row${hidden ? ' similar-hidden' : ''}`} data-match-id={m.id ?? ''}>
+                <td data-label="Date">
+                  <span class="similar-date">{formatDate(m.listingDate)}</span>
+                </td>
+                <td data-label="Case #">
+                  <span class="hc-case-number">{m.caseNumber}</span>
+                </td>
+                <td data-label="Parties">
+                  <span class="similar-parties-name">{applicant}</span>
+                  {respondent && <span class="similar-parties-v">{respondent}</span>}
+                </td>
+                <td data-label="Matched as">
+                  <span class="alias-pill">{m.searchedAlias}</span>
+                </td>
+                {!readOnly && (
+                  <td data-label="Actions">
+                    {m.id !== null ? (
+                      <div class="match-actions">
+                        <button type="button" class="btn-approve" data-action="approve">Approve</button>
+                        <button type="button" class="btn-dismiss" data-action="dismiss">Dismiss</button>
+                      </div>
+                    ) : (
+                      <span class="hc-null">Preview only</span>
+                    )}
+                  </td>
+                )}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+
+    {hasMore && (
+      <button type="button" class="similar-show-more" id="similar-show-more">
+        Show all {matches.length} matches
+      </button>
+    )}
+
+    <div class="similar-toast" id="similar-toast" role="status" aria-live="polite"></div>
+  </section>
+)}
+
+<script>
+  const section = document.querySelector<HTMLElement>('.similar-matches');
+  if (section) {
+    const toast = section.querySelector<HTMLElement>('#similar-toast');
+    const showMoreBtn = section.querySelector<HTMLButtonElement>('#similar-show-more');
+    let toastTimer: number | undefined;
+
+    // Show more / show less toggle
+    if (showMoreBtn) {
+      let expanded = false;
+      showMoreBtn.addEventListener('click', () => {
+        expanded = !expanded;
+        section.querySelectorAll('tr.similar-hidden').forEach(row => {
+          (row as HTMLElement).style.display = expanded ? '' : 'none';
+        });
+        showMoreBtn.textContent = expanded
+          ? 'Show fewer matches'
+          : `Show all ${section.querySelectorAll('tr.similar-row').length} matches`;
+      });
+      // Initially hide overflow rows
+      section.querySelectorAll('tr.similar-hidden').forEach(row => {
+        (row as HTMLElement).style.display = 'none';
+      });
+    }
+
+    function showToast(msg: string) {
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('visible');
+      window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(() => toast.classList.remove('visible'), 3500);
+    }
+
+    section.addEventListener('click', async (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-action]');
+      if (!btn) return;
+
+      const row = btn.closest<HTMLTableRowElement>('tr[data-match-id]');
+      if (!row) return;
+      const id = row.dataset.matchId;
+      if (!id) return;
+
+      const action = btn.dataset.action;
+      if (action !== 'approve' && action !== 'dismiss') return;
+
+      row.classList.add('removing');
+
+      try {
+        const res = await fetch(`/api/similar-matches/${id}/${action}`, { method: 'POST' });
+        if (!res.ok) throw new Error(String(res.status));
+        window.setTimeout(() => {
+          row.remove();
+          // Update count badge
+          const remaining = section.querySelectorAll('tr.similar-row').length;
+          const badge = section.querySelector('.similar-count');
+          if (badge) badge.textContent = String(remaining);
+          if (remaining === 0) section.style.display = 'none';
+          // Update show-more button
+          if (showMoreBtn) {
+            const hiddenLeft = section.querySelectorAll('tr.similar-hidden').length;
+            if (hiddenLeft === 0) showMoreBtn.style.display = 'none';
+          }
+        }, 250);
+      } catch {
+        row.classList.remove('removing');
+        showToast(`Couldn't ${action} match — please retry`);
+      }
+    });
+  }
+</script>

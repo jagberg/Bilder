@@ -1,0 +1,96 @@
+---
+import type { Hearing } from '../lib/builders-api';
+
+interface Props {
+  hearing: Hearing;
+  compact?: boolean;
+}
+
+const { hearing, compact = false } = Astro.props;
+
+function formatDate(iso: string): string {
+  try {
+    const d = new Date(iso);
+    return d.toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' });
+  } catch {
+    return iso;
+  }
+}
+
+function formatTime(t: string): string {
+  return t ? t.slice(0, 5) : '';
+}
+
+function splitParties(parties: string): { applicant: string; respondent: string } {
+  const match = parties.match(/^(.*?)\s+v\s+(.*)$/i);
+  if (match) return { applicant: match[1].trim(), respondent: `v ${match[2].trim()}` };
+  return { applicant: parties, respondent: '' };
+}
+
+const { applicant, respondent } = splitParties(hearing.parties);
+
+function typeBadgeClass(listingType: string): string {
+  const t = listingType.toLowerCase();
+  if (t.includes('direction')) return 'type-badge directions';
+  if (t.includes('mediation') || t.includes('conciliation')) return 'type-badge mediation';
+  return 'type-badge';
+}
+
+function typeBadgeText(listingType: string): string {
+  return listingType.replace(/\s*Hearing\s*$/i, '').trim() || listingType;
+}
+---
+
+<tr class="hearing-row">
+  {compact ? (
+    <td class="hc-date" data-label="Date">
+      <div class="hc-date-d">{formatDate(hearing.listingDate)}</div>
+      <div class="hc-date-t">{formatTime(hearing.listingTime)}</div>
+    </td>
+  ) : (
+    <>
+      <td class="hc-date" data-label="Date">
+        <span class="hc-date-d">{formatDate(hearing.listingDate)}</span>
+      </td>
+      <td class="hc-time" data-label="Time">
+        <span class="hc-time-t">{formatTime(hearing.listingTime) || '—'}</span>
+      </td>
+    </>
+  )}
+  <td class="hc-case" data-label="Case #">
+    <span class="hc-case-number">{hearing.caseNumber}</span>
+  </td>
+  <td class="hc-parties" data-label="Parties">
+    <span class="hc-parties-name">{applicant}</span>
+    {respondent && <span class="hc-parties-v">{respondent}</span>}
+  </td>
+  {compact ? (
+    <td class="hc-court" data-label="Court">
+      <span class="court-badge">{hearing.court}</span>
+      <span class="hc-location">{hearing.location}</span>
+    </td>
+  ) : (
+    <>
+      <td class="hc-court" data-label="Court">
+        <span class="court-badge">{hearing.court}</span>
+      </td>
+      <td class="hc-location-cell" data-label="Location">
+        <span class="hc-location-t">{hearing.location || '—'}</span>
+      </td>
+      <td class="hc-courtroom" data-label="Courtroom">
+        <span class="hc-courtroom-t">{hearing.courtroom || '—'}</span>
+      </td>
+    </>
+  )}
+  <td class="hc-type" data-label="Type">
+    <span class={typeBadgeClass(hearing.listingType)}>{typeBadgeText(hearing.listingType)}</span>
+  </td>
+  {!compact && (
+    <td class="hc-officer" data-label="Officer">
+      {hearing.presidingOfficer
+        ? <span class="hc-officer-t">{hearing.presidingOfficer}</span>
+        : <span class="hc-officer-t hc-null">—</span>
+      }
+    </td>
+  )}
+</tr>

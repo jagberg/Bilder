@@ -1,0 +1,64 @@
+---
+import type { Builder, Hearing } from '../lib/builders-api';
+import HearingCard from './HearingCard.astro';
+
+interface Props {
+  builder: Builder;
+  hearings: Hearing[];
+  total: number;
+  previewLimit: number;
+}
+
+const { builder, hearings, total, previewLimit } = Astro.props;
+const detailHref = `/builders/${encodeURIComponent(builder.builderName)}/`;
+const otherAliases = builder.aliases.filter(a => a !== builder.builderName);
+const previewCount = Math.min(hearings.length, previewLimit);
+---
+
+<article class="builder-group" data-builder={builder.builderName}>
+  <header class="builder-group-header">
+    <div class="builder-group-title">
+      <h2 class="builder-group-name">
+        <a href={detailHref}>{builder.builderName}</a>
+      </h2>
+      {otherAliases.length > 0 && (
+        <div class="alias-row">
+          <span class="alias-label">Also known as</span>
+          {otherAliases.map(a => <span class="alias-pill">{a}</span>)}
+        </div>
+      )}
+    </div>
+    <div class="builder-group-actions">
+      <span class="hearing-count"><strong>{total}</strong> hearing{total === 1 ? '' : 's'} on record</span>
+      <a href={detailHref} class="btn-view-profile">View full profile →</a>
+    </div>
+  </header>
+
+  {hearings.length === 0 ? (
+    <div class="builder-group-empty">No hearings on record for this builder.</div>
+  ) : (
+    <div class="hearings-table-wrap">
+      <table class="hearings-table compact">
+        <thead>
+          <tr>
+            <th class="hc-date">Date</th>
+            <th class="hc-case">Case #</th>
+            <th class="hc-parties">Parties</th>
+            <th class="hc-court">Court</th>
+            <th class="hc-type">Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          {hearings.slice(0, previewLimit).map(h => <HearingCard hearing={h} compact />)}
+        </tbody>
+      </table>
+    </div>
+  )}
+
+  {total > 0 && (
+    <footer class="builder-group-footer">
+      <span>Showing {previewCount} of {total} hearing{total === 1 ? '' : 's'}</span>
+      <a href={detailHref} class="view-all-link">View all {total} hearing{total === 1 ? '' : 's'} for {builder.builderName} →</a>
+    </footer>
+  )}
+</article>
