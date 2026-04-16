@@ -22,6 +22,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          PUBLIC_API_URL: http://52.63.163.160:5001
 
       - name: Exclude worker from assets
         run: echo "_worker.js" > dist/.assetsignore
