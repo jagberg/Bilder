@@ -78,7 +78,7 @@ function formatScrapedAt(raw: string | null): string {
   }
 }
 
-const pageTitle = data && !isEphemeral ? `${displayName} | Builder Lookup` : 'Builder Lookup';
+const pageTitle = data && !isEphemeral ? `${displayName} | Builder Search` : 'Builder Search';
 const initialLoaded = data?.hearings.length ?? 0;
 ---
 
@@ -89,7 +89,7 @@ const initialLoaded = data?.hearings.length ?? 0;
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="/">Home</a>
     <span class="breadcrumb-sep">›</span>
-    <a href="/builders/">Builder Lookup</a>
+    <a href="/builders/">Builder Search</a>
     <span class="breadcrumb-sep">›</span>
     <span class="breadcrumb-current">{displayName}</span>
   </nav>
