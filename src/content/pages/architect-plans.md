@@ -1,6 +1,6 @@
 ---
-title: Architect Plans
-description: What you get from architect plans, the two design stages, copyright ownership issues, and key considerations for custom home builds.
+title: "Architect Plans Explained: Stages, Costs & Copyright Traps (Australia)"
+description: "What your architect actually delivers at each stage, who owns the design if things go sideways with your builder, and the .dwg clause most owners don't negotiate. Real examples."
 category: house-plans
 order: 4
 draft: false

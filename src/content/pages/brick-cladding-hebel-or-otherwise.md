@@ -1,6 +1,6 @@
 ---
-title: Brick, Cladding, Hebel or Otherwise
-description: Comparing external wall materials — brick veneer, render, Hebel, EPS, and cladding options — for aesthetics, maintenance, thermal performance, and cost.
+title: "Hebel vs Brick vs Cladding: Cost, Thermal & Maintenance Compared"
+description: "Side-by-side comparison of brick veneer, Hebel, EPS, render and James Hardie cladding — R-ratings, real prices per m², and the maintenance trade-offs for Australian builds."
 category: building-materials
 order: 1
 draft: false

@@ -1,6 +1,6 @@
 ---
-title: Windows
-description: Complete guide to window materials, types, glazing options, thermal ratings, and pricing for new home builds.
+title: "New Home Windows: Materials, Types, Glazing & Prices (Australia)"
+description: "Aluminium vs uPVC vs timber, awning vs sliding vs casement, U-values explained, plus Wideline, Stegbar and price lists. A buyer's guide for new-build owners."
 category: building-materials
 order: 2
 draft: false
@@ -10,7 +10,7 @@ draft: false
 
 Windows are a very important aspect of a home and careful consideration should be taken before accepting whatever a builder provides as standard. Typically builders wont tell you about the options that are available and simply provide the minimum required to comply with local regulations. They contribute to aesthetics, airflow, soundproofing, heating, cooling and privacy.
 
-## Material
+## Window Frame Materials: Aluminium vs uPVC vs Timber
 
 Your first decision is to decide on the material such as timber, aluminium or uPVC.
 
@@ -65,7 +65,7 @@ You can also get composite windows where the inside is timber and the outside is
 | **Maintenance** | ⭐ | ⭐ | ⭐⭐⭐⭐⭐ | ⭐ |
 | **Soundproofing** | ⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
 
-## Aesthetics (Commercial Windows) + Sizing
+## Window Sizing & Commercial vs Residential Frames
 
 With smaller custom luxury builders, they will generally use commercial windows which are just thicker frames and the glass is the same as residential. With commercial and semi-commercial windows they can also provide higher (>2.4m) and wider doors and windows and allow for double glazing. All other builders will provide residential windows which are small frames and they generally can't accommodate double glazing.
 
@@ -100,7 +100,7 @@ Window Brand Ranges
 <div class="col"></div>
 </div>
 
-## Types of Windows
+## Window Types: Awning vs Sliding vs Casement vs Tilt-and-Turn
 
 Consider the use of the windows because some types of windows provide a sealed system like an awning window where heat and sound cant pass easily whereas a sliding window will have a small gap in the middle of the window as it cant form a tight seal. Also when it's raining some types of windows will allow rain to come in more easily than others eg. awning vs sliding.
 
@@ -128,7 +128,7 @@ Skylights will cost around $2300 to $2700 for a fixed skylight. Theres a few dif
 
 <figure><img src="/images/windows/skylight-options.png" alt="" loading="lazy"><figcaption>Skylight sizes (pitched roofs)</figcaption></figure>
 
-## Glazing Options
+## Single vs Double Glazing: What's Worth the Cost
 
 #### Double Glazing
 
@@ -150,7 +150,7 @@ Low-e or Comfort (Viridian) are often used as alternatives to double glazing as 
 
 Onsite glazing – If a single window is more than 80kg (there can be leniency in this) it may require onsite glazing which would cost at least $500 per window. The window may also require craning which would add another significant cost.
 
-## Thermal Efficiency & How to Compare Windows for this
+## U-Values, SHGC & AI: How to Compare Windows for Thermal Efficiency
 
 <figure class="img-left"><img src="/images/windows/glazing-types-diagram.png" alt="" width="260" height="333" loading="lazy"><figcaption>Source: https://www.windowsdoors.com.au/news/u-value-shgc-explained</figcaption></figure>
 
@@ -228,7 +228,7 @@ On a standard aluminium window its rare to find a UVal lower than 3 with double 
 | Sliding Window | Deceuninck uPVC | 4mm Clear / 16mm Argon / 4mm Clear | 2.629 | 0.51 | 0.53 | 0.8 |
 | Sliding Window | Deceuninck uPVC | 4mm Clear / 16mm Argon / 4mm LowE Plus | 1.944 | 0.4 | 0.53 | 0.8 |
 
-## Glazing
+## Glass Types: Low-E, Laminated, Acoustic & Viridian Options
 
 Its very difficult for a single glazed window, no matter the treatment applied or the thickness to come close to a double glazed window in terms of thermal efficiency. There are many factors that go into a double glazed window:
 
@@ -317,7 +317,7 @@ Theres many types of flyscreens including fixed and retractable ones. Some indic
 </div>
 </div>
 
-## Snapshot of pricing as of Jan 22
+## Window Prices in Australia (2022 Snapshot — Wideline & Roseberry)
 
 ### Wideline Pricing
 

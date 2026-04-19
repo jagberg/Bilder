@@ -1,6 +1,6 @@
 ---
-title: Checking Your Plans
-description: How to correctly read and verify your house plans before building begins - room dimensions, windows, doors, bathrooms, and external considerations.
+title: "How to Read House Plans: A Builder's Checklist Before You Sign"
+description: "Spot the mistakes in your architect plans before construction starts — dimensions, window schedules, electrical, and the 12 things builders don't point out."
 category: house-plans
 order: 6
 draft: false
