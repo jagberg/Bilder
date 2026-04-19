@@ -12,6 +12,9 @@ GA4 + Search Console analysis (see `scripts/ga-report.mjs`) surfaced a pattern: 
 
 ### Baseline metrics (28 days ending 2026-04-19)
 
+Full baseline snapshot (all report outputs) archived at [`docs/seo-baselines/2026-04-19.md`](seo-baselines/2026-04-19.md) — compare future runs against that file.
+
+
 Site-wide:
 - 892 active users, 1,049 sessions, 1,155 page views (~1.1 pages/session)
 - Bounce 70.8%, engagement 29.2%
