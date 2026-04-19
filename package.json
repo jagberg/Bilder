@@ -10,7 +10,8 @@
     "build": "node scripts/check-images.mjs && astro build",
     "check-images": "node scripts/check-images.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "ga:report": "node scripts/ga-report.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.13",
@@ -26,6 +27,7 @@
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
+    "@google-analytics/data": "^5.2.1",
     "wrangler": "^4.81.0"
   }
 }

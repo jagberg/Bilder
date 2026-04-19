@@ -27,3 +27,8 @@ pnpm-debug.log*
 .dev.vars
 .wrangler/
 PageLikesSeedFromWordpress.csv
+
+# Google Analytics service-account keys
+*-sa.json
+gcp-sa*.json
+.secrets/
