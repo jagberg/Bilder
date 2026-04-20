@@ -1,0 +1,1253 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LikeButton from '../components/LikeButton.astro';
+export const prerender = true;
+
+const faq = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Is Hebel cheaper than brick?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Hebel is typically priced like-for-like with brick veneer — most builders let you swap between the two at no cost difference. It's noticeably cheaper on first-floor walls that don't line up over a wall below, because brick would need steel support there while Hebel doesn't.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Hebel insulate better than brick?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes — as a full wall system (panel plus insulated frame), Hebel offers almost three times the thermal benefit of brick. The Hebel PowerPanelXL panel on its own is R0.52; EPS panels like NRG Greenboard rate higher at R1.95 to R3.31 per panel and are the strongest thermal choice among render-look cladings. Fibre-cement cladding on its own provides almost no thermal insulation; its R-value comes from the insulation behind the panels.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: "What's the difference between extruded and dry-pressed bricks?",
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Extruded bricks have holes through them, making them lighter (~3.1kg each) and cheaper to both manufacture and lay — colour is typically coated or glazed on the surface. Dry-pressed bricks are solid (~3.4kg each), colour runs through the brick, and they cost more to buy and more to lay because they are heavier and slower to place.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is EPS cladding allowed in Victoria?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'EPS is prohibited from use in certain types of buildings in Victoria and may impact house insurance costs. Product rating (up to BAL-29 for some EPS products) and building type determine whether EPS is acceptable — confirm with your builder and local regulations before specifying it.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need to repaint a rendered house?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes — rendered walls typically need repainting every few years as paint discolours or stains, and hairline cracks may need patching. Face brick doesn\u2019t need repainting, just occasional cleaning, which makes it the lowest-maintenance external finish.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do cladding panels provide thermal insulation?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Cladding panels by themselves provide very little thermal insulation. The wall\u2019s R-value comes from the insulation batts and batten cavity behind the cladding, not the cladding itself — expect almost zero thermal benefit from the panels alone.',
+      },
+    },
+  ],
+};
+---
+
+<Layout
+  title="Hebel vs Brick vs Cladding: Cost, Thermal & Maintenance Compared"
+  description="Side-by-side comparison of brick veneer, Hebel, EPS, render and James Hardie cladding — R-ratings, real prices per m², and the maintenance trade-offs for Australian builds."
+>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faq)} />
+
+  <LikeButton slug="brick-cladding-hebel-or-otherwise" />
+
+  <div class="bcw">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="/">Home</a> &rsaquo; <span>Building Materials</span> &rsaquo; <span>Brick, Cladding &amp; Hebel</span>
+    </div>
+
+    <!-- Page header -->
+    <div class="bcw-header">
+      <h1>Hebel vs Brick vs Cladding</h1>
+      <p class="bcw-lead">Cost, thermal &amp; maintenance compared for Australian builds — brick veneer, Hebel, EPS, render and James Hardie cladding, side-by-side.</p>
+      <div class="bcw-meta">
+        <span>6 materials compared</span>
+        <span class="sep">·</span>
+        <span>Last updated 19 April 2026</span>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <div class="intro-box">
+      <p><strong>Hebel vs brick vs cladding</strong> — the three external wall options almost every Australian new-build chooses between, plus the rendered alternatives (EPS, Blueboard) that sit in the middle. This guide covers look, cost, thermal and acoustic performance, and real maintenance trade-offs. Double brick walls are excluded. A good companion write-up: <a href="https://forsyth35.com/2018/05/06/hebel-vs-brick/" target="_blank" rel="noopener">Forsyth — Hebel vs Brick</a>.</p>
+    </div>
+
+    <!-- Table of Contents -->
+    <nav class="toc-card" id="page-toc" aria-label="Table of contents">
+      <div class="toc-card-head">
+        <span class="toc-card-title">Contents</span>
+        <button class="toc-toggle" aria-expanded="true">[hide]</button>
+      </div>
+      <div class="toc-body" id="toc-body">
+        <div class="toc-group">
+          <div class="toc-group-label">Brick</div>
+          <ul>
+            <li><a href="#brick-veneer">Brick Veneer / Facebrick</a></li>
+          </ul>
+        </div>
+        <div class="toc-group">
+          <div class="toc-group-label">Render</div>
+          <ul>
+            <li><a href="#rendered-bricks">Rendered Bricks</a></li>
+            <li><a href="#hebel">Hebel PowerPanel</a></li>
+            <li><a href="#eps">EPS</a></li>
+            <li><a href="#blueboard">Blueboard Fine Texture</a></li>
+          </ul>
+        </div>
+        <div class="toc-group">
+          <div class="toc-group-label">Cladding</div>
+          <ul>
+            <li><a href="#scyon">James Hardie Scyon</a></li>
+            <li><a href="#matrix">James Hardie Matrix</a></li>
+          </ul>
+        </div>
+        <div class="toc-group">
+          <div class="toc-group-label">Performance</div>
+          <ul>
+            <li><a href="#thermal-acoustic">Thermal &amp; Acoustic</a></li>
+            <li><a href="#maintenance">Maintenance</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Key Takeaways -->
+    <div class="takeaways">
+      <div class="takeaways-title">Key Takeaways</div>
+      <ul>
+        <li><strong>Builders usually swap brick veneer for Hebel at no extra cost.</strong> Hebel is a like-for-like cost comparison to brick veneer and most builders will let you choose between either with no price difference.</li>
+        <li><strong>Face brick is the lowest-maintenance finish.</strong> No repainting — just occasional cleaning. Rendered and cladded walls typically need repainting every few years and may need cracks patched or caulking refreshed.</li>
+        <li><strong>Hebel (system) delivers almost 3× the thermal benefit of brick — but EPS panels beat Hebel per panel.</strong> NRG Greenboard EPS is R1.95–3.31 per panel vs Hebel PowerPanelXL 75mm at R0.52. Fibre-cement cladding on its own is near zero — R-value comes from the cavity and insulation behind it.</li>
+        <li><strong>Upgrading from standard bricks to a premium range can add $5–45k on a double storey.</strong> Retail pricing is misleading — call Austral or PGH for the price on 20,000 bricks to see what a builder actually pays.</li>
+        <li><strong>EPS cladding is banned in certain Victorian buildings and may affect insurance.</strong> Investigate with your builder before specifying it — this varies by state and product rating.</li>
+      </ul>
+    </div>
+
+    <!-- At a glance -->
+    <div class="at-a-glance">
+      <div class="at-a-glance-head">At a glance</div>
+      <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Material</th>
+              <th>Cost tier</th>
+              <th>Thermal</th>
+              <th>Acoustic</th>
+              <th>Maintenance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Face brick</strong></td><td>Baseline</td><td>Standard</td><td>Good</td><td>Very low — no repaint</td></tr>
+            <tr><td><strong>Hebel PowerPanel</strong></td><td>≈ Face brick</td><td>Panel R0.52 · ~3× brick as a system</td><td>Good (panel + frame)</td><td>Repaint every few years</td></tr>
+            <tr><td><strong>Rendered brick</strong></td><td>Higher (brick + render)</td><td>Standard</td><td>Good</td><td>Repaint + crack patching</td></tr>
+            <tr><td><strong>EPS (NRG Greenboard)</strong></td><td>Mid</td><td><strong>Best render-look option — R1.95–3.31</strong></td><td>OK (Rw 37–39 system)</td><td>Easier/cheaper to patch than Hebel. <strong>Vic: restricted</strong></td></tr>
+            <tr><td><strong>Blueboard / Fine Texture</strong></td><td>Mid</td><td>Low</td><td>Low</td><td>Paint-ready — repaint cycles</td></tr>
+            <tr><td><strong>Cladding (Scyon / Matrix)</strong></td><td>Lower</td><td>Near zero on its own</td><td>Low</td><td>Repaint + caulking refresh</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         BRICK
+    ═══════════════════════════════════════ -->
+    <section>
+      <div class="section-label">Brick</div>
+
+      <!-- Brick Veneer / Facebrick -->
+      <div class="card" id="brick-veneer">
+        <div class="card-head">
+          <h3>Brick Veneer / Facebrick</h3>
+          <span class="badge-neutral">Most common</span>
+        </div>
+        <div class="card-body">
+          <p>Brick veneer is a single brick course on the outside with a timber or steel frame on the inside. Facebricks are more expensive than common bricks and laying them requires more care to keep courses straight and neat. Once laid, the wall is typically cleaned with an acid wash.</p>
+
+          <div class="compare-2">
+            <div class="compare-col">
+              <div class="compare-label">Face brick</div>
+              <figure><img src="/images/brick-cladding-hebel-or-otherwise/face-brick.png" alt="Face brick" loading="lazy"></figure>
+            </div>
+            <div class="compare-col">
+              <div class="compare-label">Steel frame with brick veneer</div>
+              <figure><img src="/images/brick-cladding-hebel-or-otherwise/steel-frame-brick-veneer.png" alt="Steel frame and brick veneer" loading="lazy"></figure>
+            </div>
+          </div>
+
+          <h4 class="sub-head">Austral &amp; PGH — how the pricing actually works</h4>
+          <p>Austral and PGH are the most used brick suppliers among NSW builders and most have discounted supply contracts for certain ranges. Upgrading to a premium range can add several thousand dollars.</p>
+
+          <div class="cost-list">
+            <div class="cost-row">
+              <span class="cost-label">Austral Wilderness (incl. Blue Gum) — standard inclusion</span>
+              <span class="cost-value">Retail $1,952 / 1000 · Builder ~$1,000 / 1000</span>
+            </div>
+            <div class="cost-row">
+              <span class="cost-label">Austral San Selmo Reclaimed — premium</span>
+              <span class="cost-value">Retail $3,000 / 1000</span>
+            </div>
+            <div class="cost-row">
+              <span class="cost-label">Upgrade cost on a double storey</span>
+              <span class="cost-value">+$5–45k depending on coverage</span>
+            </div>
+          </div>
+
+          <div class="box-tip">
+            <strong>Get the real price, not retail.</strong> Discounts on non-standard bricks are much smaller than on standard ranges, so retail-to-retail comparisons are misleading. Call Austral or PGH and ask for the price on ~20,000 bricks to see what the builder is actually paying.
+          </div>
+
+          <h4 class="sub-head">Extruded vs Dry Pressed</h4>
+          <p>Extruded and dry-pressed bricks look similar once laid, but they behave very differently on the builder's invoice — both in the brick itself and in the labour to lay it.</p>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>&nbsp;</th>
+                  <th>Extruded</th>
+                  <th>Dry Pressed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Weight</strong></td><td>~3.1 kg each</td><td>~3.4 kg each (~10% heavier)</td></tr>
+                <tr><td><strong>Perforations</strong></td><td>Hollow — holes through the brick</td><td>Solid — no holes</td></tr>
+                <tr><td><strong>Colour</strong></td><td>Coated or glazed on the surface</td><td>Runs through the brick</td></tr>
+                <tr><td><strong>If chipped</strong></td><td>Reddish base colour shows through</td><td>Barely visible — same colour underneath</td></tr>
+                <tr><td><strong>Manufacturing</strong></td><td>Continuous extrusion — cheaper process</td><td>High-pressure moulding for dimensional accuracy</td></tr>
+                <tr><td><strong>Material cost</strong></td><td>Standard</td><td>Premium</td></tr>
+                <tr><td><strong>Laying cost</strong></td><td>Standard rate</td><td>Heavier &amp; slower to place — bricklayers typically charge more</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="box-tip">
+            <strong>Why dry-pressed costs more to lay.</strong> Standard bricklayer productivity is roughly 500–1,000 bricks per day for straightforward work. Heavier, solid bricks sit at the lower end — they're more fatiguing to handle across a full day, and the tighter dimensional tolerance of a dry-pressed brick leaves less room for fudging a course. The labour premium stacks on top of the higher material cost, so a dry-pressed wall can cost meaningfully more than extruded once both are added together.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         RENDER
+    ═══════════════════════════════════════ -->
+    <section>
+      <div class="section-label">Render &amp; Rendered-Look Options</div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3>Is Hebel cheaper than brick?</h3>
+        </div>
+        <div class="card-body">
+          <p><strong>Usually — they're priced like-for-like.</strong> Most builders will swap brick veneer for Hebel at no cost difference. Hebel is lighter, faster to install, and finished with acrylic render. It becomes noticeably cheaper than brick on first-floor walls that don't line up over a wall below — brick would need steel support there, while Hebel doesn't.</p>
+
+          <p>Beyond Hebel, there are several ways to get a rendered look and the cost gap between them is often smaller than people expect. Alongside the options below there are other alternatives worth considering if a rendered finish is what you're after.</p>
+
+          <div class="box-warn">
+            <strong>Factor in maintenance.</strong> A face brick house doesn't require painting — just occasional cleaning. Render can stain over time, especially non-smooth finishes or walls without cappings.
+          </div>
+        </div>
+      </div>
+
+      <!-- Rendered Bricks -->
+      <div class="card" id="rendered-bricks">
+        <div class="card-head">
+          <h3>Rendered Bricks</h3>
+          <span class="badge-cost">+$25k render</span>
+        </div>
+        <div class="card-body">
+          <div class="compare-2">
+            <div class="compare-col">
+              <div class="compare-label">How it works</div>
+              <p>Common extruded bricks are laid and then finished with an acrylic render. At the time of writing, Austral common bricks retail around <strong>$1,598 / 1000</strong>, and rendering the entire house can easily add another <strong>$25k</strong>.</p>
+              <p>They are cheaper to lay than facebricks because render hides imperfections, but the added render cost usually makes the total significantly higher than facebrick.</p>
+            </div>
+            <div class="compare-col">
+              <div class="compare-label">Extruded common brick</div>
+              <figure><img src="http://cdn.shopify.com/s/files/1/0570/7471/2757/products/BRICKPHOTO_1024x1024.jpg?v=1624413150" alt="Extruded common bricks" loading="lazy"></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hebel -->
+      <div class="card" id="hebel">
+        <div class="card-head">
+          <h3>Hebel PowerPanel</h3>
+          <span class="badge-cost">Often $0 vs brick veneer</span>
+        </div>
+        <div class="card-body">
+          <p>Hebel is a lightweight aerated concrete that's been around for over 50 years (originally invented in Germany). It's quick to install and is a cheaper alternative to rendered brick. Hebel is often a like-for-like cost comparison to brick veneer — many builders will let you choose between the two with no price difference.</p>
+
+          <p>Hebel is also commonly used as a lightweight material for first floors, particularly where walls don't line up underneath. It's an alternative to cladding in that scenario — slightly more expensive than cladding but much cheaper than bricks (which would need steel support underneath). After installation, Hebel is finished with an acrylic render.</p>
+
+          <div class="compare-2">
+            <div class="compare-col">
+              <div class="compare-label">Common concerns (and fixes)</div>
+              <ul>
+                <li><strong>Chipping</strong> — can happen from knocks (e.g. mower bumps). Damage is patchable.</li>
+                <li><strong>Cracking</strong> — usually caused by incorrect installation rather than the product itself.</li>
+                <li><strong>Hanging heavy items</strong> — requires specific screws and fixing techniques.</li>
+              </ul>
+              <p>Hebel also has strong thermal and acoustic benefits — see the <a href="#thermal-acoustic">performance section</a>.</p>
+            </div>
+            <div class="compare-col">
+              <div class="compare-label">Hebel PowerPanel (before render)</div>
+              <figure><img src="https://forsyth35blog.files.wordpress.com/2018/05/hebel-wall.jpg?w=736" alt="Hebel PowerPanel before render" loading="lazy"></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EPS -->
+      <div class="card" id="eps">
+        <div class="card-head">
+          <h3>EPS (Expanded Polystyrene)</h3>
+          <span class="badge-cost">Best thermal of render options</span>
+        </div>
+        <div class="card-body">
+          <div class="compare-2">
+            <div class="compare-col">
+              <div class="compare-label">How it works</div>
+              <p>Similar to Hebel in concept but made of high-density expanded polystyrene — a lightweight panel with acrylic render applied after installation. It's less prone to cracking than Hebel because polystyrene doesn't expand the same way, and certain products (like NRG Greenboard 75–100mm) are rated up to BAL-29.</p>
+            </div>
+            <div class="compare-col">
+              <div class="compare-label">EPS (before render)</div>
+              <figure><img src="https://theidealgroup.net.au/wp-content/uploads/photo-gallery/imported_from_media_libray/10-5.jpg" alt="EPS panels before render" loading="lazy"></figure>
+            </div>
+          </div>
+
+          <div class="box-tip">
+            <strong>EPS outperforms Hebel on thermal per panel.</strong> NRG Greenboard ranges from R1.95 (75mm direct fix) to R3.31 (100mm with batten cavity). Hebel PowerPanelXL 75mm sits at R0.52 on its own — Hebel's system-level thermal benefit comes from the panel <em>plus</em> an insulated wall frame. If thermal efficiency is the priority, EPS is the strongest render-look option. See the <a href="#thermal-acoustic">performance table</a> for full numbers.
+          </div>
+
+          <div class="box-warn">
+            <strong>Victoria restrictions.</strong> <a href="https://www.minterellison.com/articles/victoria-prohibits-use-of-high-risk-cladding-products" target="_blank" rel="noopener">EPS is banned from use in certain types of buildings in Victoria</a>, which may also impact house insurance costs. Confirm with your builder whether this affects your build.
+          </div>
+        </div>
+      </div>
+
+      <!-- Blueboard / James Hardie Fine Texture -->
+      <div class="card" id="blueboard">
+        <div class="card-head">
+          <h3>Blueboard / James Hardie Fine Texture Cladding</h3>
+          <span class="badge-neutral">Paint-ready</span>
+        </div>
+        <div class="card-body">
+          <div class="compare-2">
+            <div class="compare-col">
+              <div class="compare-label">How it works</div>
+              <p>A fibre cement board that doesn't offer the same structural, thermal or acoustic benefits as other materials. It comes pre-sealed and ready to paint — no render step required, which saves time and cost compared to Hebel PowerPanels and EPS.</p>
+            </div>
+            <div class="compare-col">
+              <div class="compare-label">James Hardie Fine Texture</div>
+              <figure><img src="/images/brick-cladding-hebel-or-otherwise/james-hardie-fine-texture-cladding.png" alt="James Hardie Fine Texture cladding" loading="lazy"></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         CLADDING
+    ═══════════════════════════════════════ -->
+    <section>
+      <div class="section-label">Cladding</div>
+
+      <div class="card">
+        <div class="card-body">
+          <p>Cladding products don't require rendering and just need to be painted. They install quickly with minimal mess compared to bricks or render systems.</p>
+
+          <p>They are lightweight and on their own provide little thermal or acoustic performance. A house wrap (sarking) is required behind them to protect against moisture, dust and drafts. It isn't waterproof, and even the cladding itself allows some moisture to form behind it — the system is installed against battens so water drains down behind the panel onto the ground or a channel at the base.</p>
+
+          <figure class="full-img">
+            <img src="/images/brick-cladding-hebel-or-otherwise/stria-and-matrix-cladding.png" alt="James Hardie Stria and Matrix cladding" loading="lazy">
+            <figcaption>James Hardie Stria (top) and Matrix (bottom) cladding</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Scyon -->
+      <div class="card" id="scyon">
+        <div class="card-head">
+          <h3>James Hardie Scyon</h3>
+        </div>
+        <div class="card-body">
+          <div class="compare-2">
+            <div class="compare-col">
+              <div class="compare-label">How it works</div>
+              <p>A fibre cement board installed by overlapping horizontally. Comes in various widths to suit different looks.</p>
+            </div>
+            <div class="compare-col">
+              <div class="compare-label">Scyon profile</div>
+              <figure><img src="/images/brick-cladding-hebel-or-otherwise/james-hardie-scyon.png" alt="James Hardie Scyon cladding" loading="lazy"></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Matrix -->
+      <div class="card" id="matrix">
+        <div class="card-head">
+          <h3>James Hardie Matrix</h3>
+        </div>
+        <div class="card-body">
+          <div class="compare-2">
+            <div class="compare-col">
+              <div class="compare-label">How it works</div>
+              <p>Also comes in various sizes, but very different to Scyon — Matrix panels don't overlap, which means water ingress is easier (and expected by the system). Panels are glued onto a metal plate and nailed to the battens. James Hardie joint sealant is used to seal the gaps.</p>
+            </div>
+            <div class="compare-col">
+              <div class="compare-label">Matrix profile</div>
+              <figure><img src="/images/brick-cladding-hebel-or-otherwise/james-hardie-matrix.png" alt="James Hardie Matrix cladding" loading="lazy"></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+         THERMAL & ACOUSTIC
+    ═══════════════════════════════════════ -->
+    <section>
+      <div class="section-label">Performance</div>
+
+      <!-- Thermal & Acoustic -->
+      <div class="card" id="thermal-acoustic">
+        <div class="card-head">
+          <h3>Does Hebel insulate better than brick?</h3>
+        </div>
+        <div class="card-body">
+          <p><strong>Yes — Hebel as a system offers almost 3× the thermal benefit of brick.</strong> That figure is panel + insulated wall frame combined. The Hebel PowerPanelXL 75mm panel on its own is R0.52 — <strong>EPS (NRG Greenboard) ranges R1.95–3.31 per panel and is the strongest thermal option of the render-look cladings.</strong> Cladding like Scyon/Matrix on its own provides almost no thermal insulation — its R-value depends on the insulation and batten cavity behind the panels. Cladding also releases heat more quickly than brick, which can be an advantage in warmer climates.</p>
+
+          <div class="box-info">
+            <strong>House wrap (sarking) is a draft and moisture barrier, not insulation.</strong> It provides minimal thermal benefit directly — its role is moisture management (it's not waterproof), reducing drafts, and in fire-prone areas it's BAL-rated. By limiting drafts, it lets other thermally efficient materials do their job properly. Think of it like an umbrella in strong wind — by reducing the wind hitting you, the temperature feels warmer even though the umbrella isn't insulating you.
+          </div>
+
+          <figure class="full-img" style="max-width: 520px; margin-left: auto; margin-right: auto;">
+            <a href="https://forsyth35.com/2018/05/06/hebel-vs-brick/" target="_blank" rel="noopener">
+              <img src="https://forsyth35blog.files.wordpress.com/2018/04/screen-shot-2018-04-25-at-2-59-33-pm.png?w=736" alt="Material thermal comparison chart" loading="lazy">
+            </a>
+            <figcaption>Material thermal comparison (source: Forsyth)</figcaption>
+          </figure>
+
+          <h4 class="sub-head">NRG Greenboard vs Hebel PowerPanel</h4>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Material</th>
+                  <th>R rating (Thermal)</th>
+                  <th>Rw (Acoustic)</th>
+                  <th>Price (p/m²)</th>
+                  <th>Weight (p/m²)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>NRG Greenboard — 75mm</strong></td>
+                  <td>R1.95 direct fix / R2.65 batten cavity</td>
+                  <td>37 Rw (system incl. frame + 10mm gyprock)</td>
+                  <td>$16–20</td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td><strong>NRG Greenboard — 100mm</strong></td>
+                  <td>R2.60 direct fix / R3.31 batten cavity</td>
+                  <td>39 Rw (system incl. frame + 10mm gyprock)</td>
+                  <td>$19–25</td>
+                  <td>1.79 kg</td>
+                </tr>
+                <tr>
+                  <td><strong>Hebel PowerPanelXL — 75mm</strong></td>
+                  <td>R0.52</td>
+                  <td><a href="https://hebel.co.nz/wp-content/uploads/2016/11/HELIT187_JUNE19_Low_Rise_Intertenancy_75_XL_DIGuide_web.pdf" target="_blank" rel="noopener">34 Rw</a> (panel only)</td>
+                  <td>$50–60</td>
+                  <td><a href="https://hebel.com.au/wp-content/uploads/2022/Houses-and-Low-Rise-Multi-Residential-External-Walls-PowerPanelXL-Design-and-Installation-Guide_HELIT016.pdf" target="_blank" rel="noopener">51.39 kg</a></td>
+                </tr>
+                <tr>
+                  <td><strong>Hebel PowerPanel — 100mm</strong></td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="font-size: 12px; color: #888; margin-top: 8px !important;">
+            Further reading: <a href="https://www.gyprock.com.au/-/media/Gyprock/Content/Documents/The%20Red%20Book%20Design%20Guide" target="_blank" rel="noopener">CSR Red Book (pg 198)</a> covers Hebel installed in a timber wall frame with insulation.
+          </p>
+        </div>
+      </div>
+
+      <!-- Maintenance -->
+      <div class="card" id="maintenance">
+        <div class="card-head">
+          <h3>Which material needs the least maintenance?</h3>
+        </div>
+        <div class="card-body">
+          <p><strong>Face brick — by a clear margin.</strong> No repainting, just occasional cleaning. Render and cladding both need repainting every few years, and cladding can require caulking refreshes as panels expand and contract. The choice of material drives the rest of the lifetime maintenance picture below.</p>
+
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Material</th>
+                  <th>Pros</th>
+                  <th>Cons</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Bricks</strong></td>
+                  <td>✅ No repainting and minimal maintenance to retain the look.</td>
+                  <td>
+                    ❌ Parapet walls without cappings commonly discolour — water doesn't drain away and streaks form.<br>
+                    ❌ If the colour is painted on (entry-level bricks), chips will expose the reddish base colour underneath.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Render</strong></td>
+                  <td>✅ A good paint can retain the colour for a long time. Acrylic render helps reduce cracking.</td>
+                  <td>
+                    ❌ Needs repainting every few years as paint discolours or stains.<br>
+                    ❌ Cracks need patching.<br>
+                    ❌ Patching can be costly — EPS is easier and cheaper to patch than Hebel.
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Cladding</strong></td>
+                  <td>✅ Some cladding systems let you replace broken panels easily.</td>
+                  <td>
+                    ❌ Needs repainting every few years as paint discolours or stains.<br>
+                    ❌ Thermal expansion can open gaps — caulking may need refreshing in some areas.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related guide cards -->
+      <div class="guide-cards">
+        <a href="/inclusions/" class="guide-card">
+          <span class="gc-title">Inclusions &amp; Options</span>
+          <span class="gc-desc">Structural, internal, external — full build upgrades guide</span>
+          <span class="gc-arrow">→</span>
+        </a>
+        <a href="/windows/" class="guide-card">
+          <span class="gc-title">Windows</span>
+          <span class="gc-desc">Materials, glazing, U-values and pricing</span>
+          <span class="gc-arrow">→</span>
+        </a>
+        <a href="/steel-or-timber-frame/" class="guide-card">
+          <span class="gc-title">Steel or Timber Frame</span>
+          <span class="gc-desc">Frame choice, site conditions and cost factors</span>
+          <span class="gc-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <p class="last-updated">Last updated: 4 April 2026</p>
+  </div>
+</Layout>
+
+<script>
+  const toggle = document.querySelector('.toc-toggle') as HTMLButtonElement;
+  const body = document.getElementById('toc-body');
+  if (toggle && body) {
+    toggle.addEventListener('click', () => {
+      const visible = body.style.display !== 'none';
+      body.style.display = visible ? 'none' : '';
+      toggle.textContent = visible ? '[show]' : '[hide]';
+      toggle.setAttribute('aria-expanded', String(!visible));
+    });
+  }
+</script>
+
+<style>
+  /* ── Scope: .bcw wraps all page content ── */
+
+  :global(#main-content) .bcw h1,
+  :global(#main-content) .bcw h2,
+  :global(#main-content) .bcw h3,
+  :global(#main-content) .bcw h4 {
+    color: inherit;
+    margin: 0;
+  }
+
+  /* Intro box */
+  .intro-box {
+    background: #fafafa;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+  }
+
+  .intro-box p {
+    font-size: 14px !important;
+    color: #555 !important;
+    line-height: 1.7;
+    margin: 0 !important;
+  }
+
+  .intro-box a {
+    color: #fd356f !important;
+  }
+
+  /* Page header */
+  .bcw-header {
+    margin-bottom: 24px;
+  }
+
+  .bcw-header h1 {
+    font-size: 28px !important;
+    color: #111 !important;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 8px !important;
+  }
+
+  .bcw-lead {
+    font-size: 15px !important;
+    color: #555 !important;
+    line-height: 1.65;
+    margin: 0 0 10px !important;
+  }
+
+  .bcw-meta {
+    font-size: 12px;
+    color: #999;
+  }
+
+  .sep {
+    margin: 0 8px;
+  }
+
+  /* Takeaways */
+  .takeaways {
+    background: #fff0f5;
+    border-left: 4px solid #fd356f;
+    border-radius: 0 8px 8px 0;
+    margin: 0 0 24px;
+    overflow: hidden;
+  }
+
+  .takeaways-title {
+    background: #fd356f;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 7px 16px;
+  }
+
+  .takeaways ul {
+    list-style: none !important;
+    margin: 12px 0 !important;
+    padding: 0 16px 12px !important;
+  }
+
+  .takeaways li {
+    font-size: 13px !important;
+    color: #444 !important;
+    padding: 4px 0 4px 22px !important;
+    position: relative;
+    margin: 0 !important;
+    line-height: 1.6;
+  }
+
+  .takeaways li strong {
+    color: #111 !important;
+    font-weight: 700;
+  }
+
+  .takeaways li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #fd356f;
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  /* At a glance summary */
+  .at-a-glance {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    margin: 0 0 28px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.05);
+  }
+
+  .at-a-glance-head {
+    padding: 11px 18px;
+    background: #fafafa;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .at-a-glance .table-scroll {
+    margin: 0;
+  }
+
+  .at-a-glance .data-table {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+  }
+
+  /* TOC card */
+  .toc-card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.05);
+  }
+
+  .toc-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 18px;
+    background: #fafafa;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .toc-card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .toc-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    color: #999;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.15s;
+  }
+
+  .toc-toggle:hover {
+    color: #fd356f;
+  }
+
+  .toc-body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .toc-group {
+    padding: 14px 18px;
+    border-right: 1px solid #f0f0f0;
+  }
+
+  .toc-group:last-child {
+    border-right: none;
+  }
+
+  .toc-group-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #fd356f;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #ffd0df;
+  }
+
+  .toc-group ul {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .toc-group li {
+    font-size: 12px !important;
+    padding: 3px 0 !important;
+    margin: 0 !important;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  .toc-group a {
+    color: #555 !important;
+    text-decoration: none !important;
+    transition: color 0.12s;
+  }
+
+  .toc-group a:hover {
+    color: #fd356f !important;
+    text-decoration: none !important;
+  }
+
+  @media (max-width: 700px) {
+    .toc-body {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .toc-group:nth-child(2) {
+      border-right: none;
+    }
+
+    .toc-group:nth-child(1),
+    .toc-group:nth-child(2) {
+      border-bottom: 1px solid #f0f0f0;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .toc-body {
+      grid-template-columns: 1fr;
+    }
+
+    .toc-group {
+      border-right: none;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .toc-group:last-child {
+      border-bottom: none;
+    }
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 36px;
+  }
+
+  .section-label {
+    display: inline-block;
+    background: #fff0f5;
+    color: #fd356f;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 5px 12px;
+    border-radius: 4px;
+    border: 1px solid #ffd0df;
+    margin-bottom: 14px;
+  }
+
+  /* Cards */
+  .card {
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.05);
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 13px 18px;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fafafa;
+  }
+
+  .card-head h3 {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #111 !important;
+    margin: 0 !important;
+    flex: 1;
+    line-height: 1.3;
+  }
+
+  .card-body {
+    padding: 18px;
+  }
+
+  .card-body > p {
+    color: #555 !important;
+    font-size: 14px !important;
+    line-height: 1.65;
+    margin-bottom: 14px !important;
+  }
+
+  .card-body > p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .card-body a {
+    color: #fd356f !important;
+  }
+
+  .sub-head {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: #111 !important;
+    margin: 18px 0 8px !important;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #ffd0df;
+  }
+
+  /* Cost / neutral badges */
+  .badge-cost {
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid #c8e6c9;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-neutral {
+    background: #f5f5f5;
+    color: #666;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Callout boxes */
+  .box-tip {
+    background: #fffbeb;
+    border-left: 3px solid #f59e0b;
+    padding: 11px 15px;
+    margin: 12px 0;
+    font-size: 13px;
+    color: #555;
+    border-radius: 0 6px 6px 0;
+    line-height: 1.6;
+  }
+
+  .box-tip strong {
+    display: block;
+    color: #000 !important;
+    margin-bottom: 5px;
+  }
+
+  .box-info {
+    background: #f0f4ff;
+    border-left: 3px solid #6102d3;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 13px;
+    color: #555;
+    border-radius: 0 6px 6px 0;
+    line-height: 1.6;
+  }
+
+  .box-info strong {
+    color: #111 !important;
+  }
+
+  .box-warn {
+    background: #fff3f0;
+    border-left: 3px solid #e53935;
+    padding: 11px 15px;
+    margin: 12px 0;
+    font-size: 13px;
+    color: #555;
+    border-radius: 0 6px 6px 0;
+    line-height: 1.6;
+  }
+
+  .box-warn strong {
+    color: #c62828 !important;
+  }
+
+  /* Compare grids */
+  .compare-2 {
+    display: grid;
+    gap: 14px;
+    margin: 14px 0;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .compare-col {
+    background: #f9f9f9;
+    border: 1px solid #ebebeb;
+    border-radius: 8px;
+    padding: 14px;
+  }
+
+  .compare-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+    padding-bottom: 7px;
+    border-bottom: 2px solid #fd356f;
+  }
+
+  .compare-col figure {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .compare-col figure img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    background: #fff;
+    border-radius: 5px;
+    display: block;
+  }
+
+  .compare-col p {
+    font-size: 13px !important;
+    color: #555 !important;
+    margin: 0 0 10px !important;
+    line-height: 1.55;
+  }
+
+  .compare-col p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .compare-col ul {
+    list-style: disc !important;
+    margin: 0 0 10px 16px !important;
+    padding: 0 !important;
+  }
+
+  .compare-col li {
+    font-size: 13px !important;
+    color: #555 !important;
+    margin-bottom: 4px !important;
+    line-height: 1.5;
+  }
+
+  .compare-col li strong {
+    color: #111 !important;
+  }
+
+  /* Full-width image */
+  .full-img {
+    margin: 14px 0 !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .full-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+  }
+
+  .full-img figcaption {
+    font-size: 12px !important;
+    color: #888;
+    margin-top: 5px;
+    text-align: center;
+  }
+
+  /* Guide cards (link blocks) */
+  .guide-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 10px;
+    margin: 18px 0 0;
+  }
+
+  .guide-card {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 13px 16px;
+    text-decoration: none !important;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    position: relative;
+  }
+
+  .guide-card:hover {
+    border-color: #fd356f;
+    box-shadow: 0 2px 8px rgb(253 53 111 / 0.1);
+    text-decoration: none !important;
+  }
+
+  .gc-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111;
+    padding-right: 16px;
+    line-height: 1.35;
+  }
+
+  .gc-desc {
+    font-size: 12px;
+    color: #888;
+    line-height: 1.4;
+  }
+
+  .gc-arrow {
+    position: absolute;
+    right: 13px;
+    top: 13px;
+    color: #fd356f;
+    font-size: 14px;
+  }
+
+  /* Cost list */
+  .cost-list {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 6px 0 14px;
+  }
+
+  .cost-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    gap: 12px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .cost-row:last-child {
+    border-bottom: none;
+  }
+
+  .cost-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .cost-value {
+    font-size: 13px;
+    color: #666;
+    text-align: right;
+  }
+
+  /* Data table */
+  .table-scroll {
+    overflow-x: auto;
+    margin: 14px 0;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e8e8e8;
+  }
+
+  .table-scroll .data-table {
+    margin: 0;
+    min-width: 640px;
+  }
+
+  .data-table th {
+    background: #fd356f !important;
+    color: #fff;
+    padding: 9px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .data-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555 !important;
+    vertical-align: top;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .data-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .data-table tr:nth-child(even) td {
+    background: #fafafa;
+  }
+
+  .data-table td strong {
+    color: #111 !important;
+  }
+
+  /* Last updated */
+  .last-updated {
+    font-size: 12px !important;
+    color: #bbb !important;
+    text-align: right;
+    margin-top: 28px !important;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 12px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    .compare-2 {
+      grid-template-columns: 1fr;
+    }
+
+    .cost-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+
+    .cost-value {
+      text-align: left;
+    }
+
+    .guide-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

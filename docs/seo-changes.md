@@ -4,6 +4,53 @@ Running log of deliberate SEO / content changes, why they were made, and how to 
 
 ---
 
+## 2026-04-19 — Brick/Cladding/Hebel page: H1, FAQ schema, dry-pressed detail
+
+### Why this was done
+
+The 2026-04-19 analytics pass flagged `/brick-cladding-hebel-or-otherwise/` as a high-impression, low-CTR page (8,810 impressions / 0.6% CTR / pos 7.8) with a specific outstanding recommendation to add FAQ schema markup for the `hebel vs brick` query (985 impr, pos 8.7, 0.5% CTR — well-suited to rich snippets). Title and meta description were already rewritten in the previous pass; this change addresses H1, on-page structure, and structured data.
+
+### Baseline metrics
+
+Same as the entry below (the 2026-04-19 title/description pass). Page-level SC data:
+- `/brick-cladding-hebel-or-otherwise/` — 8,810 impr, 55 clicks, 0.6% CTR, pos 7.8
+- `hebel vs brick` query — 985 impr, 0.5% CTR, pos 8.7
+
+### What changed
+
+On `src/pages/brick-cladding-hebel-or-otherwise.astro` (the new card-layout Astro page that overrides the Markdown version via static-route precedence):
+
+- **H1 rewritten** from "Brick, Cladding, Hebel or Otherwise" to **"Hebel vs Brick vs Cladding"** — leads with the dominant query, matches the `<title>` tag.
+- **Intro paragraph** now opens with the literal phrase "Hebel vs brick vs cladding" so the SERP snippet matches the landing content.
+- **"At a glance" summary table** added under Key Takeaways (Material / Cost tier / Thermal / Acoustic / Maintenance) — snippet-friendly comparative data.
+- **Three card heads rewritten as question form** for People-Also-Ask capture:
+  - "Is Hebel cheaper than brick?" (render-section intro card)
+  - "Does Hebel insulate better than brick?" (thermal/acoustic card)
+  - "Which material needs the least maintenance?" (maintenance card)
+  - Each opens with a direct `<strong>` answer sentence.
+- **FAQPage JSON-LD** added (6 Q&As on Hebel cost, Hebel insulation, extruded vs dry-pressed, EPS Victoria ban, repainting render, cladding thermal). Inline `<script type="application/ld+json">`.
+- **Extruded vs Dry Pressed** section expanded with a new compact data-table (weight ~3.1 vs ~3.4 kg, perforations, colour depth, chipping behaviour, manufacturing, material cost, laying cost) plus a tip callout explaining why dry-pressed costs more to lay (productivity 500–1,000 bricks/day; heavier solid bricks trend to the lower end; tighter tolerance).
+
+### How to measure impact
+
+Re-run in 2–4 weeks and compare against `docs/seo-baselines/2026-04-19.md`:
+
+```bash
+npm run ga:report -- --report=queries
+npm run ga:report -- --report=pages
+```
+
+Success criteria:
+- Page CTR 0.6% → 2%+
+- `hebel vs brick` CTR up from 0.5%; possible SERP position lift from pos 8.7
+- `extruded vs dry pressed` or `dry pressed brick cost` queries start picking up impressions (new content)
+- PAA snippet capture on one or more of the three question-form headings
+
+### Files touched
+- `src/pages/brick-cladding-hebel-or-otherwise.astro` (H1, intro, at-a-glance table, question-form heads, FAQ JSON-LD, dry-pressed table)
+
+---
+
 ## 2026-04-19 — Title, description & H2 rewrites on 4 pages
 
 ### Why this was done
