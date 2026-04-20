@@ -32,3 +32,6 @@ PageLikesSeedFromWordpress.csv
 *-sa.json
 gcp-sa*.json
 .secrets/
+
+# Claude Code local settings
+.claude/settings.local.json
